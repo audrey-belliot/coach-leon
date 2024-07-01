@@ -1,0 +1,2 @@
+class ActivitiesLogsController < ApplicationController
+end
