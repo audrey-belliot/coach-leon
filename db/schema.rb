@@ -10,14 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_07_01_203410) do
+ActiveRecord::Schema[7.1].define(version: 2024_07_02_192243) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "activities", force: :cascade do |t|
     t.string "category"
     t.string "activity"
-    t.text "comment"
+    t.text "details"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -28,6 +28,9 @@ ActiveRecord::Schema[7.1].define(version: 2024_07_01_203410) do
     t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.text "comment"
+    t.float "duration"
+    t.integer "strava_id"
     t.index ["activity_id"], name: "index_activities_logs_on_activity_id"
     t.index ["user_id"], name: "index_activities_logs_on_user_id"
   end
@@ -48,8 +51,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_07_01_203410) do
 
   create_table "meals_logs", force: :cascade do |t|
     t.date "date"
-    t.string "category"
-    t.text "details"
+    t.text "comment"
     t.bigint "recipe_id", null: false
     t.bigint "user_id", null: false
     t.datetime "created_at", null: false
