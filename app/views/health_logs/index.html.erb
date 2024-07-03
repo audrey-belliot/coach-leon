@@ -1,0 +1,44 @@
+<div class="container">
+
+<div class="main_title">
+<h1>Mon
+<br><strong>évolution</strong></h1>
+</div>
+
+<h2>Résumé suivi santé</h2>
+  <% if HealthLog.last  %>
+    <p>Mon poids initial <%= HealthLog.find(1).weight %>
+    <br>Mon poids actuel <%= HealthLog.last.weight %> kg.</p>
+  <% end %>
+
+<div>
+<h2>Mon alimentation</h2>
+  <% if MealsLog.count != 0 %>
+    <% if MealsLog.count == 1 %>
+      <p>Une recette suivie.</p>
+    <% else %>
+      <p><%= MealsLog.count %> recettes suivies.</p>
+    <% end %>
+      <%= link_to "Détails", "#", class:"btn btn-blue" %>
+  <% else %>
+    <p>Vous n'avez pas encore enregistré de repas sur cette période.</p>
+  <% end %>
+</div>
+
+<div>
+<h2>Mon activité physique</h2>
+  <% if ActivitiesLog.count != 0 %>
+      <% if ActivitiesLog.count == 1 %>
+        <p>Une activité enregistrée.</p>
+      <% else %>
+        <p><%= ActivitiesLog.count %> activités enregistrées.</p>
+      <% end %>
+      <%= link_to "Détails", "#", class:"btn btn-blue" %>
+  <% else %>
+    <p>Vous n'avez pas encore enregistré d'activité sur cette période.</p>
+  <% end %>
+</div>
+
+  <%= link_to "Je m'actualise", "#", class:"btn btn-orange" %>
+
+</div>

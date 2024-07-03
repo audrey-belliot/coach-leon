@@ -1,0 +1,20 @@
+.btn {
+  padding: 4px 24px;
+  border-radius: 20px;
+  font-weight: lighter;
+  font-size: 16px;
+  transition: opacity 0.3s ease;
+  // margin: 5px;
+}
+
+.btn-blue {
+  color: white;
+  background-color: #219ebc;
+}
+
+.btn-orange {
+  color: white;
+  background-color: #f18940;
+  margin: 10px 0px;
+  width: 100%;
+}
