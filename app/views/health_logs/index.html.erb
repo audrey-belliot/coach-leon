@@ -6,8 +6,63 @@
 </div>
 
 <h2>Résumé suivi santé</h2>
+
+<div>
+  <canvas id="myChart"></canvas>
+</div>
+<%= @dates %>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<script>
+  const ctx = document.getElementById('myChart');
+
+  new Chart(ctx, {
+    data: {
+      labels: <%= @weights %>,
+      datasets: [{
+        type: 'line',
+        label: 'Ton poids',
+        data: <%= @weights %>,
+        borderWidth: 1
+      },{
+        type: 'line',
+        label: 'Ton humeur',
+        data: <%= @mood %>,
+        borderWidth: 1
+      } , {
+        type: 'bar',
+        label: 'Sport',
+        data: <%= @activities %>,
+        borderWidth: 1
+      }, {
+        type: 'bar',
+        label: 'Alimentation',
+        data: <%= @meals %>,
+        borderWidth: 1
+      }]
+    },
+    options: {
+      scales: {
+        y: {
+          beginAtZero: true
+        }
+      }
+    }
+  });
+</script>
+
+
+
+
+
+<div data-controller="chart" class="mt-5">
+<p>CHART WILL BE HERE</p>
+</div>
+
+
   <% if HealthLog.last  %>
-    <p>Mon poids initial <%= HealthLog.find(1).weight %>
+    <p>Mon poids initial <%= HealthLog.first.weight %>
     <br>Mon poids actuel <%= HealthLog.last.weight %> kg.</p>
   <% end %>
 
