@@ -1,0 +1,56 @@
+.card {
+  width: 151px;
+  height: 155px;
+  border-radius: 15px;
+  border: solid #f18940;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.card-text {
+  position: absolute;
+  border-radius: 15px;
+  background-color: #f18940;
+  font-weight: bold;
+  color: white;
+  padding: 2px 8px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 12px;
+  margin: 5px;
+  opacity: 1;
+  top: 85%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.card img {
+  object-fit: cover;
+}
+
+.active-button {
+  border: solid #f18940;
+  border-radius: 15px;
+  background-color: #f18940;
+  color: white;
+}
+
+.inactive-button {
+  border: solid #666687;
+  border-radius: 15px;
+  color: #666687;
+}
+
+.date {
+  border: solid #666687;
+  border-radius: 15px;
+  background-color: #219EBC;
+  opacity: 0.5;
+  color: black;
+}
