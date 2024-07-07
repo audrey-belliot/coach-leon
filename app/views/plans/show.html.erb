@@ -1,0 +1,44 @@
+<div data-controller="plans-toggle" class="container mt-3">
+  <div class="row">
+    <div class="d-flex align-items-baseline">
+      <i class="fa-solid fa-chevron-left"></i>
+      <h1 class="title-show-plan">Plan<br>
+      <strong>hebdo</strong></h1>
+    </div>
+
+    <div class="date">
+      <p>01/07/2024</p>
+    </div>
+
+    <div class="d-flex align-items-baseline">
+        <h2 class="title-show-plan">Recommandations</h2>
+        <p><i data-plans-toggle-target="foodIcon" class="fa-solid fa-utensils fa-2x d-none"></i></p>
+        <p><i data-plans-toggle-target="sportIcon" class="fa-solid fa-person-running fa-2x d-none"></i></p>
+    </div>
+    <div data-plans-toggle-target="togglableButton" class="mb-3">
+      <button data-plans-toggle-target="alimentationCard" data-action="click->plans-toggle#loadRecipes" class="active-button">Alimentation</button>
+      <button data-plans-toggle-target="sportCard" data-action="click->plans-toggle#loadActivities" class="inactive-button">Sport</button>
+        <div data-plans-toggle-target="recipesSection" class="d-none mt-3">
+          <h2>Idées de recettes</h2>
+          <div class="card">
+            <% @plans_recipes.each do |plan_recipe| %>
+              <span class="card-text"><%= plan_recipe.recipe.category%></span>
+            <% end %>
+          </div>
+
+        </div>
+        <div data-plans-toggle-target="activitiesSection" class="d-none mt-3">
+          <h2>Idées d'activités</h2>
+          <div class="card">
+            <% @plans_activities.each do |plan_activity|%>
+              <span class="card-text"><%= plan_activity.activity.activity%></span>
+            <% end %>
+          </div>
+
+        </div>
+
+    </div>
+
+<%= button_to "Je m'actualise", new_health_log_path, class: "active-button d-flex flex-grow-1"  %>
+  </div>
+</div>
