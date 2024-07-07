@@ -14,6 +14,7 @@ class HealthLogsController < ApplicationController
       @meals << healthlog.rating_nutrition * 10
       @mood << healthlog.rating_mood * 10
     end
+  end
 
   def new
     @health_log = HealthLog.new
@@ -23,7 +24,7 @@ class HealthLogsController < ApplicationController
     @health_log = HealthLog.new(health_log_params)
     @health_log.user = current_user
     if @health_log.save
-      redirect_to @health_log, notice: "Infos mises à jour"
+      redirect_to health_logs_path, notice: "Infos mises à jour"
     else
       render :new, status: :unprocessable_entity
     end
@@ -34,4 +35,5 @@ class HealthLogsController < ApplicationController
   def health_log_params
     params.require(:health_log).permit(:date, :weight, :rating_nutrition, :rating_activity, :rating_mood, :water)
   end
+
 end
