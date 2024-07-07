@@ -9,6 +9,6 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "posts#index"
-
   resources :plans, only: [:show]
+  resources :health_logs
 end

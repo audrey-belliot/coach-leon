@@ -1,0 +1,36 @@
+.container-water {
+  text-align: center;
+  display: flex;
+  justify-content: space-between;
+}
+
+.anim-water {
+  width: 20px;
+  height: 60px;
+  margin: 0 auto;
+  position: relative;
+
+  .water {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background: #219ebc;
+    bottom: 0;
+    height: 0;
+    transition: 1500ms ease-in;
+
+    &.fill {
+      height: 100%;
+    }
+  }
+
+  .glass {
+    width: 100%;
+    height: 100%;
+    border: solid 2px rgba(33, 158, 188, 0.50);
+    border-top: solid 1px rgba(33, 158, 188, 0.50);
+    border-bottom: solid 6px rgba(33, 158, 188, 0.50);
+    border-radius: 5px;
+    transform: perspective(300px) rotateX(-50deg);
+  }
+}
