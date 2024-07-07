@@ -1,2 +1,69 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<div class="container">
+
+  <div class="summary">
+
+    <div class="summary-activity">
+      <div class="summary-stat">
+        <div class="icon-summary-stat">
+          <i class="fa-solid fa-person-running"></i>
+        </div>
+        <p style="font-size: 10px; margin-bottom: 3px;">Cumul d'activité</p>
+      </div>
+
+      <h3>30 minutes</h3>
+      <p style="font-size: 10px; margin-bottom: 3px;">Depuis le début du programme 💪 </p>
+    </div>
+
+    <div class="summary-health">
+      <div class="summary-stat">
+        <div class="icon-summary-health">
+          <i class="fa-solid fa-heart"></i>
+        </div>
+        <p style="font-size: 10px; margin-bottom: 3px;">Evolution santé</p>
+      </div>
+
+      <h3>30 minutes</h3>
+      <p style="font-size: 10px; margin-bottom: 3px;">Depuis le début du programme 💪 </p>
+    </div>
+
+
+
+
+  </div>
+
+    <%= link_to "Je m'actualise", "/ruby-book", class: "btn btn-secondary" %>
+
+
+    <div>
+
+      <%= link_to root_path do %>
+      <i class="fa-solid fa-heart icon-link-to"></i>
+        <% end %>
+
+         <%= link_to root_path do %>
+      <i class="fa-solid fa-person-running icon-link-to"></i>
+        <% end %>
+
+
+         <%= link_to root_path do %>
+          <i class="fa-solid fa-utensils icon-link-to"></i>
+           <% end %>
+    </div>
+
+
+ <div class="row">
+  <div class="col-md-4">
+    <div class="card mb-4">
+      <%= image_tag @recipe.picture, alt: "Le Wagon", width: 200 %>
+      <div class="card-body">
+        <h5 class="card-title"><%= @recipe.name %></h5>
+        <p class="card-text">Catégorie: <%= @recipe.category %></p>
+        <p class="card-text">Ingrédients: <%= @recipe.ingredient %></p>
+        <p class="card-text">Calories: <%= @recipe.calories %></p>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+</div>
