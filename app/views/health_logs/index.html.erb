@@ -1,0 +1,92 @@
+<div class="container">
+
+<div class="main_title">
+<h1>Mon
+<br><strong>évolution</strong></h1>
+</div>
+
+
+<div>
+  <canvas id="myChart"></canvas>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<%= javascript_tag do %>
+  const ctx = document.getElementById('myChart');
+
+  new Chart(ctx, {
+    data: {
+      labels: <%= @dates.to_json.html_safe %>,
+      datasets: [{
+        type: 'line',
+        label: 'Ton poids',
+        data: <%= @weights %>,
+        borderWidth: 1
+      },{
+        type: 'line',
+        label: 'Ton humeur',
+        data: <%= @mood %>,
+        borderWidth: 1
+      } , {
+        type: 'bar',
+        label: 'Sport',
+        data: <%= @activities %>,
+        borderWidth: 1
+      }, {
+        type: 'bar',
+        label: 'Alimentation',
+        data: <%= @meals %>,
+        borderWidth: 1
+      }]
+    },
+    options: {
+      scales: {
+        y: {
+          beginAtZero: true
+        }
+      }
+    }
+  });
+<% end %>
+
+
+
+
+
+<%# <div data-controller="chart" class="mt-5">
+<p>CHART WILL BE HERE</p>
+</div> %>
+
+
+<div>
+<h2>Mon alimentation</h2>
+  <% if MealsLog.count != 0 %>
+    <% if MealsLog.count == 1 %>
+      <p>Une recette suivie.</p>
+    <% else %>
+      <p><%= MealsLog.count %> recettes suivies.</p>
+    <% end %>
+      <%= link_to "Détails", "#", class:"btn btn-blue" %>
+  <% else %>
+    <p>Vous n'avez pas encore enregistré de repas sur cette période.</p>
+  <% end %>
+</div>
+
+<div>
+<h2>Mon activité physique</h2>
+  <% if ActivitiesLog.count != 0 %>
+      <% if ActivitiesLog.count == 1 %>
+        <p>Une activité enregistrée.</p>
+      <% else %>
+        <p><%= ActivitiesLog.count %> activités enregistrées.</p>
+      <% end %>
+      <%= link_to "Détails", "#", class:"btn btn-blue" %>
+  <% else %>
+    <p>Vous n'avez pas encore enregistré d'activité sur cette période.</p>
+  <% end %>
+</div>
+
+  <%= link_to "Je m'actualise", new_health_log_path, class:"btn btn-orange" %>
+
+</div>
