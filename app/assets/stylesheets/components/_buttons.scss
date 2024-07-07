@@ -12,9 +12,45 @@
   background-color: #219ebc;
 }
 
-.btn-orange {
+.btn-large {
   color: white;
   background-color: #f18940;
   margin: 10px 0px;
   width: 100%;
+}
+
+.btn-orange {
+  border-radius: 35px;
+  padding: 8px 8px;
+  font-size: 16px;
+  background-color: #f18940;
+  text-align: center;
+  margin: 5px auto;
+  color: white;
+  border: none;
+  align-items: center;
+}
+
+.btn-white-blue {
+  border-radius: 35px;
+  padding: 8px 8px;
+  font-size: 16px;
+  width: 220px;
+  background-color: white;
+  text-align: center;
+  margin: 10px auto;
+  color: #219ebc;
+  border: 1px solid #219ebc;
+}
+
+.btn-white-orange {
+  border-radius: 35px;
+  padding: 8px 32px;
+  font-size: 16px;
+  width: 220px;
+  background-color: white;
+  text-align: center;
+  margin: 10px auto;
+  color: #f18940;
+  border: 1px solid #f18940;
 }
