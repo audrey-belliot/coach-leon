@@ -1,13 +1,13 @@
 puts "Cleaning the seeds..."
 
-Plan.destroy_all
 ActivitiesLog.destroy_all
 HealthLog.destroy_all
 MealsLog.destroy_all
-Activity.destroy_all
-Recipe.destroy_all
 PlansActivity.destroy_all
 PlansRecipe.destroy_all
+Recipe.destroy_all
+Activity.destroy_all
+Plan.destroy_all
 User.destroy_all
 
 puts "Seeds cleaned !"
