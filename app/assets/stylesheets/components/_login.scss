@@ -1,0 +1,67 @@
+.title {
+  top: -1px;
+  left: 0;
+  font-family: "Poppins-Medium", Helvetica;
+  font-weight: 500;
+  color: #ffa84a;
+  font-size: 36px;
+  letter-spacing: 0;
+  line-height: normal;
+  padding: 10px;
+  text-align: center;}
+
+.authentification {
+    max-width: 325px;
+    height: 185px;
+    margin: auto;
+    background-color: #ffffff;
+    padding: 15px;
+    border-radius: 15px;
+    box-shadow: 15px 10px 10px 15px #059ae440;
+    padding: 10px;
+  }
+.authentification-input {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  border-bottom: 1px solid grey;
+
+}
+.authentification-grey-border {
+  border-width: 0;
+  background-color: transparent;
+  color: grey;
+
+}
+
+.authentification-mdp-oublie-inscrire {
+  display: flex;
+  justify-content: space-between;
+}
+
+.no-underline-mdp{
+  text-decoration: none;
+  font-size: 15px;
+}
+
+.no-underline-inscription {
+  text-decoration: none;
+  font-size: 15px;
+  color: #229EBC;
+}
+
+.button {
+  display: flex;
+  justify-content: center;
+  margin-top: 30px;
+
+}
+
+.btn-connexion {
+  display: flex;
+  align-items: center ;
+  background-color: #229EBC;
+  color: #ffffff;
+}
+
