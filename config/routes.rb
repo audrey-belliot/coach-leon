@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   devise_for :users
   root to: "pages#home"
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
-  resources :health_logs, only: [:destroy, :update, :index, :show]
+  resources :health_logs, only: [:destroy, :update, :index, :show, :new]
 
 
 

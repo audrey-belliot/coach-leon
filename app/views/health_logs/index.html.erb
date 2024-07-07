@@ -5,21 +5,19 @@
 <br><strong>évolution</strong></h1>
 </div>
 
-<h2>Résumé suivi santé</h2>
 
 <div>
   <canvas id="myChart"></canvas>
 </div>
-<%= @dates %>
 
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
-<script>
+<%= javascript_tag do %>
   const ctx = document.getElementById('myChart');
 
   new Chart(ctx, {
     data: {
-      labels: <%= @weights %>,
+      labels: <%= @dates.to_json.html_safe %>,
       datasets: [{
         type: 'line',
         label: 'Ton poids',
@@ -50,21 +48,16 @@
       }
     }
   });
-</script>
+<% end %>
 
 
 
 
 
-<div data-controller="chart" class="mt-5">
+<%# <div data-controller="chart" class="mt-5">
 <p>CHART WILL BE HERE</p>
-</div>
+</div> %>
 
-
-  <% if HealthLog.last  %>
-    <p>Mon poids initial <%= HealthLog.first.weight %>
-    <br>Mon poids actuel <%= HealthLog.last.weight %> kg.</p>
-  <% end %>
 
 <div>
 <h2>Mon alimentation</h2>
@@ -94,6 +87,6 @@
   <% end %>
 </div>
 
-  <%= link_to "Je m'actualise", "#", class:"btn btn-orange" %>
+  <%= link_to "Je m'actualise", new_health_log_path, class:"btn btn-orange" %>
 
 </div>
