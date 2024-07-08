@@ -1,7 +1,11 @@
 class HealthLogsController < ApplicationController
 
   def index
-    @healthlogs = HealthLog.all.to_a
+    start_date = params[:start_date]
+    end_date = params[:end_date]
+    @healthlogs = HealthLog.where(date: start_date..end_date, user: current_user).to_a
+    @allactivities = ActivitiesLog.where(date: start_date..end_date, user: current_user)
+    @allmeals = MealsLog.where(date: start_date..end_date, user: current_user)
     @weights = []
     @dates = []
     @activities = []
@@ -9,11 +13,13 @@ class HealthLogsController < ApplicationController
     @mood = []
     @healthlogs.each do |healthlog|
       @weights << healthlog.weight
-      @dates << healthlog.date.strftime("%b %Y")
+      @dates << healthlog.date.strftime("%d/%m/%Y")
       @activities << healthlog.rating_activity * 10
       @meals << healthlog.rating_nutrition * 10
       @mood << healthlog.rating_mood * 10
     end
+
+
   end
 
   def new

@@ -1,2 +1,83 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<div class="container">
+
+<% if user_signed_in? %>
+
+  <div class="summary">
+
+    <div class="summary-activity">
+      <div class="summary-stat">
+        <div class="icon-summary-stat">
+          <i class="fa-solid fa-person-running"></i>
+        </div>
+        <p style="font-size: 10px; margin-bottom: 3px;">Cumul d'activité</p>
+      </div>
+
+      <h3 class= "title-card-home" ><%= ActivitiesLog.where(user:current_user).count %> activités réalisées au total</h3>
+      <p style="font-size: 10px; margin-bottom: 3px;">Depuis le début du programme 💪 </p>
+    </div>
+
+
+
+
+    <div class="summary-health">
+      <div class="summary-stat">
+        <div class="icon-summary-health">
+          <i class="fa-solid fa-heart"></i>
+        </div>
+        <p style="font-size: 10px; margin-bottom: 3px;">Evolution santé</p>
+      </div>
+      <h3 class="title-card-home"><%= @weight %> </h3>
+      <p style="font-size: 10px; margin-bottom: 3px;">Depuis le début du programme 💪 </p>
+    </div>
+
+
+
+
+  </div>
+    <div class="div-center">
+      <div>
+        <%= link_to "Je m'actualise", new_health_log_path, class: "btn btn-secondary" %>
+        <div class="actualition-icon">
+          <%= link_to root_path do %>
+          <i class="fa-solid fa-heart icon-link-to"></i>
+            <% end %>
+
+            <%= link_to root_path do %>
+          <i class="fa-solid fa-person-running icon-link-to"></i>
+            <% end %>
+
+
+            <%= link_to root_path do %>
+              <i class="fa-solid fa-utensils icon-link-to"></i>
+              <% end %>
+        </div>
+      </div>
+    </div>
+
+
+<div ">
+</div>
+
+ <div class="row" >
+  <div class="div-center">
+    <div class="card-home mb-4" style="background-image: url('<%= @recipe.picture %>'); background-size: cover; background-position: center;">
+      <%= image_tag @recipe.picture, alt: "Le Wagon", width: 200 %>
+      <div class="card-body">
+        <h5 class="card-title"><%= @recipe.name %></h5>
+        <p class="card-text-home">Catégorie: <%= @recipe.category %></p>
+        <p class="card-text-home">Ingrédients: <%= @recipe.name %></p>
+      </div>
+    </div>
+  </div>
+</div>
+
+  <% else %>
+      <%= link_to "Se connecter", new_user_session_path, class: "nav-link" %>
+    <% end %>
+
+
+
+
+
+
+</div>
