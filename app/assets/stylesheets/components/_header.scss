@@ -1,0 +1,26 @@
+.header-coach {
+  justify-content: space-between;
+  background: #219ebc;
+  color: white;
+  border-bottom-left-radius: 15px;
+  border-bottom-right-radius: 15px;
+  flex-grow: 0;
+  width: 100%;
+  height: 100px;
+  padding: 5px 5px;
+}
+
+.header-header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 3px;
+}
+
+.header-footer {
+  display: flex;
+  justify-content: space-between;
+}
+
+.header-text {
+  margin-left: 3px
+}

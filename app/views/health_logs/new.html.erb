@@ -3,9 +3,11 @@
 
   <%= simple_form_for @health_log do |f| %>
     <%= f.input :date, label: false, input_html: { class: 'input-blue' }, html5: true %>
-    <%= f.input :weight, label: false, placeholder: "Poids", input_html: { class: 'input-blue' } %>
+    <div class="input-blue">
+      <%= f.input :weight, label: false, placeholder: "Poids", input_html: { id: 'weight-blue' } %><i class="fa-solid fa-weight-scale"></i>
+    </div>
 
-    <div data-controller="slider" class="text-center">
+    <div data-controller="slider" class="text-center mt-3">
       Mon alimentation
       <div class="slidecontainer">
         <i class="fa-solid fa-burger iblue"></i>
@@ -40,8 +42,7 @@
       <div data-slider-target="rating_mood_text">5</div>
     </div>
 
-
-    <p>Eau</p>
+    <p class="text-center">Eau</p>
     <div data-controller="water" class="container-water">
       <div class="anim-water">
         <div class="glass" data-action="click->water#waterRise05"
@@ -75,11 +76,13 @@
         </div>
         2L
       </div>
+      <!-- <%= f.input :water, label: false %>
+      ecouter le click, récupérer la valeur, float, et injecter dans l'input -->
     </div>
 
-    <div class="mt-4"><%= f.submit "Valider", class: "btn-orange" %></div>
+    <div class="mt-4"><%= f.submit "Valider", class: "btn btn-orange" %></div>
   <% end %>
 
-  <div class="btn-white-blue">Ajouter un repas</div>
-  <div class="btn-white-orange">Ajouter une activité physique</div>
+  <div class="btn btn-white-blue">Ajouter un repas</div>
+  <div class="btn btn-white-orange">Ajouter une activité physique</div>
 </div>

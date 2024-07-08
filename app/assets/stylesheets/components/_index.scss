@@ -9,7 +9,12 @@
 @import "form";
 @import "slider";
 @import "water";
+@import "header";
 
 h1 {
   font-size: 50px;
+}
+
+.container {
+  margin-bottom: 60px;
 }
