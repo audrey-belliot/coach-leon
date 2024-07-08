@@ -1,10 +1,10 @@
 .btn {
-  padding: 4px 24px;
-  border-radius: 20px;
+  padding: 8px 8px;
+  border-radius: 35px;
   font-weight: lighter;
   font-size: 16px;
-  transition: opacity 0.3s ease;
-  // margin: 5px;
+  margin: 10px auto !important;
+  display: block;
 }
 
 .btn-blue {
@@ -12,7 +12,7 @@
   background-color: #219ebc;
 }
 
-.btn-large {
+.btn-orange {
   color: white;
   background-color: #f18940;
   margin: 10px 0px;
@@ -31,28 +31,20 @@
   align-items: center;
 }
 
-.btn-white-blue {
-  border-radius: 35px;
-  padding: 8px 8px;
-  font-size: 16px;
-  width: 220px;
-  background-color: white;
-  text-align: center;
-  margin: 10px auto;
-  color: #219ebc;
-  border: 1px solid #219ebc;
-}
-
 .btn-white-orange {
-  border-radius: 35px;
-  padding: 8px 32px;
-  font-size: 16px;
   width: 220px;
   background-color: white;
-  text-align: center;
-  margin: 10px auto;
   color: #f18940;
   border: 1px solid #f18940;
+  margin: auto;
+}
+
+.btn-white-blue {
+  width: 220px;
+  background-color: white;
+  color: #219ebc;
+  border: 1px solid #219ebc;
+  margin: auto;
 }
 
 .btn-white-grey {

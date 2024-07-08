@@ -3,13 +3,20 @@
 @import "avatar";
 @import "form_legend_clear";
 @import "navbar";
+@import "login";
+@import "home";
 @import "cards";
 @import "titles";
 @import "buttons";
 @import "form";
 @import "slider";
 @import "water";
+@import "header";
 
 h1 {
   font-size: 50px;
+}
+
+.container {
+  margin-bottom: 60px;
 }
