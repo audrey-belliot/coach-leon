@@ -24,10 +24,10 @@ users = [
 puts "Creating new recipes..."
 
 recipes = [
-  Recipe.create!(category: 'Breakfast', details: 'Oatmeal with fresh fruits and nuts.', calories: '300 kcal', picture: "https://img-3.journaldesfemmes.fr/mrK-0E6Jw7lGJUv9Y0mpK5yfCMg=/1500x/smart/0a6c4b8084be4b9d91265bbe65a5ba93/ccmcms-jdf/11437802.png"),
-  Recipe.create!(category: 'Lunch', details: 'Grilled chicken salad with mixed greens.', calories: '450 kcal', picture: "https://img-3.journaldesfemmes.fr/mrK-0E6Jw7lGJUv9Y0mpK5yfCMg=/1500x/smart/0a6c4b8084be4b9d91265bbe65a5ba93/ccmcms-jdf/11437802.png"),
-  Recipe.create!(category: 'Dinner', details: 'Baked salmon with quinoa and vegetables.', calories: '500 kcal', picture: "https://img-3.journaldesfemmes.fr/mrK-0E6Jw7lGJUv9Y0mpK5yfCMg=/1500x/smart/0a6c4b8084be4b9d91265bbe65a5ba93/ccmcms-jdf/11437802.png"),
-  Recipe.create!(category: 'Snack', details: 'Greek yogurt with honey and almonds.', calories: '150 kcal', picture: "https://img-3.journaldesfemmes.fr/mrK-0E6Jw7lGJUv9Y0mpK5yfCMg=/1500x/smart/0a6c4b8084be4b9d91265bbe65a5ba93/ccmcms-jdf/11437802.png"),
+  Recipe.create!(category: 'Breakfast', details: 'Oatmeal with fresh fruits and nuts.', calories: '300 kcal', picture:"https://www.brandnewvegan.com/wp-content/uploads/vegan-tacos-al-pastor-h1-2.jpg"),
+  Recipe.create!(category: 'Lunch', details: 'Grilled chicken salad with mixed greens.', calories: '450 kcal', picture:"https://www.brandnewvegan.com/wp-content/uploads/vegan-tacos-al-pastor-h1-2.jpg"),
+  Recipe.create!(category: 'Dinner', details: 'Baked salmon with quinoa and vegetables.', calories: '500 kcal', picture:"https://www.brandnewvegan.com/wp-content/uploads/vegan-tacos-al-pastor-h1-2.jpg"),
+  Recipe.create!(category: 'Snack', details: 'Greek yogurt with honey and almonds.', calories: '150 kcal', picture:"https://www.brandnewvegan.com/wp-content/uploads/vegan-tacos-al-pastor-h1-2.jpg"),
 ]
 
 puts "Recipes created !"
