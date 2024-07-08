@@ -11,4 +11,5 @@ Rails.application.routes.draw do
   # root "posts#index"
   resources :plans, only: [:show]
   resources :health_logs
+  resources :activities_logs
 end

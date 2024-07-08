@@ -50,7 +50,7 @@ plans = [
   Plan.create!(name: 'Summer Shred', start_date: '2024-06-01', end_date: '2024-08-31', description: 'A plan to get in shape for the summer.', user: User.first),
   Plan.create!(name: 'Muscle Gain', start_date: '2024-01-01', end_date: '2024-03-31', description: 'A plan focused on gaining muscle mass.', user: User.second),
   Plan.create!(name: 'Marathon Prep', start_date: '2024-04-01', end_date: '2024-06-30', description: 'A plan to prepare for a marathon.', user: User.third),
-  Plan.create!(name: 'Healthy Lifestyle', start_date: '2024-07-01', end_date: '2024-09-30', description: 'A plan to maintain a healthy lifestyle.', user: User.last)
+  Plan.create!(name: 'Healthy Lifestyle', start_date: '2024-07-01', end_date: '2024-09-30', description: 'Il faut que tu fasses 4 sessions de vélo + une rando par semaine', user: User.last)
 ]
 
 puts "Plans created !"
@@ -83,7 +83,8 @@ health_logs = [
   HealthLog.create(date: DateTime.new(2024,1,1), weight: 100.0, measurement: 162, rating_nutrition: 2, rating_activity: 3, rating_mood: 3, water: 0.5 , user: User.first),
   HealthLog.create(date: DateTime.new(2024,2,1), weight: 98.0, measurement: 162, rating_nutrition: 3, rating_activity: 5, rating_mood: 4, water: 0.5 , user: User.second),
   HealthLog.create(date: DateTime.new(2024,3,1), weight: 97.0, measurement: 162, rating_nutrition: 4, rating_activity: 6, rating_mood: 5, water: 0.5 , user: User.third),
-  HealthLog.create(date: DateTime.new(2024,4,1), weight: 92.0, measurement: 162, rating_nutrition: 5, rating_activity: 6, rating_mood: 6, water: 0.5 , user: User.last)
+  HealthLog.create(date: DateTime.new(2024,4,1), weight: 92.0, measurement: 162, rating_nutrition: 5, rating_activity: 6, rating_mood: 6, water: 0.5 , user: User.last),
+  HealthLog.create(date: DateTime.new(2024,2,1), weight: 99.0, measurement: 162, rating_nutrition: 2, rating_activity: 3, rating_mood: 3, water: 0.5 , user: User.last),
 ]
 
 puts "Health logs created !"
