@@ -14,11 +14,11 @@
     <%= date_field_tag :end_date,
         params[:end_date],
         class: "form-control input-right-blue",
-        placeholder: "entre le"
+        placeholder: "et le"
     %>
   <%= submit_tag "ok", name: "", class: "btn btn-blue m-2" %>
-<% end %>
 
+<% end %>
 
 <div>
   <canvas id="myChart"></canvas>
@@ -27,9 +27,7 @@
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
 <%= javascript_tag do %>
-  const ctx = document.getElementById('myChart');
-  <%# Chart.defaults.font.family = "'FontAwesome'"; %>
-  new Chart(ctx, {
+  new Chart(document.getElementById('myChart'), {
     data: {
       labels: <%= @dates.to_json.html_safe %>,
       datasets: [{
