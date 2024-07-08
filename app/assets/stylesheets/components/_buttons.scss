@@ -19,7 +19,7 @@
   width: 100%;
 }
 
-.btn-orange {
+.btn-orange-mini {
   border-radius: 35px;
   padding: 8px 8px;
   font-size: 16px;
@@ -27,7 +27,7 @@
   text-align: center;
   margin: 5px auto;
   color: white;
-  border: none;
+  border: solid 1px #f18940;
   align-items: center;
 }
 
@@ -53,4 +53,16 @@
   margin: 10px auto;
   color: #f18940;
   border: 1px solid #f18940;
+}
+
+.btn-white-grey {
+  border: solid 1px #f18940;
+  color: #f18940;
+  border-radius: 35px;
+  padding: 8px 8px;
+  font-size: 16px;
+  background-color: white;
+  text-align: center;
+  margin: 5px auto;
+  align-items: center;
 }
