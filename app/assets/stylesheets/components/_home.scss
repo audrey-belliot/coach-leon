@@ -9,7 +9,6 @@
 .summary-activity {
   width: 165px;
   height: 145px;
-  flex-shrink: 0;
   background: #FFF;
   border-radius: 4px;
   border-radius: 15px;
@@ -24,6 +23,9 @@
   align-items: center; /* Aligne les éléments verticalement */
   justify-content: flex-start;
 }
+.title-card-home {
+  font-size: 16px;
+}
 
 
 .icon-summary-stat {
@@ -34,7 +36,7 @@
   display: flex;
   align-items: center; /* Centre l'icône verticalement */
   justify-content: center; /* Centre l'icône horizontalement */
-  margin-right: 10px;
+  margin-right: 10px ;
 }
 
 
@@ -61,6 +63,29 @@
   margin-right: 10px;
 }
 
+.div-center {
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+}
+
+.actualition-icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 10px;
+
+  i {border-radius: 55px;
+    opacity: var(--sds-size-stroke-border);
+    background: #F18940;
+    }
+    .icon-link-to {
+      width: 35px;
+      height: 37px;
+    }
+}
+
+
 .btn-secondary {
   background-color: #f18940 !important;
   justify-content: center;
@@ -78,4 +103,26 @@
   justify-content: center; /* Centre l'icône horizontalement */
   margin-right: 10px;
   display: flex;
+}
+
+.card-home {
+  width: 400px;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  border-radius: 15px;
+}
+
+.activity-home {
+  width: 355px;
+  height: 180px;
+  flex-shrink: 0;
+
+}
+
+
+
+@media (max-width: 450px) {
+  .summary {display: flex; flex-direction:row; justify-content: space-between; h3{font-size: 11px;}}
+  .summary-activity {max-width: 48%; margin-right: 20px;}
+  .summary-health {max-width: 48%;}
+
 }
