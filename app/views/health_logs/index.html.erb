@@ -1,9 +1,10 @@
 <div class="container">
-
-<div class="main_title">
-<h1>Mon
-<br><strong>évolution</strong></h1>
-</div>
+  <div class="d-flex align-items-baseline">
+    <%= link_to :back, class: "text-decoration-none text-muted" do %>
+      <i class="fa-solid fa-chevron-left pe-3"></i>
+    <% end %>
+    <h1 class="mb-4">Mon<br><strong>évolution</strong></h1>
+  </div>
 
 <%= form_with url: health_logs_path, method: :get, class: "d-flex mb-3 mt-3" do %>
   <%= date_field_tag :start_date,
@@ -19,6 +20,8 @@
   <%= submit_tag "ok", name: "", class: "btn btn-blue m-2" %>
 
 <% end %>
+
+<%# <%= render "chart" %>
 
 <div>
   <canvas id="myChart"></canvas>
@@ -72,15 +75,6 @@
     }
   });
 <% end %>
-
-
-
-
-
-<%# <div data-controller="chart" class="mt-5">
-<p>CHART WILL BE HERE</p>
-</div> %>
-
 
 <div>
 <h2>Mon alimentation</h2>

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_07_07_212545) do
+ActiveRecord::Schema[7.1].define(version: 2024_07_09_154011) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -22,6 +22,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_07_07_212545) do
     t.datetime "updated_at", null: false
     t.float "duration"
     t.integer "calories_loss"
+    t.string "picture"
   end
 
   create_table "activities_logs", force: :cascade do |t|
@@ -118,6 +119,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_07_07_212545) do
     t.string "type_user"
     t.string "access_token"
     t.string "refresh_token"
+    t.string "picture"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
