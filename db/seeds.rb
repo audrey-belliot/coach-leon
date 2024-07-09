@@ -15,10 +15,10 @@ puts "Seeds cleaned !"
 puts "Creating new users..."
 
 users = [
-  User.create!(email: "kevin@gmail.com", password: "password", firstname: "Kévin", goal: "Perdre du poids", food_preferences: "Veggie", sport_preferences: "Cardio", birthdate: Date.new(2024,06,07), type_user: ""),
-  User.create!(email: "audrey@gmail.com", password: "password", firstname: "Audrey", goal: "Perdre du poids", food_preferences: "Veggie", sport_preferences: "Cardio", birthdate: Date.new(2024,06,07), type_user: ""),
-  User.create!(email: "marie@gmail.com", password: "password", firstname: "Marie", goal: "Préparer un troisième marathon", food_preferences: "Veggie", sport_preferences: "Cardio", birthdate: Date.new(2024,06,07), type_user: ""),
-  User.create!(email: "valentin@gmail.com", password: "password", firstname: "Valentin", goal: "Perdre du poids", food_preferences: "Veggie", sport_preferences: "Cardio", birthdate: Date.new(2024,06,07), type_user: "")
+  User.create!(email: "kevin@gmail.com", password: "password", firstname: "Kévin", goal: "Perdre du poids", food_preferences: "Veggie", sport_preferences: "Cardio", birthdate: Date.new(2024,06,07), type_user: "", picture:"https://avatars.githubusercontent.com/u/159252673?v=4"),
+  User.create!(email: "audrey@gmail.com", password: "password", firstname: "Audrey", goal: "Perdre du poids", food_preferences: "Veggie", sport_preferences: "Cardio", birthdate: Date.new(2024,06,07), type_user: "", picture:"https://avatars.githubusercontent.com/u/92102977?v=4"),
+  User.create!(email: "marie@gmail.com", password: "password", firstname: "Marie", goal: "Préparer un troisième marathon", food_preferences: "Veggie", sport_preferences: "Cardio", birthdate: Date.new(2024,06,07), type_user: "", picture:"https://avatars.githubusercontent.com/u/155112860?v=4"),
+  User.create!(email: "valentin@gmail.com", password: "password", firstname: "Valentin", goal: "Perdre du poids", food_preferences: "Veggie", sport_preferences: "Cardio", birthdate: Date.new(2024,06,07), type_user: "", picture:"https://avatars.githubusercontent.com/u/159618368?v=4")
 ]
 
 puts "Creating breakfast recipes..."
@@ -28,7 +28,7 @@ bouchees_choco_fraise = Recipe.create(
   ingredient: "400g de skyr, 60g de chocolat noir, 20g de sirop d’agave, 200g de fraise",
   details: "Recette pour 6 parts. 1 collation = 2 parts. Étape 1: Commencez par laver soigneusement les fraises et retirez les queues. Ensuite, coupez-les en petits dés uniformes. Étape 2: Dans un bol, combinez le skyr avec les dés de fraises et le sirop d'agave. Assurez-vous que les ingrédients sont bien mélangés pour obtenir une texture homogène. Étape 3: Sur une feuille de papier cuisson, formez six petites boules avec le mélange de skyr et de fraises. Placez-les ensuite au congélateur pendant au moins deux heures pour les raffermir. Étape 4: Faites fondre le chocolat noir au bain-marie ou au micro-ondes jusqu'à ce qu'il soit lisse et liquide. Sortez les bouchées du congélateur et trempez-les une à une dans le chocolat fondu, en veillant à bien les enrober. Placez-les de nouveau au frais jusqu'à ce que le chocolat durcisse.",
   calories: "350",
-  picture: "https://img-3.journaldesfemmes.fr/mrK-0E6Jw7lGJUv9Y0mpK5yfCMg=/1500x/smart/0a6c4b8084be4b9d91265bbe65a5ba93/ccmcms-jdf/11437802.png"
+  picture: "https://www.regilait.com/app/uploads/cache/2024/04/regilait-recettte-bouchees-a-la-fraise-et-au-chocolat-5308647c-600x600.webp"
 )
 pumpkin_bread = Recipe.create(
   category: "Petit-déjeuner",
@@ -69,15 +69,15 @@ salade_quinoa_avocat = Recipe.create(
   ingredient: "200g de quinoa, 1 avocat, 150g de tomates cerises, 1 concombre, 50g de feta, 30g de graines de tournesol, Jus de citron, Huile d'olive, Sel, Poivre",
   details: "Étape 1: Cuire le quinoa selon les instructions du paquet et laisser refroidir. Étape 2: Couper l'avocat, les tomates cerises et le concombre en dés. Étape 3: Dans un grand bol, mélanger le quinoa, les légumes coupés, la feta émiettée et les graines de tournesol. Étape 4: Assaisonner avec du jus de citron, de l'huile d'olive, du sel et du poivre. Mélanger bien. Étape 5: Servir frais.",
   calories: "450",
-  picture: "https://www.loveandlemons.com/wp-content/uploads/2018/07/quinoa-salad.jpg"
+  picture: "https://cdn.chefclub.tools/uploads/recipes/cover-thumbnail/c61ddec1-ef82-4a4b-b6da-8aae69446369.jpg"
 )
-salade_quinoa_avocat = Recipe.create(
+tacos_veggie = Recipe.create(
   category: "Déjeuner",
-  name: "Salade de quinoa et avocat",
-  ingredient: "200g de quinoa, 1 avocat, 150g de tomates cerises, 1 concombre, 50g de feta, 30g de graines de tournesol, Jus de citron, Huile d'olive, Sel, Poivre",
-  details: "Étape 1: Cuire le quinoa selon les instructions du paquet et laisser refroidir. Étape 2: Couper l'avocat, les tomates cerises et le concombre en dés. Étape 3: Dans un grand bol, mélanger le quinoa, les légumes coupés, la feta émiettée et les graines de tournesol. Étape 4: Assaisonner avec du jus de citron, de l'huile d'olive, du sel et du poivre. Mélanger bien. Étape 5: Servir frais.",
+  name: "Tacos végétariens",
+  ingredient: "1 oignon rouge, 1 tomate, 2 avocats, 120g de yaourt à la grecque, 2 brins de coriandre, 1 concombre, 2 citrons vets, 200g de tomates cerises, ail moulu, sel et poivre",
+  details: "Étape 1: Eplucher et couper les avocats et l'oignon. Ajouter le jus de citron vert. Ecrasez grossièrement. Etape 2: Dans un bol, mettez le yaourt, du jus de citron, l'ail et mélangez bien. Etape 3: Lavez les tomates cerises et coupez les en deux. Epluchez le concombre et détaillez-le en rondelles. Etape 4: Dans chaque tortilla, déposez le guacamole, la sauce au yaourt, des rondelles de concombre et des tomates cerises.",
   calories: "450",
-  picture: "https://www.loveandlemons.com/wp-content/uploads/2018/07/quinoa-salad.jpg"
+  picture: "https://img.passeportsante.net/1200x675/2022-10-19/shutterstock-1426196225.webp"
 )
 puts "Creating diner recipes..."
 risotto_courgette = Recipe.create(
@@ -94,7 +94,7 @@ quiche_lorraine = Recipe.create(
   ingredient: "Pâte brisée, Lardons, Crème fraîche, Œufs, Fromage râpé, Muscade, Sel, Poivre",
   details: "Pour préparer une quiche lorraine, commencez par préchauffer le four à 180°C. Étalez la pâte brisée dans un moule à tarte et piquez le fond avec une fourchette. Faites revenir les lardons dans une poêle jusqu'à ce qu'ils soient dorés et égouttez-les sur du papier absorbant. Dans un bol, battez les œufs avec la crème fraîche, le sel, le poivre et une pincée de muscade. Ajoutez les lardons et mélangez bien. Versez ce mélange sur la pâte brisée et parsemez de fromage râpé. Enfournez pendant 35-40 minutes, jusqu'à ce que la quiche soit dorée et bien cuite. Servez la quiche lorraine chaude ou tiède.",
   calories: "450",
-  picture: "https://www.example.com/quiche_lorraine.jpg"
+  picture: "https://assets.afcdn.com/recipe/20221010/135915_w1024h1024c1cx999cy749cxt0cyt0cxb1999cyb1499.webp"
 )
 poelee_crevettes_ail = Recipe.create(
   category: "Diner",
@@ -102,7 +102,7 @@ poelee_crevettes_ail = Recipe.create(
   ingredient: "Crevettes, Ail, Persil, Beurre, Huile d'olive, Citron, Sel, Poivre",
   details: "Pour préparer une poêlée de crevettes à l'ail, commencez par décortiquer les crevettes. Émincez finement l'ail et hachez le persil. Faites chauffer une grande poêle avec un peu d'huile d'olive et du beurre. Ajoutez les crevettes et faites-les revenir jusqu'à ce qu'elles soient roses et opaques. Ajoutez l'ail émincé et faites revenir pendant une minute supplémentaire. Assaisonnez avec du sel, du poivre et un peu de jus de citron. Parsemez de persil haché avant de servir. Servez la poêlée de crevettes chaude.",
   calories: "350",
-  picture: "https://www.example.com/poelee_crevettes_ail.jpg"
+  picture: "https://assets.afcdn.com/recipe/20200513/111128_w1024h576c1cx540cy960cxt0cyt0cxb1080cyb1920.jpg"
 )
 lasagnes_vegetariennes = Recipe.create(
   category: "Diner",
@@ -110,7 +110,7 @@ lasagnes_vegetariennes = Recipe.create(
   ingredient: "Pâtes à lasagnes, Épinards, Ricotta, Tomates, Oignon, Ail, Mozzarella, Parmesan, Huile d'olive, Sel, Poivre",
   details: "Pour préparer des lasagnes végétariennes, commencez par préchauffer le four à 180°C. Faites revenir l'oignon et l'ail émincés dans un peu d'huile d'olive jusqu'à ce qu'ils soient translucides. Ajoutez les tomates concassées et laissez mijoter pendant 10 minutes. Dans un bol, mélangez les épinards hachés avec la ricotta, le sel et le poivre. Dans un plat à lasagnes, étalez une couche de sauce tomate, une couche de pâtes à lasagnes, une couche de mélange d'épinards et de ricotta, puis répétez les couches. Terminez par une couche de sauce tomate et parsemez de mozzarella et de parmesan râpés. Enfournez pendant 35-40 minutes, jusqu'à ce que le dessus soit doré et bouillonnant. Servez les lasagnes chaudes.",
   calories: "500",
-  picture: "https://www.example.com/lasagnes_vegetariennes.jpg"
+  picture: "https://assets.afcdn.com/recipe/20210212/117942_w1024h1024c1cx1060cy707cxt0cyt0cxb2121cyb1414.jpg"
 )
 gratin_legumes = Recipe.create(
   category: "Diner",
@@ -118,7 +118,7 @@ gratin_legumes = Recipe.create(
   ingredient: "Pommes de terre, Carottes, Courgettes, Crème fraîche, Fromage râpé, Beurre, Ail, Sel, Poivre, Muscade",
   details: "Pour préparer un gratin de légumes, commencez par éplucher et couper les pommes de terre, les carottes et les courgettes en fines rondelles. Préchauffez le four à 180°C. Frottez un plat à gratin avec de l'ail et beurrez-le. Disposez les légumes en couches dans le plat. Dans un bol, mélangez la crème fraîche, le sel, le poivre et une pincée de muscade. Versez ce mélange sur les légumes. Saupoudrez de fromage râpé et ajoutez quelques noisettes de beurre sur le dessus. Enfournez pendant 45 minutes à 1 heure, jusqu'à ce que les légumes soient tendres et le dessus doré. Servez le gratin de légumes chaud.",
   calories: "350",
-  picture: "https://www.example.com/gratin_legumes.jpg"
+  picture: "https://img.passeportsante.net/1200x675/2021-03-03/i100113-gratin-de-legumes.webp"
 )
 
 puts "Creating new activities..."
