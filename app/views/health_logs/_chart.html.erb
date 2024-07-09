@@ -1,0 +1,52 @@
+<div>
+  <canvas id="myChart"></canvas>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<%= javascript_tag do %>
+  new Chart(document.getElementById('myChart'), {
+    data: {
+      labels: <%= @dates.to_json.html_safe %>,
+      datasets: [{
+        type: 'line',
+        label: 'poids',
+        data: <%= @weights %>,
+        borderWidth: 1,
+        backgroundColor: 'rgba(0, 0, 0)',
+        borderColor: 'rgba(0, 0, 0)'
+      },{
+        type: 'line',
+        label: 'humeur',
+        data: <%= @mood %>,
+        borderWidth: 1,
+        backgroundColor: 'rgba(33, 158, 188, 0.8)',
+        borderColor: 'rgba(33, 158, 188, 0.8)',
+      } , {
+        type: 'bar',
+        label: 'sport',
+        data: <%= @activities %>,
+        borderWidth: 1,
+        backgroundColor: 'rgba(33, 158, 188, 0.8)',
+        barThickness: 10,
+        borderRadius: 35,
+      }, {
+        type: 'bar',
+        label: 'alimentation',
+        data: <%= @meals %>,
+        borderWidth: 1,
+        backgroundColor: 'rgba(241, 137, 64, 0.8)',
+        barThickness: 10,
+        borderRadius: 35,
+      }]
+    },
+    options: {
+      tension: 0.4,
+      scales: {
+        y: {
+          beginAtZero: true
+        }
+      }
+    }
+  });
+<% end %>

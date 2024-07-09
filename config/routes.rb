@@ -11,6 +11,8 @@ Rails.application.routes.draw do
   # root "posts#index"
   resources :plans, only: [:show]
   resources :health_logs
-  resources :activities_logs
+  resources :activities do
+    resources :activities_logs
+  end
   resources :recipes
 end

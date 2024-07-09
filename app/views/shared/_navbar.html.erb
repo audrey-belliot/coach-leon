@@ -1,8 +1,21 @@
 <nav class="navbar fixed-bottom">
   <div class="container-fluid">
-    <i class="fa-solid fa-house"></i>
-    <i class="fa-solid fa-utensils"></i>
-    <i class="fa-solid fa-person-running"></i>
-    <i class="fa-solid fa-user"></i>
+
+    <%= link_to root_path do %>
+      <i class="fa fa-house"></i>
+    <% end %>
+
+    <%= link_to "#" do %>
+      <i class="fa fa-utensils"></i>
+    <% end %>
+
+    <%= link_to activities_path do %>
+      <i class="fa fa-person-running"></i>
+    <% end %>
+
+    <%= link_to health_logs_path do %>
+      <i class="fa fa-user"></i>
+    <% end %>
+
   </div>
 </nav>
