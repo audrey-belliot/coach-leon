@@ -14,5 +14,7 @@ Rails.application.routes.draw do
   resources :activities do
     resources :activities_logs
   end
-  resources :recipes
+  resources :recipes do
+    resources :meals_logs
+  end
 end
