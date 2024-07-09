@@ -11,7 +11,12 @@ Rails.application.routes.draw do
   # root "posts#index"
   resources :plans
   resources :health_logs
-  resources :activities_logs
   resources :users, only: [:edit, :update]
 
+  resources :activities do
+    resources :activities_logs
+  end
+  resources :recipes do
+    resources :meals_logs
+  end
 end

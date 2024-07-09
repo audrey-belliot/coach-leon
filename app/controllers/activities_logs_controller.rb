@@ -1,6 +1,37 @@
 class ActivitiesLogsController < ApplicationController
-  def index
-    @activities_logs = current_user.activities_logs
-    @total = @activities_logs.count
+  before_action :set_activity, only: %i[create new]
+
+def index
+  @activities_logs = current_user.activities_logs
+  @total = @activities_logs.count
+end
+
+def new
+  @activity_log = ActivitiesLog.new
+end
+
+def create
+  @activity_log = ActivitiesLog.new(activities_log_params)
+  @activity_log.user = current_user
+  @activity_log.activity = @activity
+  if @activity_log.save
+    redirect_to health_logs_path, notice: "Activité ajoutée !"
+  else
+    render :new, status: :unprocessable_entity
   end
+end
+
+
+
+
+private
+
+def activities_log_params
+  params.require(:activities_log).permit(:date, :comment, :picture, :activity_id, :duration)
+end
+
+def set_activity
+  @activity = Activity.find(params[:activity_id])
+end
+
 end
