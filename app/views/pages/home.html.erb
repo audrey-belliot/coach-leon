@@ -1,6 +1,8 @@
 <div class="container">
 
-<% if user_signed_in? %>
+<% if user_signed_in? && @plan.present? %>
+
+<%= @plan.name %>
 
   <div class="summary">
 
@@ -55,28 +57,70 @@
     </div>
 
 
-<div ">
+<div class="row">
+  <div class="div-center">
+    <div class="card-home mb-4">
+      <div class="card-image" style="background-image: url('https://api.resofit.fr/api/public/uploads/1708530336433-178627646.jpeg');">
+      <div class="card-body">
+        <div class="card-programm-home"> <h3> Mon programme personnalisé </h3> </div>
+          <div class= "button-card">
+          <%= link_to "Détails", plan_path(@plan), class: "button-card-a" %>
+          </div>
+        </div>
+      </div>
+      </div>
+      <div class="card-filter-first-card"></div>
+    </div>
+  </div>
+
+<div class="row">
+  <div class="div-center">
+    <div class="card-home mb-4">
+      <div class="card-image" style="background-image: url('<%= @recipe.picture %>');">
+      <div class="card-body">
+        <div class="card-day-home">Jour <%= @current_day_of_plan %> </div>
+
+        <div class="card-subject">
+          <h3 class="card-title-home">La recette du jour</h3>
+          <h5 class="card-text-home" style="color:#ffff; opacity:0.8; font-size:12px"><%= @recipe.name %></h5>
+        </div>
+      </div>
+      </div>
+        <div class="card-filter"></div>
+      </div>
+  </div>
 </div>
 
- <div class="row" >
+<div class="row">
   <div class="div-center">
-    <div class="card-home mb-4" style="background-image: url('<%= @recipe.picture %>'); background-size: cover; background-position: center;">
-      <%= image_tag @recipe.picture, alt: "Le Wagon", width: 200 %>
+    <div class="card-home mb-4">
+      <div class="card-image" style="background-image: url('https://www.wedemain.fr/wp-content/uploads/2022/08/21-Ut4M-B-%C2%A9iancorless.com-03532-870x600.jpg');">
       <div class="card-body">
-        <h5 class="card-title"><%= @recipe.name %></h5>
-        <p class="card-text-home">Catégorie: <%= @recipe.category %></p>
-        <p class="card-text-home">Ingrédients: <%= @recipe.name %></p>
+        <div class="card-day-home">Jour <%= @current_day_of_plan %> </div>
+
+        <div class="card-subject">
+          <h3 class="card-title-home">Ton activité du jour</h3>
+          <h5 class="card-text-home" style="color:#ffff; opacity:0.8; font-size:12px"><%= @activity.activity %></h5>
+        </div>
       </div>
+      </div>
+      <div class="card-filter"></div>
     </div>
   </div>
 </div>
 
+
+
+
+  <% elsif user_signed_in? %>
+  <%= link_to "Créer mon plan", new_plan_path, class: "nav-link" %>
   <% else %>
       <%= link_to "Se connecter", new_user_session_path, class: "nav-link" %>
     <% end %>
 
 
 
+</div>
 
 
 

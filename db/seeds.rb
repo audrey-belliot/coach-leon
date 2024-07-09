@@ -18,13 +18,13 @@ users = [
   User.create!(email: "kevin@gmail.com", password: "password", firstname: "Kévin", goal: "Perdre du poids", food_preferences: "Veggie", sport_preferences: "Cardio", birthdate: Date.new(2024,06,07), type_user: ""),
   User.create!(email: "audrey@gmail.com", password: "password", firstname: "Audrey", goal: "Perdre du poids", food_preferences: "Veggie", sport_preferences: "Cardio", birthdate: Date.new(2024,06,07), type_user: ""),
   User.create!(email: "marie@gmail.com", password: "password", firstname: "Marie", goal: "Préparer un troisième marathon", food_preferences: "Veggie", sport_preferences: "Cardio", birthdate: Date.new(2024,06,07), type_user: ""),
-  User.create!(email: "valentin@gmail.com", password: "password", firstname: "Valentin", goal: "Perdre du poids", food_preferences: "Veggie", sport_preferences: "Cardio", birthdate: Date.new(2024,06,07), type_user: "")
+  User.create!(email: "valentin@gmail.com", password: "password", firstname: "Valentin", goal: "Je veux être musclé comme Léon", food_preferences: "Veggie", sport_preferences: "Cardio", birthdate: Date.new(2024,06,07), type_user: "")
 ]
 
 puts "Creating new recipes..."
 
 recipes = [
-  Recipe.create!(category: 'Breakfast', details: 'Oatmeal with fresh fruits and nuts.', calories: '300 kcal', picture:"https://www.brandnewvegan.com/wp-content/uploads/vegan-tacos-al-pastor-h1-2.jpg"),
+  Recipe.create!(category: 'Breakfast', name: "Flocon d'avoine avec fruits", details: 'Oatmeal with fresh fruits and nuts.', calories: '300 kcal', picture:"https://www.brandnewvegan.com/wp-content/uploads/vegan-tacos-al-pastor-h1-2.jpg"),
   Recipe.create!(category: 'Lunch', details: 'Grilled chicken salad with mixed greens.', calories: '450 kcal', picture:"https://www.brandnewvegan.com/wp-content/uploads/vegan-tacos-al-pastor-h1-2.jpg"),
   Recipe.create!(category: 'Dinner', details: 'Baked salmon with quinoa and vegetables.', calories: '500 kcal', picture:"https://www.brandnewvegan.com/wp-content/uploads/vegan-tacos-al-pastor-h1-2.jpg"),
   Recipe.create!(category: 'Snack', details: 'Greek yogurt with honey and almonds.', calories: '150 kcal', picture:"https://www.brandnewvegan.com/wp-content/uploads/vegan-tacos-al-pastor-h1-2.jpg"),
@@ -50,7 +50,7 @@ plans = [
   Plan.create!(name: 'Summer Shred', start_date: '2024-06-01', end_date: '2024-08-31', description: 'A plan to get in shape for the summer.', user: User.first),
   Plan.create!(name: 'Muscle Gain', start_date: '2024-01-01', end_date: '2024-03-31', description: 'A plan focused on gaining muscle mass.', user: User.second),
   Plan.create!(name: 'Marathon Prep', start_date: '2024-04-01', end_date: '2024-06-30', description: 'A plan to prepare for a marathon.', user: User.third),
-  Plan.create!(name: 'Healthy Lifestyle', start_date: '2024-07-01', end_date: '2024-09-30', description: 'Il faut que tu fasses 4 sessions de vélo + une rando par semaine', user: User.last)
+  Plan.create!(name: 'Programme perte de poids', start_date: '2024-07-01', end_date: '2024-09-30', description: 'Il faut que tu fasses 4 sessions de vélo + une rando par semaine', user: User.last)
 ]
 
 puts "Plans created !"
