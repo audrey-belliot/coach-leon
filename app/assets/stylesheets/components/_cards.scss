@@ -3,13 +3,9 @@
   height: 155px;
   border-radius: 15px;
   border: solid #f18940;
-  margin-top: 10px;
-  margin-bottom: 10px;
   text-align: center;
   display: flex;
-  justify-content: center;
-  align-items: center;
-  position: relative;
+  background-size: cover;
 }
 
 .card-text {
@@ -50,5 +46,7 @@
 .cards-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  grid-gap: 5px;
+  grid-gap: 15px;
+  justify-content: center;
+  align-items: center;
   }
