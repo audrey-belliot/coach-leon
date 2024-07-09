@@ -4,7 +4,9 @@ class PagesController < ApplicationController
   def home
     @activity = Activity.all.sample
     @recipe = Recipe.all.sample
-    @plan = current_user.plans.order(:start_date).last
+    if user_signed_in?
+      @plan = current_user.plans.order(:start_date).last
+    end
       if @plan
         @current_day_of_plan = (Date.today - @plan.start_date).to_i + 1
       else
