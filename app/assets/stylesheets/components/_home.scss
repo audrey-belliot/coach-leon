@@ -3,6 +3,7 @@
 .summary {
   display: flex;
   justify-content: center;
+  margin-top: 7px;
 }
 
 
@@ -106,17 +107,87 @@
 }
 
 .card-home {
-  width: 400px;
-  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
-  border-radius: 15px;
+  position: relative;
+  background-size: cover;
+  background-position: center;
 }
+
+
+.card-image {
+  height: 180px;
+  width: 365px;
+  background-size: cover;
+  background-position: center;
+  overflow: hidden;
+  border-radius: 20px;
+}
+
 
 .activity-home {
   width: 355px;
   height: 180px;
   flex-shrink: 0;
-
 }
+
+.card-filter {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 180px;
+  width: 365px;
+  background: rgba(0, 0, 0, 0.65); /* Semi-transparent black filter */
+  z-index: 1; /* Position the filter below the text */
+  border-radius: 20px;
+}
+
+.card-body {
+  position: relative;
+  z-index: 2; /* Position the text above the filter */
+  color: #ffff; /* Ensure the text color contrasts with the filter */
+}
+
+.card-subject {
+  margin-top: 41px;
+  margin-left: 10px;
+}
+
+.card-programm-home {
+   font-size: 16px ;
+   margin-top: 5px;
+   margin-left: 5px;
+}
+
+.card-filter-first-card {
+  position: absolute;
+  height: 180px;
+  width: 365px;
+  background: rgba(0, 0, 0, 0.65);
+  z-index: 1;
+  border-radius: 20px;
+}
+
+.button-card {
+  background-color: #229EBC;
+  height: 30px;
+  width: 17%;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-content: stretch;
+  margin-left: 257px;
+  margin-top: 50px;
+}
+
+.button-card-a {
+  font-size: 16px;
+  border-radius: 15px;
+  text-decoration: transparent;
+  color: #FFF;
+}
+
+
 
 
 
@@ -124,5 +195,12 @@
   .summary {display: flex; flex-direction:row; justify-content: space-between; h3{font-size: 11px;}}
   .summary-activity {max-width: 48%; margin-right: 20px;}
   .summary-health {max-width: 48%;}
-
+  .card-home {margin: 5px; width: 280px;}
+  .card-image {width: 100%; margin: 5px; height: 100%;}
+  .card-filter {width: 280px; height: 100% ; margin: 5px;}
+  .div-center {padding: 3px;}
+  .card-filter-first-card {width: 280px; height: 165px}
+  .button-card {    background-color: #229EBC; height: 24px; width: 22%; border-radius: 10px; display: flex; justify-content: center; flex-direction: row; flex-wrap: wrap; align-content: stretch; margin-left: 223px; margin-top: 52px;}
+  .card-filter-first-card {width: 280px; height: 165px; margin-right: 0px; height: 146px; margin-top: 9px; margin-right: -9px;
+}
 }

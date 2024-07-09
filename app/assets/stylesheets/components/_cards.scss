@@ -43,6 +43,30 @@
   color: #666687;
 }
 
+.card-title-home {
+  font-size: 24px;
+  color: aliceblue;
+  margin-top: 5px;
+  z-index: 1;
+}
+
+.card-day-home {
+  background-color: #f18940;
+  width: 65px;
+  display: flex;
+  padding: 10px;
+  margin-top: 10px;
+  border-radius: 15px;
+  justify-content: center;
+  align-items: center;
+  font-size: 10px;
+
+}
+
+@media (max-width: 450px) {
+  .card-day-home {padding: 13px; height: 10px; width: 72px; margin-left: 10px }
+}
+
 .cards-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -50,3 +74,4 @@
   justify-content: center;
   align-items: center;
   }
+
