@@ -6,8 +6,7 @@
     <h1 class="mb-4">Ajout<br><strong>activité</strong></h1>
   </div>
 
-
-
+<h2>Ma session de <%= @activity.activity %></h2>
 <%= simple_form_for [@activity, @activity_log] do |f| %>
     <%= f.input :date, label: false, input_html: { class: 'input-blue' }, html5: true %>
     <%= f.input :duration, label: false, input_html: { class: 'input-blue' }, placeholder: "durée", html5: true %>

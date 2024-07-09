@@ -6,21 +6,42 @@
     <h1 class="mb-4">Toutes les<br><strong>activités</strong></h1>
   </div>
 
-    <div class="cards-grid">
-      <% @activities.each do |activity| %>
-          <div class="card">
-            <span class="card-text"><%= activity.activity %></span>
-            <p class="card-text-home">
-              <%= activity.details %>
+  <div class="row" data-controller="activity-category">
+    <div class="mt-2">
+      <button data-activity-category-target="cardio" data-action="click->activity-category#loadCardio" class="btn-orange-mini">Cardio</button>
+      <button data-activity-category-target="muscu" data-action="click->activity-category#loadMuscu" class="btn-white-grey">Musculation</button>
 
-              <%= button_to "Ajout", new_activity_activities_log_path(activity),
-                        method: :get,
-                        class: "btn btn-blue"
+      <div data-activity-category-target="cardioSection" class="mt-3">
+        <div class="cards-grid">
+          <% @cardio.each do |cardio| %>
+            <div class="card">
+            <p class="card-text-home">
+              <%= cardio.activity %>
+              <%= button_to "Ajout", new_activity_activities_log_path(cardio),
+                method: :get,
+                class: "btn btn-blue"
               %>
             </p>
           </div>
+          <% end %>
+        </div>
+      </div>
 
-      <% end %>
+      <div data-activity-category-target="muscuSection" class="mt-3 d-none">
+        <div class="cards-grid">
+          <% @muscu.each do |muscu| %>
+            <div class="card">
+            <p class="card-text-home">
+              <%= muscu.activity %>
+              <%= button_to "Ajout", new_activity_activities_log_path(muscu),
+                method: :get,
+                class: "btn btn-blue"
+              %>
+            </p>
+          </div>
+          <% end %>
+        </div>
+      </div>
     </div>
-
+  </div>
 </div>
