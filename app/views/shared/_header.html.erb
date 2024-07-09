@@ -1,0 +1,29 @@
+<div class="header-coach navbar-expand-sm">
+  <div class="header-header">
+    <%= Time.now.strftime("%H:%M")  %>
+    <div>
+      <i class="fa-solid fa-signal"></i>
+      <i class="fa-solid fa-wifi"></i>
+      <i class="fa-solid fa-battery-full"></i>
+      </div>
+  </div>
+
+  <div class="header-footer">
+    <% if user_signed_in? %>
+      <div class="nav-item dropdown">
+        <a href="#" class="avatar" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <%= image_tag "https://avatars.githubusercontent.com/u/159252673?v=4", class: "avatar" %>
+        </a>
+        <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+          <%= link_to "Me déconnecter", destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item" %>
+        </div>
+      </div>
+      <div class="header-text">
+        Hello <b><%= current_user.firstname%></b> !<br>
+        Réalise tes objectifs grâce au coach Léon
+      </div>
+    <% else %>
+      <%= link_to "Se connecter", new_user_session_path, class: "nav-link" %>
+    <% end %>
+  </div>
+</div>

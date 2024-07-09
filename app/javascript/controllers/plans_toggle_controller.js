@@ -4,34 +4,27 @@ import { Controller } from "@hotwired/stimulus"
 export default class extends Controller {
   static targets = ["togglableButton", "activitiesSection", "recipesSection", "foodIcon", "sportIcon", "alimentationCard", "sportCard"]
 
-  connect() {
-
-    console.log("Test")
-  }
-
 
   loadActivities() {
-    console.log("Hello from loadActivities !")
     this.activitiesSectionTarget.classList.remove("d-none")
     this.recipesSectionTarget.classList.add("d-none")
     this.foodIconTarget.classList.add("d-none")
     this.sportIconTarget.classList.remove("d-none")
-    this.sportCardTarget.classList.remove("inactive-button")
-    this.sportCardTarget.classList.add("active-button")
-    this.alimentationCardTarget.classList.remove("active-button")
-    this.alimentationCardTarget.classList.add("inactive-button")
+    this.sportCardTarget.classList.remove("btn-white-grey")
+    this.sportCardTarget.classList.add("btn-orange-mini")
+    this.alimentationCardTarget.classList.remove("btn-orange-mini")
+    this.alimentationCardTarget.classList.add("btn-white-grey")
   }
 
   loadRecipes() {
-    console.log("Hello from loadRecipes !")
     this.recipesSectionTarget.classList.remove("d-none")
     this.activitiesSectionTarget.classList.add("d-none")
     this.sportIconTarget.classList.add("d-none")
     this.foodIconTarget.classList.remove("d-none")
-    this.alimentationCardTarget.classList.remove("inactive-button")
-    this.alimentationCardTarget.classList.add("active-button")
-    this.sportCardTarget.classList.remove("active-button")
-    this.sportCardTarget.classList.add("inactive-button")
+    this.alimentationCardTarget.classList.remove("btn-white-grey")
+    this.alimentationCardTarget.classList.add("btn-orange-mini")
+    this.sportCardTarget.classList.remove("btn-orange-mini")
+    this.sportCardTarget.classList.add("btn-white-grey")
   }
 
 
