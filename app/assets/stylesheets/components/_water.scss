@@ -20,7 +20,19 @@
     height: 0;
     transition: 1500ms ease-in;
 
-    &.fill {
+    &.fill05 {
+      height: 25%;
+    }
+
+    &.fill1 {
+      height: 50%;
+    }
+
+    &.fill15 {
+      height: 75%;
+    }
+
+    &.fill2 {
       height: 100%;
     }
   }

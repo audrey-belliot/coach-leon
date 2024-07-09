@@ -45,39 +45,34 @@
     <p class="text-center">Eau</p>
     <div data-controller="water" class="container-water">
       <div class="anim-water">
-        <div class="glass" data-action="click->water#waterRise05"
-             value="0.5">
-          <div class="water" data-water-target="water05" value="0.5"
-               name="health_log[water]"></div>
+        <div class="glass" data-action="click->water#waterRise05">
+          <div class="water" data-water-target="water05" value="0.5"></div>
         </div>
         0.5L
       </div>
       <div class="anim-water">
-        <div class="glass" data-action="click->water#waterRise1"
-             value="1">
-          <div class="water" data-water-target="water1" value="1"
-                name="health_log[water]"></div>
+        <div class="glass" data-action="click->water#waterRise1">
+          <div class="water" data-water-target="water1" value="1"></div>
         </div>
         1L
       </div>
       <div class="anim-water">
-        <div class="glass" data-action="click->water#waterRise15"
-             value="1.5">
-          <div class="water" data-water-target="water15" value="1.5"
-               name="health_log[water]"></div>
+        <div class="glass" data-action="click->water#waterRise15">
+          <div class="water" data-water-target="water15" value="1.5"></div>
         </div>
         1.5L
       </div>
           <div class="anim-water">
-        <div class="glass" data-action="click->water#waterRise2"
-             value="2">
-          <div class="water" data-water-target="water2" value="2"
-               name="health_log[water]"></div>
+        <div class="glass" data-action="click->water#waterRise2">
+          <div class="water" data-water-target="water2" value="2"></div>
         </div>
         2L
       </div>
-      <!-- <%= f.input :water, label: false %>
-      ecouter le click, récupérer la valeur, float, et injecter dans l'input -->
+      <input type="hidden" value="0"
+             data-water-target="inputwater"
+             name="health_log[water]">
+
+      <!--ecouter le click, récupérer la valeur, float, et injecter dans l'input -->
     </div>
 
     <div class="mt-4"><%= f.submit "Valider", class: "btn btn-orange" %></div>
