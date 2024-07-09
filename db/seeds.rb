@@ -128,49 +128,56 @@ velo_route = Activity.create(
   activity: "Vélo de route",
   details: "Pédaler au moins pendant 30 minutes",
   duration: 30,
-  calories_loss: 300
+  calories_loss: 300,
+  picture: "https://images2.giant-bicycles.com/b_white%2Cc_pad%2Ch_600%2Cq_80%2Cw_800/g54ppjat58aepovhzdx1/pratique-velo-route-endurance.jpg"
 )
 randonnee = Activity.create(
   category: "Cardio",
   activity: "Randonnée",
   details: "Marcher à proximité de chez soi et marcher pendant au moins 1h30",
   duration: 90,
-  calories_loss: 450
+  calories_loss: 450,
+  picture: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSiTdFDs8r5cYR-PKOkWuunqrGUY-qwT6mlng&s"
 )
 marche_rapide = Activity.create(
   category: "Cardio",
   activity: "Marche rapide",
   details: "À mi-chemin entre la marche de promenade et la course, la marche rapide est un véritable sport d'endurance. Elle s’effectue en moyenne à une allure allant de 6 à 9 km/h.",
   duration: 45,
-  calories_loss: 350
+  calories_loss: 350,
+  picture: "https://cdn.shopify.com/s/files/1/0075/7661/7015/files/Marche_rapide_bon_pour_la_sante.jpg"
 )
 natation = Activity.create(
   category: "Cardio",
   activity: "Natation",
   details: "Vous pouvez alterner des longueurs avec un rythme soutenu avec des longueurs à un rythme normal, ou bien faire un entraînement avec une intensité faible, mais plus long sur la durée.",
   duration: 60,
-  calories_loss: 500
+  calories_loss: 500,
+  picture: "https://www.nautismebretagne.fr/photo/720/60.jpg"
 )
 ski_fond = Activity.create(
   category: "Cardio",
   activity: "Ski de fond",
   details: "Peu traumatisant pour les articulations et très complet, le ski de fond sollicite tous les muscles du corps (bras, jambes, fessiers…), travaille l’équilibre et la coordination, et permet de développer ses fonctions respiratoires et cardiovasculaires.",
   duration: 120,
-  calories_loss: 600
+  calories_loss: 600,
+  picture: "https://contents.mediadecathlon.com/p2503687/k$14ae7f4476ecd2b6b2e3cb469f72e908/1800x0/3120pt2080/6240xcr4160/default.jpg"
 )
 squat_jump = Activity.create(
   category: "Musculation",
   activity: "Squat Jump",
   details: "Descendre le poids du corps sur les talons sans décoller les talons du sol. Envoyer les fessiers vers l’arrière et serrer votre sangle abdominale. Lorsque vous remontez, faites un saut de manière explosive puis atterrir en fléchissant les genoux pour un meilleur amorti.",
   duration: 15,
-  calories_loss: 150
+  calories_loss: 150,
+  picture: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR_ghFohl9UVjW2JitAch3IcXJuq4BxQXXblg&s"
 )
 chaise_mur = Activity.create(
   category: "Musculation",
   activity: "Chaise dos au mur",
   details: "Placer les jambes à 90° et rentrer le ventre. Placer vos mains sur vos épaules pour ne pas vous aider.",
   duration: 10,
-  calories_loss: 50
+  calories_loss: 50,
+  picture: "https://boxlifemagazine.com/wp-content/uploads//2023/09/Untitled-design-2023-09-26T165219.471-1-1-1024x666.png"
 )
 
 puts "Activities created !"
