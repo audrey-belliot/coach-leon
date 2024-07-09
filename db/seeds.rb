@@ -21,16 +21,105 @@ users = [
   User.create!(email: "valentin@gmail.com", password: "password", firstname: "Valentin", goal: "Perdre du poids", food_preferences: "Veggie", sport_preferences: "Cardio", birthdate: Date.new(2024,06,07), type_user: "")
 ]
 
-puts "Creating new recipes..."
-
-recipes = [
-  Recipe.create!(category: 'Breakfast', details: 'Oatmeal with fresh fruits and nuts.', calories: '300 kcal', picture:"https://www.brandnewvegan.com/wp-content/uploads/vegan-tacos-al-pastor-h1-2.jpg"),
-  Recipe.create!(category: 'Lunch', details: 'Grilled chicken salad with mixed greens.', calories: '450 kcal', picture:"https://www.brandnewvegan.com/wp-content/uploads/vegan-tacos-al-pastor-h1-2.jpg"),
-  Recipe.create!(category: 'Dinner', details: 'Baked salmon with quinoa and vegetables.', calories: '500 kcal', picture:"https://www.brandnewvegan.com/wp-content/uploads/vegan-tacos-al-pastor-h1-2.jpg"),
-  Recipe.create!(category: 'Snack', details: 'Greek yogurt with honey and almonds.', calories: '150 kcal', picture:"https://www.brandnewvegan.com/wp-content/uploads/vegan-tacos-al-pastor-h1-2.jpg"),
-]
-
-puts "Recipes created !"
+puts "Creating breakfast recipes..."
+bouchees_choco_fraise = Recipe.create(
+  category: "Petit-déjeuner",
+  name: "Bouchées choco fraise",
+  ingredient: "400g de skyr, 60g de chocolat noir, 20g de sirop d’agave, 200g de fraise",
+  details: "Recette pour 6 parts. 1 collation = 2 parts. Étape 1: Commencez par laver soigneusement les fraises et retirez les queues. Ensuite, coupez-les en petits dés uniformes. Étape 2: Dans un bol, combinez le skyr avec les dés de fraises et le sirop d'agave. Assurez-vous que les ingrédients sont bien mélangés pour obtenir une texture homogène. Étape 3: Sur une feuille de papier cuisson, formez six petites boules avec le mélange de skyr et de fraises. Placez-les ensuite au congélateur pendant au moins deux heures pour les raffermir. Étape 4: Faites fondre le chocolat noir au bain-marie ou au micro-ondes jusqu'à ce qu'il soit lisse et liquide. Sortez les bouchées du congélateur et trempez-les une à une dans le chocolat fondu, en veillant à bien les enrober. Placez-les de nouveau au frais jusqu'à ce que le chocolat durcisse.",
+  calories: "350",
+  picture: "https://img-3.journaldesfemmes.fr/mrK-0E6Jw7lGJUv9Y0mpK5yfCMg=/1500x/smart/0a6c4b8084be4b9d91265bbe65a5ba93/ccmcms-jdf/11437802.png"
+)
+pumpkin_bread = Recipe.create(
+  category: "Petit-déjeuner",
+  name: "Pumpkin bread",
+  ingredient: "65g de farine complète, 20g de whey, 2 c.à.c de levure chimique, 1 c.à.c de bicarbonate de soude, 1 c.à.s de quatres-épices, 1 pincée de sel, 210g de purée de citrouille (possibilité d’en trouver dans le rayon surgelé), 125g de skyr, 20g d’huile de coco, 30g de miel, 2 oeufs",
+  details: "Recette pour 2 parts. 1 petit déjeuner = 1 part. Étape 1: Préchauffer le four à 180°C. Dans un saladier, mélanger la farine, la whey, la levure, le bicarbonate, le quatre-épices et le sel. Étape 2: Dans un deuxième bol, mélanger la purée de citrouille, le beurre fondu, le miel et les œufs. Mélanger les deux préparations. Étape 3: Couvrir le fond et les bords du moule à cake de papier sulfurisé. Verser la pâte et enfourner pendant 50 min. Vérifier la cuisson à l’aide d’un couteau, s'il ressort propre, le cake est cuit. Étape 4: Servir chaud ou froid.",
+  calories: "Inventé",
+  picture: "https://www.onceuponachef.com/images/2009/09/Pumpkin-Bread-100.jpg"
+)
+smoothie_rose = Recipe.create(
+  category: "Petit-déjeuner",
+  name: "Smoothie rose",
+  ingredient: "100g de skyr, 200ml de lait d'amande, 150g de fruits rouges, 30g de whey vanille, 100g de banane, 10g de graines de chia, 10g de noix de coco râpée",
+  details: "Étape 1: La veille, congeler les morceaux de banane et les fruits rouges pour les utiliser le lendemain. Étape 2: Dans le bol du blender, combiner les fruits rouges et les morceaux de bananes congelés, le Skyr, le lait d’amande et la Whey. Étape 3: Mixer le tout pendant environ 30 secondes jusqu'à ce que la texture soit lisse et uniforme. Étape 4: Transférer la préparation mixée dans un bol. Étape 5: Saupoudrer de noix de coco râpée et de graines de chia, puis ajouter quelques fruits rouges frais pour décorer. Étape 6: Servir immédiatement.",
+  calories: "Inconnu",
+  picture: "https://cdn.pratico-pratiques.com/app/uploads/sites/3/2020/10/28103136/smoothie-fraises-framboises-cerise-et-grenade.jpg"
+)
+granola_miel_et_noix = Recipe.create(
+  category: "Petit-déjeuner",
+  name: "Granola miel et noix",
+  ingredient: "140g flocons d'avoine, 40g noix concassées, 40g amandes concassées, 40g noix de cajou, 20g graines de citrouille, 20g miel, sirop d’érable, sirop d’agave, ou 10g de stévia crystal, 2 c-à-s huile de coco (ou d'huile d'olive), 2 c-à-c d'extrait de vanille",
+  details: "Recette pour plusieurs portions. 1 portion = 70g. Étape 1: Préchauffer le four à 160°C et tapisser une plaque à pâtisserie de papier sulfurisé. Étape 2: Dans un grand bol, mélanger les flocons d'avoine, les noix concassées, les amandes concassées, les graines de tournesol et les graines de citrouille. Étape 3: Dans une petite casserole, chauffer le miel, l'huile de coco et l'extrait de vanille à feu doux, en remuant jusqu'à ce que le mélange soit homogène. Étape 4: Verser le mélange liquide sur les ingrédients secs dans le bol et remuer bien pour enrober uniformément. Étape 5: Étaler le mélange sur la plaque à pâtisserie préparée, en veillant à ce qu'il soit réparti uniformément. Étape 6: Faire cuire au four préchauffé pendant environ 15 à 20 minutes, en remuant à mi-cuisson, jusqu'à ce que le granola soit doré et croustillant. Étape 7: Retirer du four et laisser refroidir complètement sur la plaque. Étape 8: Une fois refroidi, casser le granola en morceaux et conserver dans un conteneur hermétique. Étape 9: Servir accompagné de 120g de skyr ou fromage blanc 0%.",
+  calories: "300",
+  picture: "https://www.latelierderoxane.com/blog/wp-content/uploads/dsc2061-787x590.jpg"
+)
+tartine_avocat_saumon = Recipe.create(
+  category: "Petit-déjeuner",
+  name: "Tartine avocat saumon fumé",
+  ingredient: "3 tranches de pain complet, ou de seigle, ou protéiné, 60g d’avocat, 50g de Saumon fumé, 1 c-à-c de Jus de citron, Poivre noir",
+  details: "Étape 1: Griller les tranches de pain. Étape 2: Écraser l'avocat et l'étaler sur le pain grillé. Étape 3: Disposer le saumon fumé par-dessus. Étape 4: Assaisonner avec un filet de jus de citron et du poivre noir moulu.",
+  calories: "250",
+  picture: "https://www.delicimo.fr/wp-content/uploads/2021/02/IMG_4918_2-1536x1024.jpg"
+)
+puts "Creating lunch recipes..."
+salade_quinoa_avocat = Recipe.create(
+  category: "Déjeuner",
+  name: "Salade de quinoa et avocat",
+  ingredient: "200g de quinoa, 1 avocat, 150g de tomates cerises, 1 concombre, 50g de feta, 30g de graines de tournesol, Jus de citron, Huile d'olive, Sel, Poivre",
+  details: "Étape 1: Cuire le quinoa selon les instructions du paquet et laisser refroidir. Étape 2: Couper l'avocat, les tomates cerises et le concombre en dés. Étape 3: Dans un grand bol, mélanger le quinoa, les légumes coupés, la feta émiettée et les graines de tournesol. Étape 4: Assaisonner avec du jus de citron, de l'huile d'olive, du sel et du poivre. Mélanger bien. Étape 5: Servir frais.",
+  calories: "450",
+  picture: "https://www.loveandlemons.com/wp-content/uploads/2018/07/quinoa-salad.jpg"
+)
+salade_quinoa_avocat = Recipe.create(
+  category: "Déjeuner",
+  name: "Salade de quinoa et avocat",
+  ingredient: "200g de quinoa, 1 avocat, 150g de tomates cerises, 1 concombre, 50g de feta, 30g de graines de tournesol, Jus de citron, Huile d'olive, Sel, Poivre",
+  details: "Étape 1: Cuire le quinoa selon les instructions du paquet et laisser refroidir. Étape 2: Couper l'avocat, les tomates cerises et le concombre en dés. Étape 3: Dans un grand bol, mélanger le quinoa, les légumes coupés, la feta émiettée et les graines de tournesol. Étape 4: Assaisonner avec du jus de citron, de l'huile d'olive, du sel et du poivre. Mélanger bien. Étape 5: Servir frais.",
+  calories: "450",
+  picture: "https://www.loveandlemons.com/wp-content/uploads/2018/07/quinoa-salad.jpg"
+)
+puts "Creating diner recipes..."
+risotto_courgette = Recipe.create(
+  category: "Diner",
+  name: "Risotto courgette",
+  ingredient: "Riz, ArborioCourgettes,Oignon, Ail, Bouillon de légumes, Vin blanc sec, Parmesan râpé, Beurre, Huile d'olive, Sel, Poivre",
+  details: "Pour préparer un risotto de courgette, commencez par laver et couper les courgettes en petits dés, émincer finement l'oignon et l'ail, puis préparer le bouillon de légumes et le garder au chaud. Faites chauffer un peu d'huile d'olive dans une grande poêle, ajoutez les courgettes et faites-les revenir jusqu'à ce qu'elles soient tendres, puis réservez-les. Dans une grande casserole, faites chauffer un peu d'huile d'olive et ajoutez l'oignon émincé, faites revenir jusqu'à ce qu'il soit translucide, ajoutez l'ail et faites revenir une minute supplémentaire, puis ajoutez le riz Arborio et faites-le revenir pendant 2 à 3 minutes jusqu'à ce qu'il soit légèrement translucide. Versez le vin blanc sec dans la casserole et remuez jusqu'à ce qu'il soit presque entièrement évaporé. Ajoutez une louche de bouillon chaud au riz et remuez constamment jusqu'à ce que le liquide soit absorbé, continuez à ajouter le bouillon, une louche à la fois, en remuant constamment et en attendant que le liquide soit absorbé avant d'ajouter la suivante, cette étape prend environ 18 à 20 minutes. Lorsque le riz est presque cuit, ajoutez les courgettes réservées et continuez à cuire jusqu'à ce que le riz soit crémeux et tendre. Retirez la casserole du feu et ajoutez le beurre et le parmesan râpé, remuez bien pour obtenir une texture crémeuse, assaisonnez avec du sel et du poivre selon votre goût, puis servez le risotto chaud, garni de persil frais si désiré.",
+  calories: "450",
+  picture: "https://img.cuisineaz.com/660x660/2015/04/27/i47592-risotto-de-courgettes-au-parmesan.webp"
+)
+quiche_lorraine = Recipe.create(
+  category: "Diner",
+  name: "Quiche lorraine",
+  ingredient: "Pâte brisée, Lardons, Crème fraîche, Œufs, Fromage râpé, Muscade, Sel, Poivre",
+  details: "Pour préparer une quiche lorraine, commencez par préchauffer le four à 180°C. Étalez la pâte brisée dans un moule à tarte et piquez le fond avec une fourchette. Faites revenir les lardons dans une poêle jusqu'à ce qu'ils soient dorés et égouttez-les sur du papier absorbant. Dans un bol, battez les œufs avec la crème fraîche, le sel, le poivre et une pincée de muscade. Ajoutez les lardons et mélangez bien. Versez ce mélange sur la pâte brisée et parsemez de fromage râpé. Enfournez pendant 35-40 minutes, jusqu'à ce que la quiche soit dorée et bien cuite. Servez la quiche lorraine chaude ou tiède.",
+  calories: "450",
+  picture: "https://www.example.com/quiche_lorraine.jpg"
+)
+poelee_crevettes_ail = Recipe.create(
+  category: "Diner",
+  name: "Poêlée de crevettes à l'ail",
+  ingredient: "Crevettes, Ail, Persil, Beurre, Huile d'olive, Citron, Sel, Poivre",
+  details: "Pour préparer une poêlée de crevettes à l'ail, commencez par décortiquer les crevettes. Émincez finement l'ail et hachez le persil. Faites chauffer une grande poêle avec un peu d'huile d'olive et du beurre. Ajoutez les crevettes et faites-les revenir jusqu'à ce qu'elles soient roses et opaques. Ajoutez l'ail émincé et faites revenir pendant une minute supplémentaire. Assaisonnez avec du sel, du poivre et un peu de jus de citron. Parsemez de persil haché avant de servir. Servez la poêlée de crevettes chaude.",
+  calories: "350",
+  picture: "https://www.example.com/poelee_crevettes_ail.jpg"
+)
+lasagnes_vegetariennes = Recipe.create(
+  category: "Diner",
+  name: "Lasagnes végétariennes",
+  ingredient: "Pâtes à lasagnes, Épinards, Ricotta, Tomates, Oignon, Ail, Mozzarella, Parmesan, Huile d'olive, Sel, Poivre",
+  details: "Pour préparer des lasagnes végétariennes, commencez par préchauffer le four à 180°C. Faites revenir l'oignon et l'ail émincés dans un peu d'huile d'olive jusqu'à ce qu'ils soient translucides. Ajoutez les tomates concassées et laissez mijoter pendant 10 minutes. Dans un bol, mélangez les épinards hachés avec la ricotta, le sel et le poivre. Dans un plat à lasagnes, étalez une couche de sauce tomate, une couche de pâtes à lasagnes, une couche de mélange d'épinards et de ricotta, puis répétez les couches. Terminez par une couche de sauce tomate et parsemez de mozzarella et de parmesan râpés. Enfournez pendant 35-40 minutes, jusqu'à ce que le dessus soit doré et bouillonnant. Servez les lasagnes chaudes.",
+  calories: "500",
+  picture: "https://www.example.com/lasagnes_vegetariennes.jpg"
+)
+gratin_legumes = Recipe.create(
+  category: "Diner",
+  name: "Gratin de légumes",
+  ingredient: "Pommes de terre, Carottes, Courgettes, Crème fraîche, Fromage râpé, Beurre, Ail, Sel, Poivre, Muscade",
+  details: "Pour préparer un gratin de légumes, commencez par éplucher et couper les pommes de terre, les carottes et les courgettes en fines rondelles. Préchauffez le four à 180°C. Frottez un plat à gratin avec de l'ail et beurrez-le. Disposez les légumes en couches dans le plat. Dans un bol, mélangez la crème fraîche, le sel, le poivre et une pincée de muscade. Versez ce mélange sur les légumes. Saupoudrez de fromage râpé et ajoutez quelques noisettes de beurre sur le dessus. Enfournez pendant 45 minutes à 1 heure, jusqu'à ce que les légumes soient tendres et le dessus doré. Servez le gratin de légumes chaud.",
+  calories: "350",
+  picture: "https://www.example.com/gratin_legumes.jpg"
+)
 
 puts "Creating new activities..."
 
@@ -101,10 +190,10 @@ puts "Activities logs created !"
 puts "Creating meals logs..."
 
 meals_logs = [
-  MealsLog.create!(date: '2024-01-01', comment: 'Delicious and filling breakfast.', recipe: recipes[0], user: User.first),
-  MealsLog.create!(date: '2024-02-01', comment: 'Healthy and tasty lunch.', recipe: recipes[1], user: User.second),
-  MealsLog.create!(date: '2024-03-01', comment: 'Perfect dinner after a workout.', recipe: recipes[2], user: User.third),
-  MealsLog.create!(date: '2024-04-01', comment: 'Great snack for a quick energy boost.', recipe: recipes[3], user: User.last)
+  MealsLog.create!(date: '2024-01-01', comment: 'Delicious and filling breakfast.', recipe: bouchees_choco_fraise, user: User.first),
+  MealsLog.create!(date: '2024-02-01', comment: 'Healthy and tasty lunch.', recipe: salade_quinoa_avocat, user: User.second),
+  MealsLog.create!(date: '2024-03-01', comment: 'Perfect dinner after a workout.', recipe: poelee_crevettes_ail, user: User.third),
+  MealsLog.create!(date: '2024-04-01', comment: 'Great snack for a quick energy boost.', recipe: smoothie_rose, user: User.last)
 ]
 
 puts "Meals logs created !"

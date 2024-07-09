@@ -12,4 +12,5 @@ Rails.application.routes.draw do
   resources :plans, only: [:show]
   resources :health_logs
   resources :activities_logs
+  resources :recipes
 end
