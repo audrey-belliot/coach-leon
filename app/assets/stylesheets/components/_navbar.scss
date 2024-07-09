@@ -1,7 +1,13 @@
 .navbar {
   background-color: white;
   height: 50px;
-  color: #219ebc;
+  color: #219ebc !important;
   font-size: 22px;
   border: 1px solid #219ebc;
+
+ a {
+  text-decoration: none;
+  color: #219ebc;
+ }
+
 }

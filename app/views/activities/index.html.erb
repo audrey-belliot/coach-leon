@@ -3,7 +3,7 @@
     <%= link_to :back, class: "text-decoration-none text-muted" do %>
       <i class="fa-solid fa-chevron-left pe-3"></i>
     <% end %>
-    <h1 class="mb-4">Idées<br><strong>activités</strong></h1>
+    <h1 class="mb-4">Toutes les<br><strong>activités</strong></h1>
   </div>
 
     <div class="cards-grid">
@@ -12,7 +12,7 @@
             <span class="card-text"><%= activity.activity %></span>
             <p class="card-text-home">
               <%= activity.details %>
-              
+
               <%= button_to "Ajout", new_activity_activities_log_path(activity),
                         method: :get,
                         class: "btn btn-blue"

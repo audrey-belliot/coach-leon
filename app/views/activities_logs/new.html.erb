@@ -6,12 +6,16 @@
     <h1 class="mb-4">Ajout<br><strong>activité</strong></h1>
   </div>
 
-<%= simple_form_for @activity_log do |f| %>
+
+
+<%= simple_form_for [@activity, @activity_log] do |f| %>
     <%= f.input :date, label: false, input_html: { class: 'input-blue' }, html5: true %>
     <%= f.input :duration, label: false, input_html: { class: 'input-blue' }, placeholder: "durée", html5: true %>
     <%= f.input :comment, label: false, input_html: { class: 'input-text' }, html5: true %>
 
     <div class="mt-4"><%= f.submit "Valider", class: " btn btn-orange" %></div>
-<% end %> -->
+<% end %>
+
+
 
 </div>
