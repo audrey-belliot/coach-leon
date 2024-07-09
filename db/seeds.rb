@@ -123,12 +123,55 @@ gratin_legumes = Recipe.create(
 
 puts "Creating new activities..."
 
-activities = [
-  Activity.create!(category: 'Cardio', activity: 'Running', details: 'Run at a moderate pace for 30 minutes.'),
-  Activity.create!(category: 'Strength', activity: 'Weight Lifting', details: 'Perform 3 sets of 10 reps of bench press.'),
-  Activity.create!(category: 'Flexibility', activity: 'Yoga', details: 'Complete a 45-minute Vinyasa yoga session.'),
-  Activity.create!(category: 'Endurance', activity: 'Cycling', details: 'Cycle at a steady pace for 60 minutes.'),
-]
+velo_route = Activity.create(
+  category: "Cardio",
+  activity: "Vélo de route",
+  details: "Pédaler au moins pendant 30 minutes",
+  duration: 30,
+  calories_loss: 300
+)
+randonnee = Activity.create(
+  category: "Cardio",
+  activity: "Randonnée",
+  details: "Marcher à proximité de chez soi et marcher pendant au moins 1h30",
+  duration: 90,
+  calories_loss: 450
+)
+marche_rapide = Activity.create(
+  category: "Cardio",
+  activity: "Marche rapide",
+  details: "À mi-chemin entre la marche de promenade et la course, la marche rapide est un véritable sport d'endurance. Elle s’effectue en moyenne à une allure allant de 6 à 9 km/h.",
+  duration: 45,
+  calories_loss: 350
+)
+natation = Activity.create(
+  category: "Cardio",
+  activity: "Natation",
+  details: "Vous pouvez alterner des longueurs avec un rythme soutenu avec des longueurs à un rythme normal, ou bien faire un entraînement avec une intensité faible, mais plus long sur la durée.",
+  duration: 60,
+  calories_loss: 500
+)
+ski_fond = Activity.create(
+  category: "Cardio",
+  activity: "Ski de fond",
+  details: "Peu traumatisant pour les articulations et très complet, le ski de fond sollicite tous les muscles du corps (bras, jambes, fessiers…), travaille l’équilibre et la coordination, et permet de développer ses fonctions respiratoires et cardiovasculaires.",
+  duration: 120,
+  calories_loss: 600
+)
+squat_jump = Activity.create(
+  category: "Musculation",
+  activity: "Squat Jump",
+  details: "Descendre le poids du corps sur les talons sans décoller les talons du sol. Envoyer les fessiers vers l’arrière et serrer votre sangle abdominale. Lorsque vous remontez, faites un saut de manière explosive puis atterrir en fléchissant les genoux pour un meilleur amorti.",
+  duration: 15,
+  calories_loss: 150
+)
+chaise_mur = Activity.create(
+  category: "Musculation",
+  activity: "Chaise dos au mur",
+  details: "Placer les jambes à 90° et rentrer le ventre. Placer vos mains sur vos épaules pour ne pas vous aider.",
+  duration: 10,
+  calories_loss: 50
+)
 
 puts "Activities created !"
 
@@ -179,10 +222,10 @@ health_logs = [
 puts "Health logs created !"
 
 activities_logs = [
-  ActivitiesLog.create!(date: '2024-01-01', activity: activities[0], user: User.first, comment: 'Felt great during the run.', duration: 30.0, strava_id: 1234),
-  ActivitiesLog.create!(date: '2024-02-01', activity: activities[1], user: User.second, comment: 'Lifted heavier weights today.', duration: 45.0, strava_id: 5678),
-  ActivitiesLog.create!(date: '2024-03-01', activity: activities[2], user: User.third, comment: 'Very relaxing yoga session.', duration: 60.0, strava_id: 9101),
-  ActivitiesLog.create!(date: '2024-04-01', activity: activities[3], user: User.last, comment: 'Cycled with friends, great weather.', duration: 90.0, strava_id: 1121),
+  ActivitiesLog.create!(date: '2024-01-01', activity: Activity.first, user: User.first, comment: 'Felt great during the run.', duration: 30.0, strava_id: 1234),
+  ActivitiesLog.create!(date: '2024-02-01', activity: Activity.second, user: User.second, comment: 'Lifted heavier weights today.', duration: 45.0, strava_id: 5678),
+  ActivitiesLog.create!(date: '2024-03-01', activity: Activity.third, user: User.third, comment: 'Very relaxing yoga session.', duration: 60.0, strava_id: 9101),
+  ActivitiesLog.create!(date: '2024-04-01', activity: Activity.last, user: User.last, comment: 'Cycled with friends, great weather.', duration: 90.0, strava_id: 1121),
 ]
 
 puts "Activities logs created !"
