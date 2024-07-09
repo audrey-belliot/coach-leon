@@ -1,7 +1,7 @@
 <div data-controller="plans-toggle" class="container mt-3 d-flex">
   <div class="row m-2">
     <div class="d-flex align-items-baseline">
-      <%= link_to root_path, class: "text-decoration-none text-muted" do %>
+      <%= link_to :back, class: "text-decoration-none text-muted" do %>
         <i class="fa-solid fa-chevron-left pe-3"></i>
       <% end %>
       <h1 class="mb-4">Plan<br>
@@ -17,6 +17,12 @@
         <p><i data-plans-toggle-target="foodIcon" class="fa-solid fa-utensils fa-2x m-2"></i></p>
         <p><i data-plans-toggle-target="sportIcon" class="fa-solid fa-person-running fa-2x d-none m-2"></i></p>
     </div>
+    <div class="ms-4">
+      <b>Ton plan</b> : <%= @plan.name%>
+      <br>
+      <br>
+      <%= @plan.description%>
+    </div>
     <div data-plans-toggle-target="togglableButton" class="ms-4 mt-2">
       <button data-plans-toggle-target="alimentationCard" data-action="click->plans-toggle#loadRecipes" class="btn-orange-mini">Alimentation</button>
       <button data-plans-toggle-target="sportCard" data-action="click->plans-toggle#loadActivities" class="btn-white-grey">Sport</button>
@@ -24,7 +30,7 @@
           <h2>Idées de recettes</h2>
           <div class="card">
             <% @plans_recipes.each do |plan_recipe| %>
-              <span class="card-text"><%= plan_recipe.recipe.category%></span>
+              <span class="card-text"><%= plan_recipe.recipe.name%></span>
             <% end %>
           </div>
 
