@@ -5,8 +5,7 @@ def index
 end
 
 def new
-  @activity_log = ActivitiesLog.new
-  @activities = Activity.all
+  @activity_log = ActivitiesLog.new(activity_id: params[:activity_id])
 end
 
 def create
