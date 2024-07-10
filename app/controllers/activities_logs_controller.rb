@@ -1,32 +1,31 @@
 class ActivitiesLogsController < ApplicationController
   before_action :set_activity, only: %i[create new]
 
-def index
-  @activities_logs = current_user.activities_logs
-  @total = @activities_logs.count
-end
+  def index
+    @activities_logs = current_user.activities_logs
+    @total = @activities_logs.count
+  end
 
-def new
-  @activity_log = ActivitiesLog.new
-end
-
-def create
-  @activity_log = ActivitiesLog.new(activities_log_params)
-  @activity_log.user = current_user
-  @activity_log.activity = @activity
-  if @activity_log.save
-    redirect_to health_logs_path, notice: "Activité ajoutée !"
-  else
-    render :new, status: :unprocessable_entity
+  def new
+    @activity_log = ActivitiesLog.new
   end
 
   def show
     @activity_log = ActivitiesLog.find(params[:id])
     @activity_log_date = @activity_log.activity.created_at
   end
+
+  def create
+    @activity_log = ActivitiesLog.new(activities_log_params)
+    @activity_log.user = current_user
+    @activity_log.activity = @activity
+    if @activity_log.save
+      redirect_to health_logs_path, notice: "Activité ajoutée !"
+    else
+      render :new, status: :unprocessable_entity
+    end
+  end
 end
-
-
 
 
 private
