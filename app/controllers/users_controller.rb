@@ -19,7 +19,7 @@ class UsersController < ApplicationController
     plan_info = Plan::PLAN_INFO.find{|element| element[:goal] == goal}
     start_date = Date.today
     end_date = start_date + 3.months
-    Plan.create!(name: plan_info[:name], description: plan_info[:description],user:User.last, start_date:start_date, end_date:end_date)
+    Plan.create!(name: plan_info[:name], description: plan_info[:description],user:current_user, start_date:start_date, end_date:end_date)
   end
 
     # case goal
