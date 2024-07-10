@@ -10,11 +10,13 @@
   <%= date_field_tag :start_date,
         params[:start_date],
         class: "form-control input-left-blue",
+        value: Date.today.beginning_of_month,
         placeholder: "entre le"
     %>
     <%= date_field_tag :end_date,
         params[:end_date],
         class: "form-control input-right-blue",
+        value: Date.today,
         placeholder: "et le"
     %>
   <%= submit_tag "ok", name: "", class: "btn btn-blue m-2" %>
