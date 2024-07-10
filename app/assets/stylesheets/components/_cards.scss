@@ -6,6 +6,12 @@
   text-align: center;
   display: flex;
   background-size: cover;
+  color: transparent;
+}
+
+.card:hover {
+  border: solid #219ebc;
+  color: #219ebc;
 }
 
 .card-text {
@@ -75,3 +81,49 @@
   align-items: center;
   }
 
+.card-plus {
+  border-radius: 50%;
+  background-color: #219ebc;
+  color: white;
+  border: 0px;
+  position: relative;
+  top: 10px;
+  left: -50px;
+}
+
+.card-plus:hover {
+  background-color: #f18940;
+}
+
+.cards-logs-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-gap: 15px;
+}
+
+.card-log {
+  display: flex;
+  align-items: center;
+}
+
+.card-log-img {
+  width: 100%;
+  height: 130px;
+  border-radius: 15px;
+  border: solid #f18940;
+  background-size: cover;
+}
+
+.card-log-content {
+  margin-left: 10px;
+  margin-right: 10px;
+  width: 80%;
+}
+
+.card-show {
+  width: 120px;
+  height: 120px;
+  border-radius: 15px;
+  border: solid #f18940;
+  background-size: cover;
+}

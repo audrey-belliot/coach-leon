@@ -9,21 +9,40 @@
   </div>
 
   <div class="header-footer">
-    <% if user_signed_in? %>
+    <% if user_signed_in? && current_user.picture %>
       <div class="nav-item dropdown">
-        <a href="#" class="avatar" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          <%= image_tag "https://avatars.githubusercontent.com/u/159252673?v=4", class: "avatar" %>
-        </a>
+        <div id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <%= image_tag current_user.picture, class: "avatar" %>
+        </div>
         <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
           <%= link_to "Me déconnecter", destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item" %>
         </div>
       </div>
       <div class="header-text">
         Hello <b><%= current_user.firstname%></b> !<br>
+        Objectif : <%= current_user.goal %>
+      </div>
+    <% elsif user_signed_in? %>
+      <div class="nav-item dropdown">
+        <div id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <%= image_tag "https://static.thenounproject.com/png/4035892-200.png", class: "avatar" %>
+        </div>
+        <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+          <%= link_to "Me déconnecter", destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item" %>
+        </div>
+      </div>
+      <div class="header-text">
+        Hello !<br>
         Réalise tes objectifs grâce au coach Léon
       </div>
     <% else %>
-      <%= link_to "Se connecter", new_user_session_path, class: "nav-link" %>
+      <div class="nav-item dropdown">
+        <%= image_tag "https://static.thenounproject.com/png/4035892-200.png", class: "avatar", alt: "dropdown menu" %>
+      </div>
+      <div class="header-text">
+        Hello !<br>
+        Réalise tes objectifs grâce au coach Léon
+      </div>
     <% end %>
   </div>
 </div>
