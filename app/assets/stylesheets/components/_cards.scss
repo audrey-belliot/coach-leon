@@ -6,6 +6,12 @@
   text-align: center;
   display: flex;
   background-size: cover;
+  color: transparent;
+}
+
+.card:hover {
+  border: solid #219ebc;
+  color: #219ebc;
 }
 
 .card-text {
@@ -75,3 +81,24 @@
   align-items: center;
   }
 
+.card-plus {
+  border-radius: 50%;
+  background-color: #219ebc;
+  color: white;
+  border: 0px;
+  position: relative;
+  top: 10px;
+  left: -50px;
+}
+
+.card-plus:hover {
+  background-color: #f18940;
+}
+
+.card-log {
+  width: 151px;
+  height: 155px;
+  border-radius: 15px;
+  border: solid #f18940;
+  text-align: center;
+}
