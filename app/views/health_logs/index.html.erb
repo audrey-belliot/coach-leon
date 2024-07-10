@@ -54,7 +54,7 @@
         label: 'sport',
         data: <%= @activities %>,
         borderWidth: 1,
-        backgroundColor: 'rgba(33, 158, 188, 0.8)',
+        backgroundColor: 'rgba(241, 137, 64, 0.8)',
         barThickness: 10,
         borderRadius: 35,
       }, {
@@ -62,7 +62,7 @@
         label: 'alimentation',
         data: <%= @meals %>,
         borderWidth: 1,
-        backgroundColor: 'rgba(241, 137, 64, 0.8)',
+        backgroundColor: 'rgba(33, 158, 188, 0.8)',
         barThickness: 10,
         borderRadius: 35,
       }]
@@ -100,7 +100,7 @@
       <% else %>
         <p><%= @allactivities.count %> activités enregistrées.</p>
       <% end %>
-      <%= link_to "Détails", activity_activities_logs_path("all"), class:"btn btn-blue" %>
+      <%= link_to "Détails", activities_logs_path, class:"btn btn-blue" %>
   <% else %>
     <p>Vous n'avez pas encore enregistré d'activité sur cette période.</p>
   <% end %>
