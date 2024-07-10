@@ -95,12 +95,28 @@
   background-color: #f18940;
 }
 
+.cards-logs-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-gap: 15px;
+}
+
 .card-log {
-  width: 151px;
-  height: 155px;
+  display: flex;
+  align-items: center;
+}
+
+.card-log-img {
+  width: 100%;
+  height: 130px;
   border-radius: 15px;
   border: solid #f18940;
-  text-align: center;
+}
+
+.card-log-content {
+  margin-left: 10px;
+  margin-right: 10px;
+  width: 80%;
 }
 
 .card-show {

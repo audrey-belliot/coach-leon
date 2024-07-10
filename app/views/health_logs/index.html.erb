@@ -84,7 +84,7 @@
     <% else %>
       <p><%= @allmeals.count %> recettes suivies.</p>
     <% end %>
-      <%= link_to "Détails", "#", class:"btn btn-blue" %>
+      <%= link_to "Détails", recipe_meals_logs_path("all"), class:"btn btn-blue" %>
   <% else %>
     <p>Vous n'avez pas encore enregistré de repas sur cette période.</p>
   <% end %>
@@ -98,7 +98,7 @@
       <% else %>
         <p><%= @allactivities.count %> activités enregistrées.</p>
       <% end %>
-      <%= link_to "Détails", "#", class:"btn btn-blue" %>
+      <%= link_to "Détails", activity_activities_logs_path("all"), class:"btn btn-blue" %>
   <% else %>
     <p>Vous n'avez pas encore enregistré d'activité sur cette période.</p>
   <% end %>
