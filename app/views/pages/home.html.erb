@@ -36,10 +36,11 @@
 
 
   </div>
-    <div class="div-center">
+    <div class="div-center-toggle" data-controller="toggle-home">
       <div>
-        <%= link_to "Je m'actualise", new_health_log_path, class: "btn btn-secondary" %>
-        <div class="actualition-icon">
+         <button data-action="click->toggle-home#toggle" class="btn btn-secondary">Je m'actualise</button>
+
+        <div class="actualition-icon d-none"  data-toggle-home-target="icons">
           <%= link_to root_path do %>
           <i class="fa-solid fa-heart icon-link-to"></i>
             <% end %>
