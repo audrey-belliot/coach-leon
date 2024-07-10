@@ -1,5 +1,5 @@
 class ActivitiesLogsController < ApplicationController
-  before_action :set_activity, only: %i[create new]
+  before_action :set_activity, only: %i[create new destroy]
 
 def index
   @activities_logs = current_user.activities_logs
@@ -21,7 +21,12 @@ def create
   end
 end
 
-
+def destroy
+  raise
+  @activity_log = ActivityLog.find(params[:id])
+  @activity_log.destroy
+  redirect_to activity_path(@activiy_log.activity), status: :see_other
+end
 
 
 private
