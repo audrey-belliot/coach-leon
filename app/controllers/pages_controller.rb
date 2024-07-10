@@ -17,4 +17,9 @@ class PagesController < ApplicationController
   end
 end
 
+def my_logs
+  @plan = current_user.plans.order(:start_date).last
+end
+
+
 end

@@ -3,17 +3,11 @@ class UsersController < ApplicationController
   def update
     @user = current_user
     if @user.update(user_params)
-      selected_plan = select_plan(@user.goal)
-      if selected_plan
-        selected_plan.update(user: @user)
-         redirect_to plan_path(selected_plan)
-      else
-        render 'plans/new', status: :unprocessable_entity
-      end
+      generated_plan = generate_plan(@user.goal)
+      redirect_to plan_path(generated_plan)
     else
        render 'plans/new', status: :unprocessable_entity
     end
-
   end
 
   private
@@ -21,16 +15,22 @@ class UsersController < ApplicationController
     params.require(:user).permit(:firstname, :birthdate, :goal, :food_preferences, :sport_preferences)
   end
 
-  def select_plan(goal)
-    case goal
-    when "Je perds du poids pour être aussi svelte comme Léon"
-      Plan.find_by(name:"Programme perte de poids")
-    when "Je prépare un marathon comme Léon"
-      Plan.find_by(name:"Marathon Prep")
-    when "Je veux être musclé comme Léon"
-      Plan.find_by(name:"Muscle Gain")
-    else
-      Activity.all
-    end
+  def generate_plan(goal)
+    plan_info = Plan::PLAN_INFO.find{|element| element[:goal] == goal}
+    start_date = Date.today
+    end_date = start_date + 3.months
+    Plan.create!(name: plan_info[:name], description: plan_info[:description],user:User.last, start_date:start_date, end_date:end_date)
   end
+
+    # case goal
+    # when "Je perds du poids pour être aussi svelte comme Léon"
+    #   Plan.find_by(name:"Programme perte de poids")
+    # when "Je prépare un marathon comme Léon"
+    #   Plan.find_by(name:"Marathon Prep")
+    # when "Je veux être musclé comme Léon"
+    #   Plan.find_by(name:"Muscle Gain")
+    # else
+    #   Activity.all
+    # end
+
 end
