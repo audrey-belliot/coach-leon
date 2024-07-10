@@ -111,10 +111,19 @@
   height: 130px;
   border-radius: 15px;
   border: solid #f18940;
+  background-size: cover;
 }
 
 .card-log-content {
   margin-left: 10px;
   margin-right: 10px;
   width: 80%;
+}
+
+.card-show {
+  width: 120px;
+  height: 120px;
+  border-radius: 15px;
+  border: solid #f18940;
+  background-size: cover;
 }

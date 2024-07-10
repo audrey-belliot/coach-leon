@@ -8,12 +8,22 @@
     </div>
   </div>
 
-  <div class="cards-grid">
-    <% @meals_logs.each do |meal_log| %>
-      <div class="card" style="background-image: url(<%= meal_log.recipe.picture %>)">
-      </div>
-      <%= meal_log.comment %>
-      <%= meal_log.date %>
-    <% end %>
+  <div class="row">
+    <div class="cards-logs-grid">
+      <% @meals_logs.each do |meal_log| %>
+        <div class="card-log">
+          <div class="card-log-img" style="background-image: url(<%= meal_log.recipe.picture %>)"></div>
+          <div class="card-log-content">
+            <h5><%= meal_log.date.strftime("%d/%m/%Y") %></h5>
+            <%= meal_log.comment %> <br>
+            <%= link_to "#" do %><i class="fa-solid fa-pen me-3"></i><% end %>
+            <%= link_to recipe_meals_logs_path(meal_log),
+                data: {turbo_method: :delete,
+                turbo_confirm: "Je confirme la suppression"} do %>
+                <i class="fa-solid fa-trash"></i><% end %>
+          </div>
+        </div>
+      <% end %>
+    </div>
   </div>
 </div>
