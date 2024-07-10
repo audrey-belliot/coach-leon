@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container container-home">
 
 <% if user_signed_in? && @plan.present? %>
 
@@ -113,10 +113,20 @@
 
 
   <% elsif user_signed_in? %>
-  <%= link_to "Créer mon plan", new_plan_path, class: "nav-link" %>
+    <div class="round-home">
+      <div class="text-round-home">Coach <br> Léon</div>
+    </div>
+    <p>Il est maintenant temps de :</p>
+    <%= link_to "CREER TON PLAN", new_plan_path, class: "text-center" %><br>
+    <p>afin que Coach Léon te propose ton plan personnalisé !</p>
   <% else %>
-      <%= link_to "Se connecter", new_user_session_path, class: "nav-link" %>
-    <% end %>
+    <div class="round-home">
+      <div class="text-round-home">Coach <br> Léon</div>
+    </div>
+      <p>Te propose un <b>programme personnalisé</b> en fonction de <b>tes objectifs</b> !</p>
+      <%= link_to "Se connecter", new_user_session_path, class: "text-center" %>
+      <%= link_to "S'inscrire'", new_user_registration_path, class: "text-center" %>
+  <% end %>
 
 
 

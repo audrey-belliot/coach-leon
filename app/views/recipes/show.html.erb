@@ -1,0 +1,24 @@
+<div class="container">
+  <div class="row" data-controller="recipe-category">
+    <div class="d-flex align-items-baseline">
+      <%= link_to :back, class: "text-decoration-none text-muted" do %>
+        <i class="fa-solid fa-chevron-left pe-3"></i>
+      <% end %>
+      <h1><b><%= @recipe.category %></b></h1>
+    </div>
+  </div>
+  <h2><%= @recipe.name %></h2>
+  <%= @recipe.calories %>
+  <div class="row">
+    <div class="col-3">
+      <div class="card" style="background-image: url(<%= @recipe.picture %>)"></div>
+    </div>
+    <div class="col-2"> </div>
+    <div class="col-7">
+      <%= @recipe.ingredient %>
+    </div>
+  </div>
+  <div class="row">
+    <%= @recipe.details %>
+  </div>
+</div>

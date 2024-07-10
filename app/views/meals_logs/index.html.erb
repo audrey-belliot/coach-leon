@@ -1,0 +1,19 @@
+<div class="container">
+  <div class="row" data-controller="recipe-category">
+    <div class="d-flex align-items-baseline">
+      <%= link_to :back, class: "text-decoration-none text-muted" do %>
+        <i class="fa-solid fa-chevron-left pe-3"></i>
+      <% end %>
+      <h1>Mes <b>repas</b></h1>
+    </div>
+  </div>
+
+  <div class="cards-grid">
+    <% @meals_logs.each do |meal_log| %>
+      <div class="card" style="background-image: url(<%= meal_log.recipe.picture %>)">
+      </div>
+      <%= meal_log.comment %>
+      <%= meal_log.date %>
+    <% end %>
+  </div>
+</div>

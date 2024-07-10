@@ -18,11 +18,11 @@
         <div class="cards-grid">
           <% @petitdejs.each do |petitdej| %>
             <div class="card" style="background-image: url(<%= petitdej.picture %>)">
-              <p class="card-text"><%= petitdej.name %></p>
-              <%= button_to "Ajout", new_recipe_meals_log_path(petitdej),
+              <%= button_to new_recipe_meals_log_path(petitdej),
                   method: :get,
-                  class: "btn btn-blue"
-              %>
+                  class: "card-plus" do %>
+                    <i class="fa-solid fa-plus"></i>
+              <% end %>
             </div>
           <% end %>
         </div>
@@ -33,11 +33,11 @@
         <div class="cards-grid">
           <% @dejs.each do |dej| %>
             <div class="card" style="background-image: url(<%= dej.picture %>)">
-              <p class="card-text"><%= dej.name %></p>
-              <%= button_to "Ajout", new_recipe_meals_log_path(dej),
+              <%= button_to new_recipe_meals_log_path(dej),
                   method: :get,
-                  class: "btn btn-blue"
-              %>
+                  class: "card-plus" do %>
+                    <i class="fa-solid fa-plus"></i>
+              <% end %>
             </div>
           <% end %>
         </div>
@@ -48,11 +48,11 @@
         <div class="cards-grid">
           <% @diners.each do |diner| %>
             <div class="card" style="background-image: url(<%= diner.picture %>)">
-              <p class="card-text"><%= diner.name %></p>
-              <%= button_to "Ajout", new_recipe_meals_log_path(diner),
+                <%= button_to new_recipe_meals_log_path(diner),
                   method: :get,
-                  class: "btn btn-blue"
-              %>
+                  class: "card-plus" do %>
+                    <i class="fa-solid fa-plus"></i>
+              <% end %>
             </div>
           <% end %>
         </div>

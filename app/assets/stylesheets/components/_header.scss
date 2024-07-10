@@ -6,7 +6,7 @@
   border-bottom-right-radius: 15px;
   flex-grow: 0;
   width: 100%;
-  height: 100px;
+  height: 110px;
   padding: 5px 5px;
 }
 
@@ -18,9 +18,9 @@
 
 .header-footer {
   display: flex;
-  justify-content: space-between;
+  justify-content: start;
 }
 
 .header-text {
-  margin-left: 3px
+  margin-left: 10px
 }
