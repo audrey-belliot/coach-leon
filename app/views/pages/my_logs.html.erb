@@ -8,12 +8,14 @@
 
       <%= link_to "Mon programme personnalisé", plan_path(@plan), class:"btn btn-orange" %>
 
+      <%= link_to "Changer d'objectif", new_plan_path, class:"btn btn-blue" %>
+
       <%= link_to "Mon évolution santé", health_logs_path, class:"btn btn-blue" %>
 
       <%= link_to "Mes activités", activities_logs_path, class:"btn btn-blue" %>
 
-      <%= link_to "Mes repas", "#", class:"btn btn-blue" %>
+      <%= link_to "Mes repas", meals_logs_path, class:"btn btn-blue" %>
 
-
+      <%= link_to "M'actualiser", new_health_log_path, class:"btn btn-orange" %>
 
 </div>

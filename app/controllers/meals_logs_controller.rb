@@ -21,6 +21,12 @@ class MealsLogsController < ApplicationController
     end
   end
 
+  def destroy
+    @meal_log = MealsLog.find(params[:id])
+    @meal_log.destroy
+    redirect_to meals_logs_path, status: :see_other
+  end
+
   private
 
   def meals_log_params

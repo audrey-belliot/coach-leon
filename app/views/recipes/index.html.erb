@@ -23,6 +23,11 @@
                   class: "card-plus" do %>
                     <i class="fa-solid fa-plus"></i>
               <% end %>
+              <%= button_to recipe_path(petitdej),
+                  method: :get,
+                  class: "card-eye" do %>
+                    <i class="fa-regular fa-eye"></i>
+              <% end %>
             </div>
           <% end %>
         </div>
@@ -38,6 +43,11 @@
                   class: "card-plus" do %>
                     <i class="fa-solid fa-plus"></i>
               <% end %>
+              <%= button_to recipe_path(dej),
+                  method: :get,
+                  class: "card-eye" do %>
+                    <i class="fa-regular fa-eye"></i>
+              <% end %>
             </div>
           <% end %>
         </div>
@@ -52,6 +62,11 @@
                   method: :get,
                   class: "card-plus" do %>
                     <i class="fa-solid fa-plus"></i>
+              <% end %>
+              <%= button_to recipe_path(diner),
+                  method: :get,
+                  class: "card-eye" do %>
+                    <i class="fa-regular fa-eye"></i>
               <% end %>
             </div>
           <% end %>
