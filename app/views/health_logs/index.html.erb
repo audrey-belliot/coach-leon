@@ -19,7 +19,7 @@
         value: Date.today,
         placeholder: "et le"
     %>
-  <%= submit_tag "ok", name: "", class: "btn btn-blue m-2" %>
+  <%= submit_tag "ok", name: "", class: "btn btn-blue m-2 ms-2" %>
 
 <% end %>
 
@@ -82,11 +82,14 @@
 <h2>Mon alimentation</h2>
   <% if @allmeals.count != 0 %>
     <% if @allmeals.count == 1 %>
-      <p>Une recette suivie.</p>
+      <p>Une recette suivie.
+      <%= link_to meals_logs_path do %> <i class="fa-solid fa-eye ms-3"></i><% end %>
+      </p>
     <% else %>
-      <p><%= @allmeals.count %> recettes suivies.</p>
+      <p><%= @allmeals.count %> recettes suivies.
+      <%= link_to meals_logs_path do %> <i class="fa-solid fa-eye ms-3"></i><% end %>
+</p>
     <% end %>
-      <%= link_to "Détails", recipe_meals_logs_path("all"), class:"btn btn-blue" %>
   <% else %>
     <p>Vous n'avez pas encore enregistré de repas sur cette période.</p>
   <% end %>
@@ -96,11 +99,14 @@
 <h2>Mon activité physique</h2>
   <% if @allactivities.count != 0 %>
       <% if @allactivities.count == 1 %>
-        <p>Une activité enregistrée.</p>
+        <p>Une activité enregistrée.
+        <%= link_to activities_logs_path do %> <i class="fa-solid fa-eye ms-3"></i><% end %>
+        </p>
       <% else %>
-        <p><%= @allactivities.count %> activités enregistrées.</p>
+        <p><%= @allactivities.count %> activités enregistrées.
+        <%= link_to activities_logs_path do %> <i class="fa-solid fa-eye ms-3"></i><% end %>
+        </p>
       <% end %>
-      <%= link_to "Détails", activities_logs_path, class:"btn btn-blue" %>
   <% else %>
     <p>Vous n'avez pas encore enregistré d'activité sur cette période.</p>
   <% end %>
