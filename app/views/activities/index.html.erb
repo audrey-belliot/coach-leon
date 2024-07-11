@@ -21,6 +21,11 @@
                   class: "card-plus" do %>
                     <i class="fa-solid fa-plus"></i>
               <% end %>
+              <%= button_to activity_path(cardio),
+                  method: :get,
+                  class: "card-eye" do %>
+                    <i class="fa-regular fa-eye"></i>
+              <% end %>
             </div>
           <% end %>
         </div>
@@ -36,6 +41,12 @@
                   class: "card-plus" do %>
                     <i class="fa-solid fa-plus"></i>
               <% end %>
+              <%= button_to activity_path(muscu),
+                  method: :get,
+                  class: "card-eye" do %>
+                    <i class="fa-regular fa-eye"></i>
+              <% end %>
+            </div>
           </div>
           <% end %>
         </div>

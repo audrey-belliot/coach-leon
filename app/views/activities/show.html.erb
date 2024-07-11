@@ -4,21 +4,22 @@
       <%= link_to :back, class: "text-decoration-none text-muted" do %>
         <i class="fa-solid fa-chevron-left pe-3"></i>
       <% end %>
-      <h1><b><%= @activity.category %></b></h1>
+      <h1>Détails<br><b>activité</b></h1>
     </div>
   </div>
-  <h2><%= @activity.activity %></h2>
-  <div class="row">
+  <div class="row mt-3">
     <div class="col-5">
       <div class="card-show" style="background-image: url(<%= @activity.picture %>)"></div>
     </div>
     <div class="col-7">
-      <p><i class="fa-solid fa-fire"></i> <%= @activity.calories_loss %> calories brûlées</p>
-      <p><i class="fa-solid fa-clock"></i> <%= @activity.duration.to_i %> minutes recommandées</p>
+      <h2><%= @activity.activity %></h2>
+      <p><i class="fa-solid fa-person-running"></i> <%= @activity.category %>
+      <br><i class="fa-solid fa-fire"></i> <%= @activity.calories_loss %> calories brûlées
+      <br><i class="fa-solid fa-clock"></i> <%= @activity.duration.to_i %> minutes</p>
     </div>
   </div>
   <div class="row mt-3">
-  <h3>Préparation</h3>
+  <h3>La recommandation de Léon</h3>
     <p><%= @activity.details %></p>
   </div>
 </div>

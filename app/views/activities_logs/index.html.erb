@@ -14,7 +14,8 @@
       <div class="card-log">
         <div class="card-log-img" style="background-image: url(<%= activity_log.activity.picture %>)"></div>
         <div class="card-log-content">
-          <h5><%= activity_log.date.strftime("%d/%m/%Y") %></h5>
+          <h5><%= activity_log.activity.activity %>
+           le <%= activity_log.date.strftime("%d/%m/%Y") %></h5>
           <%= activity_log.comment %> <br>
 
           <%= link_to "#" do %><i class="fa-solid fa-pen me-3"></i><% end %>

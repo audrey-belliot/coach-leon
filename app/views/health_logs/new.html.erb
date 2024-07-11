@@ -1,5 +1,10 @@
 <div class="container">
-  <h1>Suivi<br><b>Santé</b></h1>
+    <div class="d-flex align-items-baseline">
+      <%= link_to :back, class: "text-decoration-none text-muted" do %>
+        <i class="fa-solid fa-chevron-left pe-3"></i>
+      <% end %>
+      <h1>Suivi <br><b>santé</b></h1>
+    </div>
 
   <%= simple_form_for @health_log do |f| %>
     <%= f.input :date, label: false, input_html: { class: 'input-blue' }, html5: true %>

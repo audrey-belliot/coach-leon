@@ -66,7 +66,7 @@
     </div>
 
     <div class="row mt-3">
-      <%= link_to "#" do %>
+      <%= link_to activity_path(@activity) do %>
           <div class="card-home-image" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url('<%= @activity.picture %>');">
              <div class="card-day-home">Jour <%= @current_day_of_plan %> </div>
              <h3>Ton activité du jour</h3>
