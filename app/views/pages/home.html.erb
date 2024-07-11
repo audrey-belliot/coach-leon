@@ -31,8 +31,13 @@
         </div>
         <p style="font-size: 12px; margin-bottom: 3px">Evolution santé</p>
       </div>
-      <h3 class="title-card-home"><%= @weight %> kg</h3>
-      <p style="font-size: 12px; margin-bottom: 3px">Depuis le début du programme 💪 </p>
+      <% if @weight < 0 %>
+        <h3 class="title-card-home"><%= @weight %> kg</h3>
+        <p style="font-size: 12px; margin-bottom: 3px">Depuis le début du programme 💪 </p>
+      <% else %>
+        <h3 class="title-card-home">+ <%= @weight %> kg</h3>
+        <p style="font-size: 12px; margin-bottom: 3px">Depuis le début du programme, allez, encore un petit effort 💪 </p>
+      <% end %>
     </div>
   </div>
 
