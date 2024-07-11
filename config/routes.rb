@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   resources :health_logs
   resources :users, only: [:edit, :update]
   resources :activities_logs, only: [:index, :update, :edit, :destroy]
+  resources :meals_logs, only: [:index, :update, :edit, :destroy]
 
   resources :activities do
     resources :activities_logs, only: [:new, :create]

@@ -113,6 +113,7 @@
   i {border-radius: 55px;
     opacity: var(--sds-size-stroke-border);
     background: #F18940;
+    color: white;
     }
     .icon-link-to {
       width: 35px;
@@ -138,6 +139,27 @@
   justify-content: center; /* Centre l'icône horizontalement */
   margin-right: 10px;
   display: flex;
+}
+
+.card-home-image {
+  height: 180px;
+  border-radius: 20px;
+  background-size: cover;
+  background-position: center;
+  overflow: hidden;
+
+  h3 {
+    font-size: 24px;
+    color: aliceblue;
+    z-index: 1;
+    margin-top: 41px;
+    margin-left: 10px;
+  }
+
+  h5 {
+    color: white;
+    margin-left: 10px
+  }
 }
 
 .card-home {
