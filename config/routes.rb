@@ -12,16 +12,15 @@ Rails.application.routes.draw do
   resources :plans
   resources :health_logs
   resources :users, only: [:edit, :update]
-  resources :activities_logs, only: [:index, :update, :edit, :destroy]
-  resources :meals_logs, only: [:index, :update, :edit, :destroy]
+  resources :activities_logs, only: [:index, :show, :update, :edit, :destroy]
+  resources :meals_logs, only: [:index, :show, :update, :edit, :destroy]
 
   resources :activities do
     resources :activities_logs, only: [:new, :create]
   end
-  resources :activities_logs, only: [:index, :show, :edit, :update]
+
   resources :recipes do
     resources :meals_logs
   end
   get "/my_logs", to: "pages#my_logs"
-
 end
