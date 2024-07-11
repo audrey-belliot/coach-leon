@@ -10,10 +10,10 @@ def show
   @activity_log_date = @activity_log.activity.created_at
 end
 
-
 def new
   @activity_log = ActivitiesLog.new
 end
+
 def create
   @activity_log = ActivitiesLog.new(activities_log_params)
   @activity_log.user = current_user

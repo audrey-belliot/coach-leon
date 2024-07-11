@@ -6,6 +6,11 @@ class MealsLogsController < ApplicationController
     @numbermeals = @meals_logs.count
   end
 
+  def show
+    @meal_log = MealsLog.find(params[:id])
+    @meal_log_date = @meal_log.recipe.created_at
+  end
+
   def new
     @meal_log = MealsLog.new
   end
