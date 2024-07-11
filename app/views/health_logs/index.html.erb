@@ -10,11 +10,13 @@
   <%= date_field_tag :start_date,
         params[:start_date],
         class: "form-control input-left-blue",
+        value: Date.today.beginning_of_month,
         placeholder: "entre le"
     %>
     <%= date_field_tag :end_date,
         params[:end_date],
         class: "form-control input-right-blue",
+        value: Date.today,
         placeholder: "et le"
     %>
   <%= submit_tag "ok", name: "", class: "btn btn-blue m-2" %>
@@ -52,7 +54,7 @@
         label: 'sport',
         data: <%= @activities %>,
         borderWidth: 1,
-        backgroundColor: 'rgba(33, 158, 188, 0.8)',
+        backgroundColor: 'rgba(241, 137, 64, 0.8)',
         barThickness: 10,
         borderRadius: 35,
       }, {
@@ -60,7 +62,7 @@
         label: 'alimentation',
         data: <%= @meals %>,
         borderWidth: 1,
-        backgroundColor: 'rgba(241, 137, 64, 0.8)',
+        backgroundColor: 'rgba(33, 158, 188, 0.8)',
         barThickness: 10,
         borderRadius: 35,
       }]
@@ -76,7 +78,7 @@
   });
 <% end %>
 
-<div>
+<div class="mt-3">
 <h2>Mon alimentation</h2>
   <% if @allmeals.count != 0 %>
     <% if @allmeals.count == 1 %>
@@ -84,13 +86,13 @@
     <% else %>
       <p><%= @allmeals.count %> recettes suivies.</p>
     <% end %>
-      <%= link_to "Détails", "#", class:"btn btn-blue" %>
+      <%= link_to "Détails", recipe_meals_logs_path("all"), class:"btn btn-blue" %>
   <% else %>
     <p>Vous n'avez pas encore enregistré de repas sur cette période.</p>
   <% end %>
 </div>
 
-<div>
+<div class="mt-3">
 <h2>Mon activité physique</h2>
   <% if @allactivities.count != 0 %>
       <% if @allactivities.count == 1 %>
@@ -98,7 +100,7 @@
       <% else %>
         <p><%= @allactivities.count %> activités enregistrées.</p>
       <% end %>
-      <%= link_to "Détails", "#", class:"btn btn-blue" %>
+      <%= link_to "Détails", activities_logs_path, class:"btn btn-blue" %>
   <% else %>
     <p>Vous n'avez pas encore enregistré d'activité sur cette période.</p>
   <% end %>

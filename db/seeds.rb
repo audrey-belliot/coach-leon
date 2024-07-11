@@ -15,10 +15,10 @@ puts "Seeds cleaned !"
 puts "Creating new users..."
 
 users = [
-  User.create!(email: "kevin@gmail.com", password: "password", firstname: "Kévin", goal: "Perdre du poids", food_preferences: "Veggie", sport_preferences: "Cardio", birthdate: Date.new(2024,06,07), type_user: "", picture:"https://avatars.githubusercontent.com/u/159252673?v=4"),
-  User.create!(email: "audrey@gmail.com", password: "password", firstname: "Audrey", goal: "Perdre du poids", food_preferences: "Veggie", sport_preferences: "Cardio", birthdate: Date.new(2024,06,07), type_user: "", picture:"https://avatars.githubusercontent.com/u/92102977?v=4"),
-  User.create!(email: "marie@gmail.com", password: "password", firstname: "Marie", goal: "Préparer un troisième marathon", food_preferences: "Veggie", sport_preferences: "Cardio", birthdate: Date.new(2024,06,07), type_user: "", picture:"https://avatars.githubusercontent.com/u/155112860?v=4"),
-  User.create!(email: "valentin@gmail.com", password: "password", firstname: "Valentin", goal: "Perdre du poids", food_preferences: "Veggie", sport_preferences: "Cardio", birthdate: Date.new(2024,06,07), type_user: "", picture:"https://avatars.githubusercontent.com/u/159618368?v=4")
+  Kevin = User.create!(email: "kevin@gmail.com", password: "password", firstname: "Kévin", goal: "Perdre du poids", food_preferences: "Veggie", sport_preferences: "Cardio", birthdate: Date.new(2024,06,07), type_user: "", picture:"https://avatars.githubusercontent.com/u/159252673?v=4"),
+  Audrey = User.create!(email: "audrey@gmail.com", password: "password", firstname: "Audrey", goal: "Perdre du poids", food_preferences: "Veggie", sport_preferences: "Cardio", birthdate: Date.new(2024,06,07), type_user: "", picture:"https://avatars.githubusercontent.com/u/92102977?v=4"),
+  Marie = User.create!(email: "marie@gmail.com", password: "password", firstname: "Marie", goal: "Préparer un troisième marathon", food_preferences: "Veggie", sport_preferences: "Cardio", birthdate: Date.new(2024,06,07), type_user: "", picture:"https://avatars.githubusercontent.com/u/155112860?v=4"),
+  Valentin = User.create!(email: "valentin@gmail.com", password: "password", firstname: "Valentin", goal: "Je veux être musclé comme Léon", food_preferences: "Veggie", sport_preferences: "Cardio", birthdate: Date.new(2024,06,07), type_user: "", picture:"https://avatars.githubusercontent.com/u/159618368?v=4")
 ]
 
 puts "Creating breakfast recipes..."
@@ -189,7 +189,7 @@ plans = [
   Plan.create!(name: 'Summer Shred', start_date: '2024-06-01', end_date: '2024-08-31', description: 'A plan to get in shape for the summer.', user: User.first),
   Plan.create!(name: 'Muscle Gain', start_date: '2024-01-01', end_date: '2024-03-31', description: 'A plan focused on gaining muscle mass.', user: User.second),
   Plan.create!(name: 'Marathon Prep', start_date: '2024-04-01', end_date: '2024-06-30', description: 'A plan to prepare for a marathon.', user: User.third),
-  Plan.create!(name: 'Healthy Lifestyle', start_date: '2024-07-01', end_date: '2024-09-30', description: 'Il faut que tu fasses 4 sessions de vélo + une rando par semaine', user: User.last)
+  Plan.create!(name: 'Programme perte de poids', start_date: '2024-07-01', end_date: '2024-09-30', description: 'Il faut que tu fasses 4 sessions de vélo + une rando par semaine', user: User.last)
 ]
 
 puts "Plans created !"

@@ -12,32 +12,41 @@
       <button data-activity-category-target="muscu" data-action="click->activity-category#loadMuscu" class="btn-white-grey">Musculation</button>
 
       <div data-activity-category-target="cardioSection" class="mt-3">
+        <h2>Cardio</h2>
         <div class="cards-grid">
           <% @cardio.each do |cardio| %>
-            <div class="card">
-            <p class="card-text-home">
-              <%= cardio.activity %>
-              <%= button_to "Ajout", new_activity_activities_log_path(cardio),
-                method: :get,
-                class: "btn btn-blue"
-              %>
-            </p>
-          </div>
+            <div class="card" style="background-image: url(<%= cardio.picture %>)">
+              <%= button_to new_activity_activities_log_path(cardio),
+                  method: :get,
+                  class: "card-plus" do %>
+                    <i class="fa-solid fa-plus"></i>
+              <% end %>
+              <%= button_to activity_path(cardio),
+                  method: :get,
+                  class: "card-eye" do %>
+                    <i class="fa-regular fa-eye"></i>
+              <% end %>
+            </div>
           <% end %>
         </div>
       </div>
 
       <div data-activity-category-target="muscuSection" class="mt-3 d-none">
+        <h2>Renforcement musculaire</h2>
         <div class="cards-grid">
           <% @muscu.each do |muscu| %>
-            <div class="card">
-            <p class="card-text-home">
-              <%= muscu.activity %>
-              <%= button_to "Ajout", new_activity_activities_log_path(muscu),
-                method: :get,
-                class: "btn btn-blue"
-              %>
-            </p>
+            <div class="card" style="background-image: url(<%= muscu.picture %>)">
+              <%= button_to new_activity_activities_log_path(muscu),
+                  method: :get,
+                  class: "card-plus" do %>
+                    <i class="fa-solid fa-plus"></i>
+              <% end %>
+              <%= button_to activity_path(muscu),
+                  method: :get,
+                  class: "card-eye" do %>
+                    <i class="fa-regular fa-eye"></i>
+              <% end %>
+            </div>
           </div>
           <% end %>
         </div>

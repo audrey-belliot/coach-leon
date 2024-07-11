@@ -1,9 +1,8 @@
-<div class="container">
+<div class="container container-home">
 
-<% if user_signed_in? %>
+<% if user_signed_in? && @plan.present? %>
 
   <div class="summary">
-
     <div class="summary-activity">
       <div class="summary-stat">
         <div class="icon-summary-stat">
@@ -11,13 +10,9 @@
         </div>
         <p style="font-size: 10px; margin-bottom: 3px;">Cumul d'activité</p>
       </div>
-
       <h3 class= "title-card-home" ><%= ActivitiesLog.where(user:current_user).count %> activités réalisées au total</h3>
       <p style="font-size: 10px; margin-bottom: 3px;">Depuis le début du programme 💪 </p>
     </div>
-
-
-
 
     <div class="summary-health">
       <div class="summary-stat">
@@ -26,57 +21,83 @@
         </div>
         <p style="font-size: 10px; margin-bottom: 3px;">Evolution santé</p>
       </div>
-      <h3 class="title-card-home"><%= @weight %> </h3>
+      <h3 class="title-card-home"><%= @weight %> kg</h3>
       <p style="font-size: 10px; margin-bottom: 3px;">Depuis le début du programme 💪 </p>
     </div>
-
-
-
-
   </div>
-    <div class="div-center">
+
+    <div class="div-center-toggle" data-controller="toggle-home">
       <div>
-        <%= link_to "Je m'actualise", new_health_log_path, class: "btn btn-secondary" %>
-        <div class="actualition-icon">
-          <%= link_to root_path do %>
+         <button data-action="click->toggle-home#toggle" class="btn btn-orange">Je m'actualise</button>
+
+        <div class="actualition-icon d-none" data-toggle-home-target="icons">
+          <%= link_to new_health_log_path do %>
           <i class="fa-solid fa-heart icon-link-to"></i>
             <% end %>
 
-            <%= link_to root_path do %>
+            <%= link_to activities_path do %>
           <i class="fa-solid fa-person-running icon-link-to"></i>
             <% end %>
 
-
-            <%= link_to root_path do %>
+            <%= link_to recipes_path do %>
               <i class="fa-solid fa-utensils icon-link-to"></i>
               <% end %>
         </div>
       </div>
     </div>
 
-
-<div ">
-</div>
-
- <div class="row" >
-  <div class="div-center">
-    <div class="card-home mb-4" style="background-image: url('<%= @recipe.picture %>'); background-size: cover; background-position: center;">
-      <%= image_tag @recipe.picture, alt: "Le Wagon", width: 200 %>
-      <div class="card-body">
-        <h5 class="card-title"><%= @recipe.name %></h5>
-        <p class="card-text-home">Catégorie: <%= @recipe.category %></p>
-        <p class="card-text-home">Ingrédients: <%= @recipe.name %></p>
-      </div>
-    </div>
+  <div class="row mt-3">
+      <%= link_to plan_path(@plan) do %>
+          <div class="card-home-image" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url('https://api.resofit.fr/api/public/uploads/1708530336433-178627646.jpeg');">
+             <h3> Mon programme personnalisé </h3>
+             <h5><%= @plan.name %></h5>
+          </div>
+      <% end %>
   </div>
+
+    <div class="row mt-3">
+      <%= link_to recipe_path(@recipe) do %>
+          <div class="card-home-image" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url('<%= @recipe.picture %>');">
+             <div class="card-day-home">Jour <%= @current_day_of_plan %> </div>
+             <h3>La recette du jour</h3>
+             <h5><%= @recipe.name %></h5>
+          </div>
+      <% end %>
+    </div>
+
+    <div class="row mt-3">
+      <%= link_to activity_path(@activity) do %>
+          <div class="card-home-image" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url('<%= @activity.picture %>');">
+             <div class="card-day-home">Jour <%= @current_day_of_plan %> </div>
+             <h3>Ton activité du jour</h3>
+             <h5><%= @activity.activity %></h5>
+          </div>
+      <% end %>
+    </div>
 </div>
 
+
+
+
+  <% elsif user_signed_in? %>
+    <div class="round-home">
+      <div class="text-round-home">Coach <br> Léon</div>
+    </div>
+    <p>Il est maintenant temps de :</p>
+    <%= link_to "CREER TON PLAN", new_plan_path, class: "text-center" %><br>
+    <p>afin que Coach Léon te propose ton plan personnalisé !</p>
   <% else %>
-      <%= link_to "Se connecter", new_user_session_path, class: "nav-link" %>
-    <% end %>
+    <div class="round-home">
+      <div class="text-round-home">Coach <br> Léon</div>
+    </div>
+      <p>Te propose un <b>programme personnalisé</b> en fonction de <b>tes objectifs</b> !</p>
+      <%= link_to "Se connecter", new_user_session_path, class: "text-center" %>
+      <%= link_to "S'inscrire", new_user_registration_path, class: "text-center" %>
+  <% end %>
 
 
 
+</div>
 
 
 

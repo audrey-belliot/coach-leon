@@ -9,8 +9,12 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "posts#index"
-  resources :plans, only: [:show]
+  resources :plans
   resources :health_logs
+  resources :users, only: [:edit, :update]
+  resources :activities_logs, only: [:index, :update, :edit, :destroy]
+  resources :meals_logs, only: [:index, :update, :edit, :destroy]
+
   resources :activities do
     resources :activities_logs, only: [:new, :create]
   end
@@ -18,4 +22,6 @@ Rails.application.routes.draw do
   resources :recipes do
     resources :meals_logs
   end
+  get "/my_logs", to: "pages#my_logs"
+
 end

@@ -3,18 +3,21 @@
     <%= link_to :back, class: "text-decoration-none text-muted" do %>
       <i class="fa-solid fa-chevron-left pe-3"></i>
     <% end %>
-    <h1 class="mb-4">Ajout<br><strong>repas</strong></h1>
+    <h1>Ajout<br><strong>repas</strong></h1>
   </div>
 
-
-
-<%= simple_form_for [@meal, @meal_log] do |f| %>
-    <%= f.input :date, label: false, input_html: { class: 'input-blue' }, html5: true %>
-    <%= f.input :comment, label: false, input_html: { class: 'input-text' }, html5: true %>
-
-    <div class="mt-4"><%= f.submit "Valider", class: " btn btn-orange" %></div>
-<% end %>
-
-
-
+  <h2 class="text-center">Mon <%= @meal.category.downcase %> : <%= @meal.name.downcase %></h2>
+  <div class="row">
+    <div class="col-3">
+      <div class="card" style="background-image: url(<%= @meal.picture %>)"></div>
+    </div>
+    <div class="col-2"> </div>
+    <div class="col-7">
+      <%= simple_form_for [@meal, @meal_log] do |f| %>
+        <%= f.input :date, label: false, input_html: { class: 'input-blue' }, html5: true %>
+        <%= f.input :comment, label: false, placeholder: "Commentaire", input_html: { class: 'input-text' }, html5: true %>
+        <%= f.submit "Valider", class: " btn btn-orange" %>
+      <% end %>
+     </div>
+  </div>
 </div>
