@@ -15,10 +15,10 @@ puts "Seeds cleaned !"
 puts "Creating new users..."
 
 users = [
-  Kevin = User.create!(email: "kevin@gmail.com", password: "password", firstname: "Kévin", goal: "Perdre du poids", food_preferences: "Veggie", sport_preferences: "Cardio", birthdate: Date.new(2024,06,07), type_user: "", picture:"https://avatars.githubusercontent.com/u/159252673?v=4"),
-  Audrey = User.create!(email: "audrey@gmail.com", password: "password", firstname: "Audrey", goal: "Perdre du poids", food_preferences: "Veggie", sport_preferences: "Cardio", birthdate: Date.new(2024,06,07), type_user: "", picture:"https://avatars.githubusercontent.com/u/92102977?v=4"),
-  Marie = User.create!(email: "marie@gmail.com", password: "password", firstname: "Marie", goal: "Préparer un troisième marathon", food_preferences: "Veggie", sport_preferences: "Cardio", birthdate: Date.new(2024,06,07), type_user: "", picture:"https://avatars.githubusercontent.com/u/155112860?v=4"),
-  Valentin = User.create!(email: "valentin@gmail.com", password: "password", firstname: "Valentin", goal: "Je veux être musclé comme Léon", food_preferences: "Veggie", sport_preferences: "Cardio", birthdate: Date.new(2024,06,07), type_user: "", picture:"https://avatars.githubusercontent.com/u/159618368?v=4")
+  Kevin = User.create!(email: "kevin@gmail.com", password: "password", firstname: "Kévin", goal: "Perdre du poids pour être aussi svelte que Léon", food_preferences: "Veggie", sport_preferences: "Cardio", birthdate: Date.new(2024,06,07), type_user: "", picture:"https://avatars.githubusercontent.com/u/159252673?v=4"),
+  Audrey = User.create!(email: "audrey@gmail.com", password: "password", firstname: "Audrey", goal: "Perdre du poids pour être aussi svelte que Léon", food_preferences: "Veggie", sport_preferences: "Cardio", birthdate: Date.new(2024,06,07), type_user: "", picture:"https://avatars.githubusercontent.com/u/92102977?v=4"),
+  Marie = User.create!(email: "marie@gmail.com", password: "password", firstname: "Marie", goal: "Préparer un marathon pour courir aussi bien que Léon", food_preferences: "Veggie", sport_preferences: "Cardio", birthdate: Date.new(2024,06,07), type_user: "", picture:"https://avatars.githubusercontent.com/u/155112860?v=4"),
+  Valentin = User.create!(email: "valentin@gmail.com", password: "password", firstname: "Valentin", goal: "Être musclé comme Léon", food_preferences: "Veggie", sport_preferences: "Cardio", birthdate: Date.new(2024,06,07), type_user: "", picture:"https://avatars.githubusercontent.com/u/159618368?v=4")
 ]
 
 puts "Creating breakfast recipes..."
@@ -186,11 +186,12 @@ puts "Activities created !"
 puts "Creating new plans..."
 
 plans = [
-  Plan.create!(name: 'Summer Shred', start_date: '2024-06-01', end_date: '2024-08-31', description: 'A plan to get in shape for the summer.', user: User.first),
-  Plan.create!(name: 'Muscle Gain', start_date: '2024-01-01', end_date: '2024-03-31', description: 'A plan focused on gaining muscle mass.', user: User.second),
-  Plan.create!(name: 'Marathon Prep', start_date: '2024-04-01', end_date: '2024-06-30', description: 'A plan to prepare for a marathon.', user: User.third),
-  Plan.create!(name: 'Programme perte de poids', start_date: '2024-07-01', end_date: '2024-09-30', description: 'Il faut que tu fasses 4 sessions de vélo + une rando par semaine', user: User.last)
+  Plan.create!(name: 'Programme Summer Shred', start_date: '2024-06-01', end_date: '2024-08-31', description: "Un plan pour se mettre en forme pour l’été : 3 x 30 min de renforcement musculaire + 2 x 30 min de cardio par semaine. 2 litres d'eau par jour. 130g de glucides (540 kcal), 150g de protéines (630 kcal) et 70g de lipides (630 kcal) par jour.", user: User.first),
+  Plan.create!(name: 'Programme gain de muscle', start_date: '2024-01-01', end_date: '2024-03-31', description: "Un plan axé sur la prise de masse musculaire : 5 x 60 min de musculation + 2 x 30 min de cardio par semaine. 2 litres d'eau par jour. 430g de glucides (1 760 kcal), 155g de protéines (640 kcal) et 86g de lipides (800 kcal) par jour.", user: User.second),
+  Plan.create!(name: 'Prépa marathon', start_date: '2024-04-01', end_date: '2024-06-30', description: "Un plan pour préparer un marathon : une séance de fractionnés (30 min), une séance en endurance fondamentale (30 min) et une sortie longue (2h) par semaine + 1 x 30 min de renforcement musculaire. 2 litres d'eau par jour. 130g de glucides (540 kcal), 150g de protéines (630 kcal) et 70g de lipides (630 kcal) par jour.", user: User.third),
+  Plan.create!(name: 'Programme perte de poids', start_date: '2024-07-01', end_date: '2024-09-30', description: "Un plan pour perdre du poids : 3 x 30 min de cardio par semaine + 2 x 30 min de renforcement musculaire. 3 x 30 min de renforcement musculaire + 2 x 30 min de cardio par semaine. 2 litres d'eau par jour. 130g de glucides (540 kcal), 150g de protéines (630 kcal) et 70g de lipides (630 kcal) par jour.", user: User.last)
 ]
+
 
 puts "Plans created !"
 
@@ -229,10 +230,10 @@ health_logs = [
 puts "Health logs created !"
 
 activities_logs = [
-  ActivitiesLog.create!(date: '2024-01-01', activity: Activity.first, user: User.first, comment: 'Felt great during the run.', duration: 30.0, strava_id: 1234),
-  ActivitiesLog.create!(date: '2024-02-01', activity: Activity.second, user: User.second, comment: 'Lifted heavier weights today.', duration: 45.0, strava_id: 5678),
-  ActivitiesLog.create!(date: '2024-03-01', activity: Activity.third, user: User.third, comment: 'Very relaxing yoga session.', duration: 60.0, strava_id: 9101),
-  ActivitiesLog.create!(date: '2024-04-01', activity: Activity.last, user: User.last, comment: 'Cycled with friends, great weather.', duration: 90.0, strava_id: 1121),
+  ActivitiesLog.create!(date: '2024-01-01', activity: Activity.first, user: User.first, comment: 'Très bonnes sensations pendant ce run.', duration: 30.0, strava_id: 1234),
+  ActivitiesLog.create!(date: '2024-02-01', activity: Activity.second, user: User.second, comment: "J'ai levé plus lourds que d'habitude aujourd'hui.", duration: 45.0, strava_id: 5678),
+  ActivitiesLog.create!(date: '2024-03-01', activity: Activity.third, user: User.third, comment: 'Session de yoga très relaxante.', duration: 60.0, strava_id: 9101),
+  ActivitiesLog.create!(date: '2024-04-01', activity: Activity.last, user: User.last, comment: 'Sortie vélo entre amis, temps parfait.', duration: 90.0, strava_id: 1121),
 ]
 
 puts "Activities logs created !"
@@ -240,10 +241,10 @@ puts "Activities logs created !"
 puts "Creating meals logs..."
 
 meals_logs = [
-  MealsLog.create!(date: '2024-01-01', comment: 'Delicious and filling breakfast.', recipe: bouchees_choco_fraise, user: User.first),
-  MealsLog.create!(date: '2024-02-01', comment: 'Healthy and tasty lunch.', recipe: salade_quinoa_avocat, user: User.second),
-  MealsLog.create!(date: '2024-03-01', comment: 'Perfect dinner after a workout.', recipe: poelee_crevettes_ail, user: User.third),
-  MealsLog.create!(date: '2024-04-01', comment: 'Great snack for a quick energy boost.', recipe: smoothie_rose, user: User.last)
+  MealsLog.create!(date: '2024-01-01', comment: 'Délicieux et copieux petit dej.', recipe: bouchees_choco_fraise, user: User.first),
+  MealsLog.create!(date: '2024-02-01', comment: 'Dej healthy et très bon.', recipe: salade_quinoa_avocat, user: User.second),
+  MealsLog.create!(date: '2024-03-01', comment: 'Diner parfait après ma session de sport.', recipe: poelee_crevettes_ail, user: User.third),
+  MealsLog.create!(date: '2024-04-01', comment: "Bon snack pour un reboost d'énergie", recipe: smoothie_rose, user: User.last)
 ]
 
 puts "Meals logs created !"

@@ -92,7 +92,7 @@
 
 .card-day-home {
   background-color: #f18940;
-  width: 65px;
+  width: 80px;
   display: flex;
   padding: 10px;
   margin-top: 10px;
@@ -104,7 +104,7 @@
 }
 
 @media (max-width: 450px) {
-  .card-day-home {padding: 13px; height: 10px; width: 72px; margin-left: 10px }
+  .card-day-home {padding: 13px; height: 10px; width: 80px; margin-left: 10px }
 }
 
 .cards-grid {

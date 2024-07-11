@@ -4,6 +4,7 @@ class HealthLogsController < ApplicationController
     start_date = params[:start_date]
     end_date = params[:end_date]
     @healthlogs = HealthLog.where(date: start_date..end_date, user: current_user).to_a
+    @healthlogs = @healthlogs.sort_by{ |k| k["date"]}
     @allactivities = ActivitiesLog.where(date: start_date..end_date, user: current_user)
     @allmeals = MealsLog.where(date: start_date..end_date, user: current_user)
     @weights = []

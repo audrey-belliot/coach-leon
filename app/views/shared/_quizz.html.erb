@@ -1,15 +1,15 @@
 <h1>Créez votre plan personnalisé</h1>
 <%= simple_form_for current_user do |f| %>
-  <%= f.input :firstname %>
-  <%= f.input :birthdate %>
+  <%= f.input :firstname, label: "Prénom" %>
+  <%= f.input :birthdate, label: "Date de naissance", html5: true %>
   <%= f.input :goal, collection: [
-        "Je perds du poids pour être aussi svelte comme Léon",
-        "Je prépare un marathon comme Léon",
-        "Je veux être musclé comme Léon"
-      ], prompt: "Sélectionnez un objectif"
+        "Perdre du poids pour être aussi svelte que Léon",
+        "Préparer un marathon pour courir aussi bien que Léon",
+        "Être musclé comme Léon"
+      ], label: "Sélectionnez un objectif"
   %>
   <%#= f.input :weight %>
-  <%= f.input :food_preferences %>
-  <%= f.input :sport_preferences %>
-  <%= f.submit "J'obtiens mon plan personnalisé", class: "btn btn-primary" %>
+  <%= f.input :food_preferences, label:"Préférences alimentaires" %>
+  <%= f.input :sport_preferences, label:"Préférences sportives" %>
+  <%= f.submit "J'obtiens mon plan personnalisé", class: "btn btn-orange" %>
 <% end %>

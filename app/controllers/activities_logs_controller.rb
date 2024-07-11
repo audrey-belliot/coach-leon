@@ -1,15 +1,9 @@
 class ActivitiesLogsController < ApplicationController
-  before_action :set_activity, only: %i[create new index show]
-
-  def index
-    @activities_logs = current_user.activities_logs
-    @total = @activities_logs.count
-    @all_user_activities_logs = @activities_logs.where(activity_id: @activity)
-  end
-
-  def new
-    @activity_log = ActivitiesLog.new
-  end
+  before_action :set_activity, only: %i[create new]
+def index
+  @activities_logs = current_user.activities_logs
+  @total = @activities_logs.count
+end
 
   def show
     @activity_log = ActivitiesLog.find(params[:id])
@@ -41,5 +35,9 @@ class ActivitiesLogsController < ApplicationController
 
   def set_activity
     @activity = Activity.find(params[:activity_id])
+  end
+
+  def new
+    @activity_log = ActivitiesLog.new
   end
 end
