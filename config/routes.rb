@@ -12,8 +12,9 @@ Rails.application.routes.draw do
   resources :plans, only: [:show]
   resources :health_logs
   resources :activities do
-    resources :activities_logs
+    resources :activities_logs, only: [:new, :create]
   end
+  resources :activities_logs, only: [:index, :show, :edit, :update]
   resources :recipes do
     resources :meals_logs
   end
