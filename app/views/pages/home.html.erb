@@ -8,10 +8,20 @@
         <div class="icon-summary-stat">
           <i class="fa-solid fa-person-running"></i>
         </div>
-        <p style="font-size: 10px; margin-bottom: 3px;">Cumul d'activité</p>
+        <p style="font-size: 12px; margin-bottom: 3px;">Cumul d'activité</p>
       </div>
-      <h3 class= "title-card-home" ><%= ActivitiesLog.where(user:current_user).count %> activités réalisées au total</h3>
-      <p style="font-size: 10px; margin-bottom: 3px;">Depuis le début du programme 💪 </p>
+
+      <% if ActivitiesLog.where(user:current_user).count !=0 %>
+          <% if ActivitiesLog.where(user:current_user).count == 1 %>
+            <h3 class= "title-card-home" >Une activité réalisée au total</h3>
+          <% else %>
+            <h3 class= "title-card-home" ><%= ActivitiesLog.where(user:current_user).count %> activités réalisées au total</h3>
+          <% end %>
+        <p style="font-size: 12px; margin-bottom: 3px;">Depuis le début du programme 💪 </p>
+      <% else %>
+            <h3 class= "title-card-home" >Pas encore d'activités enregistrées 🙁</h3>
+      <% end %>
+
     </div>
 
     <div class="summary-health">
@@ -19,10 +29,10 @@
         <div class="icon-summary-health">
           <i class="fa-solid fa-heart"></i>
         </div>
-        <p style="font-size: 10px; margin-bottom: 3px;">Evolution santé</p>
+        <p style="font-size: 12px; margin-bottom: 3px">Evolution santé</p>
       </div>
       <h3 class="title-card-home"><%= @weight %> kg</h3>
-      <p style="font-size: 10px; margin-bottom: 3px;">Depuis le début du programme 💪 </p>
+      <p style="font-size: 12px; margin-bottom: 3px">Depuis le début du programme 💪 </p>
     </div>
   </div>
 

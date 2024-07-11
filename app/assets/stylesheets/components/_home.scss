@@ -58,8 +58,10 @@
   align-items: center; /* Aligne les éléments verticalement */
   justify-content: flex-start;
 }
+
 .title-card-home {
   font-size: 16px;
+  margin-top: 10px;
 }
 
 
@@ -245,7 +247,7 @@
 
 
 @media (max-width: 450px) {
-  .summary {display: flex; flex-direction:row; justify-content: space-between; h3{font-size: 11px;}}
+  .summary {display: flex; flex-direction:row; justify-content: space-between; h3{font-size: 16px; text-align: center}}
   .summary-activity {max-width: 48%; margin-right: 20px;}
   .summary-health {max-width: 48%;}
   .card-home {margin: 5px; width: 280px;}
