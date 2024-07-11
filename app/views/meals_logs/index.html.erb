@@ -14,7 +14,8 @@
         <div class="card-log">
           <div class="card-log-img" style="background-image: url(<%= meal_log.recipe.picture %>)"></div>
           <div class="card-log-content">
-            <h5><%= meal_log.date.strftime("%d/%m/%Y") %></h5>
+            <h5><%= meal_log.recipe.name %>
+             le <%= meal_log.date.strftime("%d/%m/%Y") %></h5>
             <%= meal_log.comment %> <br>
             <%= link_to "#" do %><i class="fa-solid fa-pen me-3"></i><% end %>
             <%= link_to meals_log_path(meal_log),
