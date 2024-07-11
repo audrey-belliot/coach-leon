@@ -18,6 +18,7 @@ Rails.application.routes.draw do
   resources :activities do
     resources :activities_logs, only: [:new, :create]
   end
+  resources :activities_logs, only: [:index, :show, :edit, :update]
   resources :recipes do
     resources :meals_logs
   end
