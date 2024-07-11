@@ -1,5 +1,5 @@
 class ActivitiesLogsController < ApplicationController
-  before_action :set_activity, only: %i[create new index]
+  before_action :set_activity, only: %i[create new index show]
 
   def index
     @activities_logs = current_user.activities_logs
@@ -26,7 +26,7 @@ class ActivitiesLogsController < ApplicationController
       render :new, status: :unprocessable_entity
     end
   end
-  
+
   def destroy
     @activity_log = ActivitiesLog.find(params[:id])
     @activity_log.destroy
@@ -42,3 +42,4 @@ class ActivitiesLogsController < ApplicationController
   def set_activity
     @activity = Activity.find(params[:activity_id])
   end
+end
