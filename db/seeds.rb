@@ -15,10 +15,10 @@ puts "Seeds cleaned !"
 puts "Creating new users..."
 
 users = [
-  Kevin = User.create!(email: "kevin@gmail.com", password: "password", firstname: "Kévin", goal: "Je veux perdre du poids pour être aussi svelte que Léon", food_preferences: "Veggie", sport_preferences: "Cardio", birthdate: Date.new(2024,06,07), type_user: "", picture:"https://avatars.githubusercontent.com/u/159252673?v=4"),
-  Audrey = User.create!(email: "audrey@gmail.com", password: "password", firstname: "Audrey", goal: "Je veux perdre du poids pour être aussi svelte que Léon", food_preferences: "Veggie", sport_preferences: "Cardio", birthdate: Date.new(2024,06,07), type_user: "", picture:"https://avatars.githubusercontent.com/u/92102977?v=4"),
-  Marie = User.create!(email: "marie@gmail.com", password: "password", firstname: "Marie", goal: "Je veux préparer un marathon pour courir aussi bien que Léon", food_preferences: "Veggie", sport_preferences: "Cardio", birthdate: Date.new(2024,06,07), type_user: "", picture:"https://avatars.githubusercontent.com/u/155112860?v=4"),
-  Valentin = User.create!(email: "valentin@gmail.com", password: "password", firstname: "Valentin", goal: "Je veux être musclé comme Léon", food_preferences: "Veggie", sport_preferences: "Cardio", birthdate: Date.new(2024,06,07), type_user: "", picture:"https://avatars.githubusercontent.com/u/159618368?v=4")
+  Kevin = User.create!(email: "kevin@gmail.com", password: "password", firstname: "Kévin", goal: "Perdre du poids pour être aussi svelte que Léon", food_preferences: "Veggie", sport_preferences: "Cardio", birthdate: Date.new(2024,06,07), type_user: "", picture:"https://avatars.githubusercontent.com/u/159252673?v=4"),
+  Audrey = User.create!(email: "audrey@gmail.com", password: "password", firstname: "Audrey", goal: "Perdre du poids pour être aussi svelte que Léon", food_preferences: "Veggie", sport_preferences: "Cardio", birthdate: Date.new(2024,06,07), type_user: "", picture:"https://avatars.githubusercontent.com/u/92102977?v=4"),
+  Marie = User.create!(email: "marie@gmail.com", password: "password", firstname: "Marie", goal: "Préparer un marathon pour courir aussi bien que Léon", food_preferences: "Veggie", sport_preferences: "Cardio", birthdate: Date.new(2024,06,07), type_user: "", picture:"https://avatars.githubusercontent.com/u/155112860?v=4"),
+  Valentin = User.create!(email: "valentin@gmail.com", password: "password", firstname: "Valentin", goal: "Être musclé comme Léon", food_preferences: "Veggie", sport_preferences: "Cardio", birthdate: Date.new(2024,06,07), type_user: "", picture:"https://avatars.githubusercontent.com/u/159618368?v=4")
 ]
 
 puts "Creating breakfast recipes..."
@@ -191,6 +191,7 @@ plans = [
   Plan.create!(name: 'Prépa marathon', start_date: '2024-04-01', end_date: '2024-06-30', description: "Un plan pour préparer un marathon : une séance de fractionnés (30 min), une séance en endurance fondamentale (30 min) et une sortie longue (2h) par semaine + 1 x 30 min de renforcement musculaire. 2 litres d'eau par jour. 130g de glucides (540 kcal), 150g de protéines (630 kcal) et 70g de lipides (630 kcal) par jour.", user: User.third),
   Plan.create!(name: 'Programme perte de poids', start_date: '2024-07-01', end_date: '2024-09-30', description: "Un plan pour perdre du poids : 3 x 30 min de cardio par semaine + 2 x 30 min de renforcement musculaire. 3 x 30 min de renforcement musculaire + 2 x 30 min de cardio par semaine. 2 litres d'eau par jour. 130g de glucides (540 kcal), 150g de protéines (630 kcal) et 70g de lipides (630 kcal) par jour.", user: User.last)
 ]
+
 
 puts "Plans created !"
 
