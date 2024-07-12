@@ -21,7 +21,18 @@
       <b>Ton plan</b> : <%= @plan.name%>
       <br>
       <br>
+      <h2>Description</h2>
       <%= @plan.description%>
+      <h2>Week 1</h2>
+      <%= @plan.week1%>
+      <h2>Week 2</h2>
+      <%= @plan.week2%>
+      <h2>Week 3</h2>
+      <%= @plan.week3%>
+      <h2>Week 4</h2>
+      <%= @plan.week4%>
+      <h2>Plan nutrition</h2>
+      <%= @plan.foodplan%>
     </div>
     <div data-plans-toggle-target="togglableButton" class="ms-4 mt-2">
       <button data-plans-toggle-target="alimentationCard" data-action="click->plans-toggle#loadRecipes" class="btn-orange-mini">Alimentation</button>
