@@ -15,7 +15,7 @@ puts "Seeds cleaned !"
 puts "Creating new users..."
 
 users = [
-  Kevin = User.create!(email: "kevin@gmail.com", password: "password", firstname: "Kévin", goal: "Perdre du poids pour être aussi svelte que Léon", food_preferences: "Veggie", sport_preferences: "Cardio", birthdate: Date.new(2024,06,07), type_user: "", picture:"https://avatars.githubusercontent.com/u/159252673?v=4"),
+  Kevin = User.create!(email: "kevin@gmail.com", password: "password", firstname: "Kévin", goal: "Avoir le summer body de Léon", food_preferences: "Veggie", sport_preferences: "Cardio", birthdate: Date.new(2024,06,07), type_user: "", picture:"https://avatars.githubusercontent.com/u/159252673?v=4"),
   Audrey = User.create!(email: "audrey@gmail.com", password: "password", firstname: "Audrey", goal: "Perdre du poids pour être aussi svelte que Léon", food_preferences: "Veggie", sport_preferences: "Cardio", birthdate: Date.new(2024,06,07), type_user: "", picture:"https://avatars.githubusercontent.com/u/92102977?v=4"),
   Marie = User.create!(email: "marie@gmail.com", password: "password", firstname: "Marie", goal: "Préparer un marathon pour courir aussi bien que Léon", food_preferences: "Veggie", sport_preferences: "Cardio", birthdate: Date.new(2024,06,07), type_user: "", picture:"https://avatars.githubusercontent.com/u/155112860?v=4"),
   Valentin = User.create!(email: "valentin@gmail.com", password: "password", firstname: "Valentin", goal: "Être musclé comme Léon", food_preferences: "Veggie", sport_preferences: "Cardio", birthdate: Date.new(2024,06,07), type_user: "", picture:"https://avatars.githubusercontent.com/u/159618368?v=4")
@@ -186,10 +186,50 @@ puts "Activities created !"
 puts "Creating new plans..."
 
 plans = [
-  Plan.create!(name: 'Programme Summer Shred', start_date: '2024-06-01', end_date: '2024-08-31', description: "Un plan pour se mettre en forme pour l’été : 3 x 30 min de renforcement musculaire + 2 x 30 min de cardio par semaine. 2 litres d'eau par jour. 130g de glucides (540 kcal), 150g de protéines (630 kcal) et 70g de lipides (630 kcal) par jour.", user: User.first),
-  Plan.create!(name: 'Programme gain de muscle', start_date: '2024-01-01', end_date: '2024-03-31', description: "Un plan axé sur la prise de masse musculaire : 5 x 60 min de musculation + 2 x 30 min de cardio par semaine. 2 litres d'eau par jour. 430g de glucides (1 760 kcal), 155g de protéines (640 kcal) et 86g de lipides (800 kcal) par jour.", user: User.second),
-  Plan.create!(name: 'Prépa marathon', start_date: '2024-04-01', end_date: '2024-06-30', description: "Un plan pour préparer un marathon : une séance de fractionnés (30 min), une séance en endurance fondamentale (30 min) et une sortie longue (2h) par semaine + 1 x 30 min de renforcement musculaire. 2 litres d'eau par jour. 130g de glucides (540 kcal), 150g de protéines (630 kcal) et 70g de lipides (630 kcal) par jour.", user: User.third),
-  Plan.create!(name: 'Programme perte de poids', start_date: '2024-07-01', end_date: '2024-09-30', description: "Un plan pour perdre du poids : 3 x 30 min de cardio par semaine + 2 x 30 min de renforcement musculaire. 3 x 30 min de renforcement musculaire + 2 x 30 min de cardio par semaine. 2 litres d'eau par jour. 130g de glucides (540 kcal), 150g de protéines (630 kcal) et 70g de lipides (630 kcal) par jour.", user: User.last)
+  Plan.create!(name: 'Programme Summer Shred',
+               start_date: '2024-06-01',
+               end_date: '2024-08-31',
+               description: "Un plan pour se mettre en forme pour l’été",
+               week1: "2 sessions de 45 min de renforcement musculaire + 2 séances de 30 min de course ou vélo",
+               week2: "3 sessions de 30 min de renforcement musculaire + 1 séances de 30 min de course ou vélo",
+               week3: "3 sessions de 45 min de renforcement musculaire + 2 séances de 30 min de course ou vélo",
+               week4: "4 sessions de 30 min de renforcement musculaire + 1 séances de 30 min de course ou vélo",
+               foodplan: "Boire 2 litres d'eau, 130g de glucides (540 kcal), 150g de protéines (630 kcal) et 70g de lipides (630 kcal) par jour.",
+               user: Kevin),
+  Plan.create!(name: 'Programme gain de muscle',
+               start_date: '2024-01-01',
+               end_date: '2024-03-31',
+               description: "Un plan axé sur la prise de masse musculaire",
+               week1: "2 sessions de 45 min de renforcement musculaire + 2 séances de 30 min de course ou vélo",
+               week2: "3 sessions de 30 min de renforcement musculaire + 1 séances de 30 min de course ou vélo",
+               week3: "3 sessions de 45 min de renforcement musculaire + 2 séances de 30 min de course ou vélo",
+               week4: "4 sessions de 30 min de renforcement musculaire + 1 séances de 30 min de course ou vélo",
+               foodplan: "Boire 2 litres d'eau, 430g de glucides (1 760 kcal), 155g de protéines (640 kcal) et 86g de lipides (800 kcal) par jour.",
+               user: Audrey),
+  Plan.create!(name: 'Prépa marathon',
+               start_date: '2024-04-01',
+               end_date: '2024-06-30',
+               description: "Un plan pour préparer un marathon",
+               week1: "Une séance de renforcement musculaire de 30 min + une séance de fractionnés de 30 min + une séance en endurance fondamentale de 45 min + une sortie longue de 1h30",
+               week2: "Deux séances de renforcement musculaire de 30 min + une séance de fractionnés de 30 min + une séance en endurance fondamentale de 45 min + une sortie longue de 1h45",
+               week3: "Une séance de renforcement musculaire de 30 min + une séance en endurance fondamentale de 45 min + une sortie longue de 2h00",
+               week4: "Deux séances de renforcement musculaire de 30 min + une séance en endurance fondamentale de 45 min + une sortie longue de 2h00",
+               foodplan: "Boire 2 litres d'eau, 130g de glucides (540 kcal), 150g de protéines (630 kcal) et 70g de lipides (630 kcal) par jour.",
+               user: Marie),
+  Plan.create!(name: 'Programme perte de poids',
+               start_date: '2024-07-01',
+               end_date: '2024-09-30',
+               description: "Un plan pour perdre du poids",
+               week1: "Séance 1 : 20 minutes en alternant 1 min de course au rythme que vous souhaitez et 1 minute de marche.
+                      + Séance 2 : 20 minutes en alternant 1 min 15 de course et 45 secondes de marche toujours au rythme que vous souhaitez.",
+               week2: "Séance 1 : 25 minutes en alternant 1 minute de course et une minute de marche. Pour augmenter la difficulté et les bienfaits, inclinez le tapis entre 2 et 5%.
+                      + Séance 2 : 25 min en alternant 1min15 de course et 45 secondes de marche.",
+               week3: "Séance 1 : 25 minutes en alternant 30 secondes de course avec une inclinaison entre 3 et 5% et 30 secondes de marche (sans inclinaison).
+                      + Séance 2 : 30 minutes en alternant 30 secondes de course avec une inclinaison entre 3 et 5% et 30 secondes de marche.",
+               week4: "Séance 1 : 25 minutes en alternant 1min30 de course (toujours avec inclinaison, à augmenter si ça vous paraît trop facile) et 30 secondes de marche.
+                      + Séance 2 : 30 minutes en alternant 1min30 de course (toujours avec inclinaison, à augmenter si ça vous paraît trop facile) et 30 secondes de marche.",
+               foodplan: "Boire 2 litres d'eau, 130g de glucides (540 kcal), 150g de protéines (630 kcal) et 70g de lipides (630 kcal) par jour.",
+               user: Valentin)
 ]
 
 
