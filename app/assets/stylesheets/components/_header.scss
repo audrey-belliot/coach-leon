@@ -22,5 +22,37 @@
 }
 
 .header-text {
-  margin-left: 10px
+  margin-left: 10px;
+  text-align: center;
+}
+
+.container-logo {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+
+  .round-header {
+    border-radius: 50%;
+    background-color: #f18940;
+    height: 50px;
+    width: 50px;
+    align-items: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    align-self: center;
+    margin-top: 2px;
+    margin-bottom: 2px;
+
+    .text-round-header {
+      color: white;
+      text-align: center;
+      justify-content: center;
+      font-family: "Playwrite HU", cursive;
+      font-optical-sizing: auto;
+      font-weight: 400;
+      font-style: normal;
+      font-size: 12px;
+    }
+  }
 }
