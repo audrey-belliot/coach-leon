@@ -10,26 +10,41 @@
 
 <div class="row">
   <div class="cards-logs-grid">
-    <% @activities_logs.each do |activity_log| %>
-      <div class="card-log">
-        <div class="card-log-img" style="background-image: url(<%= activity_log.activity.picture %>)"></div>
-        <div class="card-log-content">
-          <h5><%= activity_log.activity.activity %>
-           le <%= activity_log.date.strftime("%d/%m/%Y") %></h5>
-          <%= activity_log.comment %> <br>
 
-          <%= link_to "#" do %><i class="fa-solid fa-pen me-3"></i><% end %>
+    <% [4, 3, 2, 1].each do |week_number| %>
+    <% start_date = @plan.start_date + (week_number - 1) * 7 %>
+    <% end_date = @plan.start_date + week_number * 7 %>
 
-          <%= link_to activities_log_path(activity_log),
-              data: {turbo_method: :delete,
-              turbo_confirm: "Je confirme la suppression"} do %>
-              <i class="fa-solid fa-trash"></i>
+    <h5>Semaine <%= week_number %></h5>
+
+    <% @activities_logs.order("date DESC").each do |activity_log| %>
+      <% if activity_log.date >= start_date && activity_log.date < end_date %>
+        <div class="card-log">
+          <div class="card-log-img position-relative" style="background-image: url(<%= activity_log.activity.picture %>)">
+            <% if activity_log.date > @plan.start_date %>
+              <div class="card-day-home position-absolute top-0 start-0">Jour <%= (activity_log.date - @plan.start_date).to_i + 1 %> </div>
+            <% else %>
+              <div class="card-day-home position-absolute top-0 start-0">Avant</div>
+            <% end %>
+          </div>
+
+          <div class="card-log-content">
+            <h5><%= activity_log.activity.activity %> le <%= activity_log.date.strftime("%d/%m/%Y") %></h5>
+            <%= activity_log.comment %> <br>
+          <%= link_to "#" do %>
+            <i class="fa-solid fa-pen me-3"></i>
           <% end %>
 
-          <%= link_to activities_log_path(activity_log) do %> <i class="fa-solid fa-eye ms-3"></i><% end %>
+          <%= link_to activities_log_path(activity_log), data: { turbo_method: :delete, turbo_confirm: "Je confirme la suppression" } do %>
+            <i class="fa-solid fa-trash"></i>
+          <% end %>
 
+          <%= link_to activities_log_path(activity_log) do %>
+            <i class="fa-solid fa-eye ms-3"></i>
+          <% end %>
+          </div>
         </div>
-      </div>
+      <% end %>
     <% end %>
-  </div>
+  <% end %>
 </div>
