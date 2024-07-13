@@ -23,4 +23,8 @@ Rails.application.routes.draw do
     resources :meals_logs
   end
   get "/my_logs", to: "pages#my_logs"
+
+
+  get "/auth_strava", to:"strava#auth"
+  get "/auth_strava/callback", to:"strava#callback"
 end
