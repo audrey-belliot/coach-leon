@@ -29,9 +29,9 @@
 
                 <div class="card-log-content">
                   <h5 class="orange"><%= activity_log.activity.activity %></h5>
-                  <small class="m-0 black"><i class="fa-regular fa-calendar"></i> Jour <%= (activity_log.date - @plan.start_date).to_i + 1 %> (<%= activity_log.date.strftime("%d/%m/%y") %>)</small>
+                  <small class="m-0 black"><i class="fa-regular fa-calendar pe-2"></i><strong>Jour <%= (activity_log.date - @plan.start_date).to_i + 1 %></strong> (<%= activity_log.date.strftime("%d/%m/%y") %>)</small>
                   <br>
-                  <small class="m-0 black"><i class="fa-regular fa-clock"></i> Durée : <%= activity_log.duration.floor() %> mn</small>
+                  <small class="m-0 black"><i class="fa-regular fa-clock pe-2"></i>Durée : <%= activity_log.duration.floor() %> mn</small>
 
                   <p class="m-0 activity-log-comment"><%= activity_log.comment %><br></p>
                 </div>
