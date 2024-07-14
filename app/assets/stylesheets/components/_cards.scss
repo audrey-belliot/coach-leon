@@ -147,6 +147,7 @@
   display: grid;
   grid-template-columns: 1fr;
   grid-gap: 15px;
+  padding: 0 !important;
 }
 
 .card-log {
@@ -163,8 +164,8 @@
 }
 
 .card-log-content {
-  margin-left: 10px;
-  margin-right: 10px;
+  margin-left: 8px;
+  margin-right: 8px;
   width: 80%;
 }
 
@@ -175,4 +176,11 @@
   border: solid #f18940;
   background-size: cover;
 
+}
+
+.activity-log-comment {
+  color: $black;
+  opacity: 40%;
+  font-style: italic;
+  font-size: 12px;
 }
