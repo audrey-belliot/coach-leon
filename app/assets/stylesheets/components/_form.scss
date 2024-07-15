@@ -1,7 +1,7 @@
 .input-blue {
   border-radius: 35px;
   padding: 8px 32px;
-  width: 200px;
+  width: 100%;
   font-size: 16px;
   background: rgba(33, 158, 188, 0.50);
   border: 1px solid black;
@@ -57,7 +57,7 @@
 .input-right-blue {
   border-radius: 0 35px 35px 0;
   padding: 8px 10px;
-  width: 200px;
+  width: 150px;
   font-size: 16px;
   background: rgba(33, 158, 188, 0.50);
   border: 1px solid black;
@@ -68,7 +68,7 @@
 .input-left-blue {
   border-radius: 35px 0 0 35px;
   padding: 8px 10px;
-  width: 200px;
+  width: 150px;
   font-size: 16px;
   background: rgba(33, 158, 188, 0.50);
   border: 1px solid black;
@@ -77,7 +77,7 @@
 }
 
 .input-text {
-  border-radius: 35px;
+  border-radius: 15px;
   padding: 8px 32px;
   width: 100%;
   font-size: 16px;
@@ -85,4 +85,11 @@
   border: 1px solid black;
   text-align: center;
   margin: auto !important;
+}
+
+.date-search {
+  margin: auto !important;
+  align-items: center;
+
+
 }

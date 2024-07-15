@@ -29,11 +29,15 @@ def destroy
   @activity_log.destroy
   redirect_to activities_logs_path, status: :see_other
 end
+
+
 private
-def activities_log_params
-  params.require(:activities_log).permit(:date, :comment, :picture, :activity_id, :duration)
-end
-def set_activity
-  @activity = Activity.find(params[:activity_id])
-end
+
+  def activities_log_params
+    params.require(:activities_log).permit(:date, :comment, :picture, :activity_id, :duration)
+  end
+  def set_activity
+    @activity = Activity.find(params[:activity_id])
+  end
+
 end

@@ -121,5 +121,34 @@
   border-radius: 15px;
   border: solid #f18940;
   background-size: cover;
+}
 
+.row-cards {
+  // display: grid;
+  // grid-template-columns: 1fr 1fr 1fr 1fr;
+  // grid-gap: 15px;
+  // justify-content: center;
+  // align-items: center;
+  // overflow: auto;
+  // white-space: nowrap;
+  display: flex;
+  flex-wrap: nowrap;
+  overflow-x: scroll;
+}
+
+.card-health-log {
+  width: 100px;
+  height: 100px;
+  margin: 5px;
+  border-radius: 15px;
+  border: solid #f18940;
+  background-size: cover;
+}
+
+.card-new-log {
+  width: 100%;
+  height: 130px;
+  border-radius: 15px;
+  border: solid #f18940;
+  background-size: cover;
 }
