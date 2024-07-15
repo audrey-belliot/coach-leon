@@ -16,6 +16,11 @@
       <p><i class="fa-solid fa-utensils"></i> <%= @recipe.category %>
       <br><i class="fa-solid fa-fire"></i> <%= @recipe.calories %> calories</p>
     </div>
+      <%= button_to new_recipe_meals_log_path(@recipe),
+          method: :get,
+          class: "btn btn-white-blue" do %>
+          Ajouter ce repas
+      <% end %>
   </div>
   <div class="row mt-3">
     <h3>Ingrédients</h3>
