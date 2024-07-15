@@ -124,16 +124,22 @@
 }
 
 .row-cards {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
-  grid-gap: 15px;
-  justify-content: center;
-  align-items: center;
+  // display: grid;
+  // grid-template-columns: 1fr 1fr 1fr 1fr;
+  // grid-gap: 15px;
+  // justify-content: center;
+  // align-items: center;
+  // overflow: auto;
+  // white-space: nowrap;
+  display: flex;
+  flex-wrap: nowrap;
+  overflow-x: scroll;
 }
 
 .card-health-log {
-  width: 100%;
+  width: 100px;
   height: 100px;
+  margin: 5px;
   border-radius: 15px;
   border: solid #f18940;
   background-size: cover;

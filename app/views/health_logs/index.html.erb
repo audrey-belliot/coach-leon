@@ -135,6 +135,8 @@
       <% else %>
         <p><%= @allactivities.count %> activités enregistrées.</p>
 
+
+
         <div class="row-cards">
           <% @allactivities.each do |acti| %>
             <%= link_to activities_log_path(acti) do %>
@@ -142,6 +144,8 @@
             <% end %>
           <% end %>
         </div>
+
+
 
       <% end %>
   <% else %>
