@@ -34,6 +34,11 @@
   }
 }
 
+a {
+  text-decoration: none;
+  color: #f18940;
+}
+
 .summary {
   display: flex;
   justify-content: center;
@@ -124,25 +129,6 @@
 }
 
 
-.btn-secondary {
-  background-color: #f18940 !important;
-  justify-content: center;
-  display: inline-block;
-}
-
-
-.icon-link-to {
-  border-radius: 55px;
-  background: #229EBC;
-  width: 24px;
-  height: 24px;
-  display: flex;
-  align-items: center; /* Centre l'icône verticalement */
-  justify-content: center; /* Centre l'icône horizontalement */
-  margin-right: 10px;
-  display: flex;
-}
-
 .card-home-image {
   height: 180px;
   border-radius: 20px;
@@ -187,16 +173,7 @@
   flex-shrink: 0;
 }
 
-.card-filter {
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 180px;
-  width: 365px;
-  background: rgba(0, 0, 0, 0.65); /* Semi-transparent black filter */
-  z-index: 1; /* Position the filter below the text */
-  border-radius: 20px;
-}
+
 
 .card-body {
   position: relative;
@@ -215,14 +192,7 @@
    margin-left: 5px;
 }
 
-.card-filter-first-card {
-  position: absolute;
-  height: 180px;
-  width: 365px;
-  background: rgba(0, 0, 0, 0.65);
-  z-index: 1;
-  border-radius: 20px;
-}
+
 
 .button-card {
   background-color: #229EBC;
@@ -254,12 +224,5 @@
   .summary {display: flex; flex-direction:row; justify-content: space-between; h3{font-size: 16px; text-align: center}}
   .summary-activity {max-width: 48%; margin-right: 20px;}
   .summary-health {max-width: 48%;}
-  .card-home {margin: 5px; width: 280px;}
-  .card-image {width: 100%; margin: 5px; height: 100%;}
-  .card-filter {width: 280px; height: 100% ; margin: 5px;}
   .div-center {padding: 3px;}
-  .card-filter-first-card {width: 280px; height: 165px}
-  .button-card {    background-color: #229EBC; height: 24px; width: 22%; border-radius: 10px; display: flex; justify-content: center; flex-direction: row; flex-wrap: wrap; align-content: stretch; margin-left: 223px; margin-top: 52px;}
-  .card-filter-first-card {width: 280px; height: 165px; margin-right: 0px; height: 146px; margin-top: 9px; margin-right: -9px;
-}
-}
+ }

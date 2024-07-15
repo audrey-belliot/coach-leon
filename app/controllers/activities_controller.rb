@@ -10,4 +10,6 @@ def show
   @activity = Activity.find(params[:id])
 end
 
+
+
 end

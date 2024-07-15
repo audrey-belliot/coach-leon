@@ -1,15 +1,5 @@
-<style>
-body {
-  background-image: url('https://images.pexels.com/photos/2403045/pexels-photo-2403045.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2');
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
-}
-</style>
-
 <div class="container">
-  <h1 class="title"> Coach Léon</h1>
-  <div class="authentification">
+  <div class="authentification mt-3">
       <h2>Se connecter</h2>
         <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
           <div class="authentification-input">

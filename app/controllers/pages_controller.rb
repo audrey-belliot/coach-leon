@@ -1,4 +1,7 @@
+#require strava
+
 class PagesController < ApplicationController
+
   skip_before_action :authenticate_user!, only: [ :home ]
 
   def home
@@ -34,6 +37,7 @@ end
 def my_logs
   @plan = current_user.plans.order(:start_date).last
 end
+
 
 
 end
