@@ -127,6 +127,13 @@ GEM
     error_highlight (0.6.0)
     erubi (1.13.0)
     execjs (2.9.1)
+    faraday (2.10.0)
+      faraday-net_http (>= 2.0, < 3.2)
+      logger
+    faraday-multipart (1.0.4)
+      multipart-post (~> 2)
+    faraday-net_http (3.1.0)
+      net-http
     ffi (1.17.0)
     ffi (1.17.0-arm64-darwin)
     ffi (1.17.0-x86_64-darwin)
@@ -134,6 +141,7 @@ GEM
       sassc (~> 2.0)
     globalid (1.2.1)
       activesupport (>= 6.1)
+    hashie (5.0.0)
     i18n (1.14.5)
       concurrent-ruby (~> 1.0)
     importmap-rails (2.0.1)
@@ -161,7 +169,10 @@ GEM
     mini_mime (1.1.5)
     minitest (5.24.1)
     msgpack (1.7.2)
+    multipart-post (2.4.1)
     mutex_m (0.2.0)
+    net-http (0.4.1)
+      uri
     net-imap (0.4.14)
       date
       net-protocol
@@ -259,6 +270,11 @@ GEM
       sprockets (>= 3.0.0)
     stimulus-rails (1.3.3)
       railties (>= 6.0.0)
+    strava-ruby-client (2.1.0)
+      activesupport
+      faraday (>= 2.0)
+      faraday-multipart (>= 1.0)
+      hashie
     stringio (3.1.1)
     strscan (3.1.0)
     thor (1.3.1)
@@ -270,6 +286,7 @@ GEM
       railties (>= 6.0.0)
     tzinfo (2.0.6)
       concurrent-ruby (~> 1.0)
+    uri (0.13.0)
     warden (1.2.9)
       rack (>= 2.0.9)
     web-console (4.2.1)
@@ -311,6 +328,7 @@ DEPENDENCIES
   simple_form!
   sprockets-rails
   stimulus-rails
+  strava-ruby-client
   turbo-rails
   tzinfo-data
   web-console

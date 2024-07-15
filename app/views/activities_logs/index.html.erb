@@ -8,9 +8,17 @@
     </div>
   </div>
 
+  <% @activities.each do  |activity|  %>
+  <%= activity.name %>
+  <%= activity.sport_type%>
+  <% end %>
+
+
+  
   <% [4, 3, 2, 1].each do |week_number| %>
     <% start_date = @plan.start_date + (week_number - 1) * 7 %>
     <% end_date = @plan.start_date + week_number * 7 %>
+
 
     <div class="row mb-3">
         <h2 class="mb-3 blue">Semaine <%= week_number %></h3>
@@ -39,6 +47,5 @@
           <% end %>
         <% end %>
       </div>
-    </div>
   <% end %>
 </div>
