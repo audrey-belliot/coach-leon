@@ -6,7 +6,6 @@ def index
 
   athlete_client = Strava::Api::Client.new(access_token: session[:strava_access_token])
   @activities = athlete_client.athlete_activities
-  raise
 
 end
 
