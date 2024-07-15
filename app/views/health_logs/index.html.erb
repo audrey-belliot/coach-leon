@@ -6,22 +6,29 @@
     <h1 class="mb-4">Mon<br><strong>évolution</strong></h1>
   </div>
 
-<%= form_with url: health_logs_path, method: :get, class: "d-flex mb-3 mt-3" do %>
-  <%= date_field_tag :start_date,
+<div class="date-search">
+  <%= form_with url: health_logs_path, method: :get, class: "d-flex mb-3 mt-3" do %>
+    <div>
+      <%= date_field_tag :start_date,
         params[:start_date],
         class: "form-control input-left-blue",
-        value: Date.today.beginning_of_month,
-        placeholder: "entre le"
-    %>
-    <%= date_field_tag :end_date,
-        params[:end_date],
-        class: "form-control input-right-blue",
-        value: Date.today,
-        placeholder: "et le"
-    %>
-  <%= submit_tag "ok", name: "", class: "btn btn-blue m-2 ms-2" %>
+        value: Date.today.beginning_of_month
+      %>
+    </div>
 
-<% end %>
+    <div>
+      <%= date_field_tag :end_date,
+          params[:end_date],
+          class: "form-control input-right-blue",
+          value: Date.today
+      %>
+    </div>
+    <div class="ms-2">
+      <%= submit_tag "ok", name: "", class: "btn-orange-mini" %>
+    </div>
+
+  <% end %>
+</div>
 
 <%# <%= render "chart" %>
 
@@ -82,13 +89,28 @@
 <h2>Mon alimentation</h2>
   <% if @allmeals.count != 0 %>
     <% if @allmeals.count == 1 %>
-      <p>Une recette suivie.
-      <%= link_to meals_logs_path do %> <i class="fa-solid fa-eye ms-3"></i><% end %>
-      </p>
+      <p>Une recette suivie.</p>
+
+      <div class="row-cards">
+          <% @allmeals.each do |meal| %>
+            <%= link_to meals_log_path(meal) do %>
+              <div class="card-health-log" style="background-image: url(<%= meal.recipe.picture %>)"></div>
+            <% end %>
+          <% end %>
+      </div>
+
+
     <% else %>
-      <p><%= @allmeals.count %> recettes suivies.
-      <%= link_to meals_logs_path do %> <i class="fa-solid fa-eye ms-3"></i><% end %>
-</p>
+      <p><%= @allmeals.count %> recettes suivies.</p>
+
+      <div class="row-cards">
+          <% @allmeals.each do |meal| %>
+            <%= link_to meals_log_path(meal) do %>
+              <div class="card-health-log" style="background-image: url(<%= meal.recipe.picture %>)"></div>
+            <% end %>
+          <% end %>
+      </div>
+
     <% end %>
   <% else %>
     <p>Vous n'avez pas encore enregistré de repas sur cette période.</p>
@@ -99,13 +121,32 @@
 <h2>Mon activité physique</h2>
   <% if @allactivities.count != 0 %>
       <% if @allactivities.count == 1 %>
-        <p>Une activité enregistrée.
-        <%= link_to activities_logs_path do %> <i class="fa-solid fa-eye ms-3"></i><% end %>
-        </p>
+        <p>Une activité enregistrée.</p>
+
+      <div class="row-cards">
+        <% @allactivities.each do |acti| %>
+          <%= link_to activities_log_path(acti) do %>
+            <div class="card-health-log" style="background-image: url(<%= acti.activity.picture %>)"></div>
+          <% end %>
+        <% end %>
+      </div>
+
+
       <% else %>
-        <p><%= @allactivities.count %> activités enregistrées.
-        <%= link_to activities_logs_path do %> <i class="fa-solid fa-eye ms-3"></i><% end %>
-        </p>
+        <p><%= @allactivities.count %> activités enregistrées.</p>
+
+
+
+        <div class="row-cards">
+          <% @allactivities.each do |acti| %>
+            <%= link_to activities_log_path(acti) do %>
+              <div class="card-health-log" style="background-image: url(<%= acti.activity.picture %>)"></div>
+            <% end %>
+          <% end %>
+        </div>
+
+
+
       <% end %>
   <% else %>
     <p>Vous n'avez pas encore enregistré d'activité sur cette période.</p>
