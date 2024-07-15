@@ -3,6 +3,7 @@ class ActivitiesLogsController < ApplicationController
   def index
     @activities_logs = current_user.activities_logs
     @total = @activities_logs.count
+    @plan = current_user.plans.order(:start_date).last
   end
 
   def show
