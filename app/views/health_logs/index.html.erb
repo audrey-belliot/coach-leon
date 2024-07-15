@@ -89,13 +89,28 @@
 <h2>Mon alimentation</h2>
   <% if @allmeals.count != 0 %>
     <% if @allmeals.count == 1 %>
-      <p>Une recette suivie.
-      <%= link_to meals_logs_path do %> <i class="fa-solid fa-eye ms-3"></i><% end %>
-      </p>
+      <p>Une recette suivie.</p>
+
+      <div class="row-cards">
+          <% @allmeals.each do |meal| %>
+            <%= link_to meals_log_path(meal) do %>
+              <div class="card-health-log" style="background-image: url(<%= meal.recipe.picture %>)"></div>
+            <% end %>
+          <% end %>
+      </div>
+
+
     <% else %>
-      <p><%= @allmeals.count %> recettes suivies.
-      <%= link_to meals_logs_path do %> <i class="fa-solid fa-eye ms-3"></i><% end %>
-</p>
+      <p><%= @allmeals.count %> recettes suivies.</p>
+
+      <div class="row-cards">
+          <% @allmeals.each do |meal| %>
+            <%= link_to meals_log_path(meal) do %>
+              <div class="card-health-log" style="background-image: url(<%= meal.recipe.picture %>)"></div>
+            <% end %>
+          <% end %>
+      </div>
+
     <% end %>
   <% else %>
     <p>Vous n'avez pas encore enregistré de repas sur cette période.</p>
@@ -108,18 +123,26 @@
       <% if @allactivities.count == 1 %>
         <p>Une activité enregistrée.</p>
 
-          <% @allactivities.each do |acti| %>
-            <%= link_to activities_log_path(acti) do %>
-              <div class="card" style="background-image: url(<%= acti.activity.picture %>)"></div>
-            <% end %>
+      <div class="row-cards">
+        <% @allactivities.each do |acti| %>
+          <%= link_to activities_log_path(acti) do %>
+            <div class="card-health-log" style="background-image: url(<%= acti.activity.picture %>)"></div>
           <% end %>
-
+        <% end %>
+      </div>
 
 
       <% else %>
-        <p><%= @allactivities.count %> activités enregistrées.
-        <%= link_to activities_logs_path do %> <i class="fa-solid fa-eye ms-3"></i><% end %>
-        </p>
+        <p><%= @allactivities.count %> activités enregistrées.</p>
+
+        <div class="row-cards">
+          <% @allactivities.each do |acti| %>
+            <%= link_to activities_log_path(acti) do %>
+              <div class="card-health-log" style="background-image: url(<%= acti.activity.picture %>)"></div>
+            <% end %>
+          <% end %>
+        </div>
+
       <% end %>
   <% else %>
     <p>Vous n'avez pas encore enregistré d'activité sur cette période.</p>

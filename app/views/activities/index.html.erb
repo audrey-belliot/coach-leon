@@ -15,18 +15,9 @@
         <h2>Cardio</h2>
         <div class="cards-grid">
           <% @cardio.each do |cardio| %>
-            <div class="card" style="background-image: url(<%= cardio.picture %>)">
-              <%= button_to new_activity_activities_log_path(cardio),
-                  method: :get,
-                  class: "card-plus" do %>
-                    <i class="fa-solid fa-plus"></i>
-              <% end %>
-              <%= button_to activity_path(cardio),
-                  method: :get,
-                  class: "card-eye" do %>
-                    <i class="fa-regular fa-eye"></i>
-              <% end %>
-            </div>
+            <%= link_to activity_path(cardio) do %>
+              <div class="card" style="background-image: url(<%= cardio.picture %>)"></div>
+            <% end %>
           <% end %>
         </div>
       </div>
@@ -35,18 +26,9 @@
         <h2>Renforcement musculaire</h2>
         <div class="cards-grid">
           <% @muscu.each do |muscu| %>
-            <div class="card" style="background-image: url(<%= muscu.picture %>)">
-              <%= button_to new_activity_activities_log_path(muscu),
-                  method: :get,
-                  class: "card-plus" do %>
-                    <i class="fa-solid fa-plus"></i>
-              <% end %>
-              <%= button_to activity_path(muscu),
-                  method: :get,
-                  class: "card-eye" do %>
-                    <i class="fa-regular fa-eye"></i>
-              <% end %>
-            </div>
+            <%= link_to activity_path(muscu) do %>
+              <div class="card" style="background-image: url(<%= muscu.picture %>)"></div>
+            <% end %>
           <% end %>
         </div>
       </div>

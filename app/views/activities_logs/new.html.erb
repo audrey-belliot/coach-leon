@@ -7,14 +7,25 @@
   </div>
 
 <h2>Ma session de <%= @activity.activity %></h2>
-<%= simple_form_for [@activity, @activity_log] do |f| %>
-    <%= f.input :date, label: false, input_html: { class: 'input-blue' }, html5: true %>
-    <%= f.input :duration, label: false, input_html: { class: 'input-blue' }, placeholder: "durée en min", html5: true %>
+  <%= simple_form_for [@activity, @activity_log] do |f| %>
+<div class="row">
+  <div class="col-5">
+    <div class="card-show" style="background-image: url(<%= @activity.picture %>)"></div>
+  </div>
+
+  <div class="col-7">
+      <%= f.input :date, label: false, input_html: { class: 'input-blue' }, html5: true %>
+      <%= f.input :duration, label: false, input_html: { class: 'input-blue' }, placeholder: "durée en min", html5: true %>
+  </div>
+
+</div>
+
+<div class="row mt-2">
     <%= f.input :comment, label: false, input_html: { class: 'input-text' }, html5: true %>
+    <div class=""><%= f.submit "Valider", class: "btn btn-orange" %></div>
+</div>
 
-    <div class="mt-4"><%= f.submit "Valider", class: " btn btn-orange" %></div>
-<% end %>
-
+  <% end %>
 
 
 </div>
