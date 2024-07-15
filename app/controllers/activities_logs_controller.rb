@@ -3,6 +3,11 @@ class ActivitiesLogsController < ApplicationController
 def index
   @activities_logs = current_user.activities_logs
   @total = @activities_logs.count
+
+  athlete_client = Strava::Api::Client.new(access_token: session[:strava_access_token])
+  @activities = athlete_client.athlete_activities
+  raise
+
 end
 
 def show
@@ -29,6 +34,11 @@ def destroy
   @activity_log.destroy
   redirect_to activities_logs_path, status: :see_other
 end
+
+
+
+
+
 private
 def activities_log_params
   params.require(:activities_log).permit(:date, :comment, :picture, :activity_id, :duration)

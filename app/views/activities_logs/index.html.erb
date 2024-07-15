@@ -8,6 +8,11 @@
     </div>
   </div>
 
+  <% @activities.each do  |activity|  %>
+  <%= activity.name %>
+  <%= activity.sport_type%>
+  <% end %>
+
 <div class="row">
   <div class="cards-logs-grid">
     <% @activities_logs.each do |activity_log| %>
