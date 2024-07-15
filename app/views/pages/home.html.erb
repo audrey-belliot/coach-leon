@@ -11,6 +11,8 @@
         <p style="font-size: 12px; margin-bottom: 3px;">Cumul d'activité</p>
       </div>
 
+
+
       <% if ActivitiesLog.where(user:current_user).count !=0 %>
           <% if ActivitiesLog.where(user:current_user).count == 1 %>
             <h3 class= "title-card-home" >Une activité réalisée au total</h3>
@@ -22,28 +24,29 @@
             <h3 class= "title-card-home" >Pas encore d'activités enregistrées 🙁</h3>
       <% end %>
 
+
     </div>
 
     <div class="summary-health">
-      <div class="summary-stat">
-        <div class="icon-summary-health">
-          <i class="fa-solid fa-heart"></i>
+        <div class="summary-stat">
+          <div class="icon-summary-health">
+            <i class="fa-solid fa-heart"></i>
+          </div>
+          <p style="font-size: 12px; margin-bottom: 3px">Evolution santé</p>
         </div>
-        <p style="font-size: 12px; margin-bottom: 3px">Evolution santé</p>
+        <% if @weight < 0 %>
+          <h3 class="title-card-home"><%= @weight %> kg</h3>
+          <p style="font-size: 12px; margin-bottom: 3px">Depuis le début du programme 💪 </p>
+        <% else %>
+          <h3 class="title-card-home">+ <%= @weight %> kg</h3>
+          <p style="font-size: 12px; margin-bottom: 3px">Depuis le début du programme, allez, encore un petit effort 💪 </p>
+        <% end %>
       </div>
-      <% if @weight < 0 %>
-        <h3 class="title-card-home"><%= @weight %> kg</h3>
-        <p style="font-size: 12px; margin-bottom: 3px">Depuis le début du programme 💪 </p>
-      <% else %>
-        <h3 class="title-card-home">+ <%= @weight %> kg</h3>
-        <p style="font-size: 12px; margin-bottom: 3px">Depuis le début du programme, allez, encore un petit effort 💪 </p>
-      <% end %>
     </div>
-  </div>
 
     <div class="div-center-toggle" data-controller="toggle-home">
       <div>
-         <button data-action="click->toggle-home#toggle" class="btn btn-orange">Je m'actualise</button>
+         <button data-action="click->toggle-home#toggle" class="btn btn-orange">Je m'actualise</button
 
         <div class="actualition-icon d-none" data-toggle-home-target="icons">
           <%= link_to new_health_log_path do %>
@@ -61,7 +64,29 @@
       </div>
     </div>
 
-  <div class="row mt-3">
+    <div>
+         <div class="card-day-home">Semaine <%= @current_week_of_plan %> sur 4 </div>
+         <div class="">
+            <div class="d-flex border-plan">
+              <i class="fa-solid fa-person-running" style="color: #74C0FC;"></i>
+              <div class="card-plan">
+                <h2> Découvre tes activités de la semaine</h2>
+                <%= @myplan %>
+              </div>
+            </div>
+
+            <div class="d-flex">
+              <i class="fa-solid fa-plate-wheat" style="color: #FFD43B;"></i>
+              <div class="card-plan">
+                <h2> Découvre ton plan nutritionnel</h2>
+                <%= @current_food_plan %>
+              </div>
+            </div>
+         </div>
+    </div>
+
+
+    <div class="row mt-3">
       <%= link_to plan_path(@plan) do %>
           <div class="card-home-image" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url('https://api.resofit.fr/api/public/uploads/1708530336433-178627646.jpeg');">
              <h3> Mon programme personnalisé </h3>
@@ -73,7 +98,7 @@
     <div class="row mt-3">
       <%= link_to recipe_path(@recipe) do %>
           <div class="card-home-image" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url('<%= @recipe.picture %>');">
-             <div class="card-day-home">Jour <%= @current_day_of_plan %> </div>
+             <div class="card-day-home">Semaine <%= @current_week_of_plan %> sur 4 </div>
              <h3>La recette du jour</h3>
              <h5><%= @recipe.name %></h5>
           </div>
@@ -109,6 +134,8 @@
       <%= link_to "Se connecter", new_user_session_path, class: "text-center" %>
       <%= link_to "S'inscrire", new_user_registration_path, class: "text-center" %>
   <% end %>
+
+
 
 
 

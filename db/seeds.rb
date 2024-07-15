@@ -187,8 +187,8 @@ puts "Creating new plans..."
 
 plans = [
   Plan.create!(name: 'Programme Summer Shred',
-               start_date: '2024-06-01',
-               end_date: '2024-08-31',
+               start_date: '2024-06-01',#date commence au moment commence le programme
+               end_date: '2024-08-31', ##date fin du programme soit un mois après le premier jour
                description: "Un plan pour se mettre en forme pour l’été",
                week1: "2 sessions de 45 min de renforcement musculaire + 2 séances de 30 min de course ou vélo",
                week2: "3 sessions de 30 min de renforcement musculaire + 1 séances de 30 min de course ou vélo",

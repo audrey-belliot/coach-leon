@@ -245,6 +245,10 @@
   color: #FFF;
 }
 
+.border-plan {
+  border-left: dashed;
+}
+
 
 @media (max-width: 450px) {
   .summary {display: flex; flex-direction:row; justify-content: space-between; h3{font-size: 16px; text-align: center}}
