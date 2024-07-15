@@ -1,20 +1,32 @@
-<nav class="navbar fixed-bottom">
+<nav class="navbar fixed-bottom" data-controller="toggle-navbar">
   <div class="container-fluid">
 
     <%= link_to root_path do %>
-      <i class="fa fa-house"></i>
+      <i class="fa fa-house" data-toggle-navbar-target="ihouse"
+         data-action="click->toggle-navbar#house"></i>
     <% end %>
 
     <%= link_to recipes_path do %>
-      <i class="fa fa-utensils"></i>
+      <i class="fa fa-utensils" data-toggle-navbar-target="irecipes"
+         data-action="click->toggle-navbar#recipes"></i>
+    <% end %>
+
+    <%= link_to new_health_log_path do %>
+      <i class="fa-solid fa-circle-plus bigplus" data-toggle-navbar-target="ilog"
+         data-action="click->toggle-navbar#plus"></i>
     <% end %>
 
     <%= link_to activities_path do %>
-      <i class="fa fa-person-running"></i>
+      <i class="fa fa-person-running" data-toggle-navbar-target="iactivities"
+         data-action="click->toggle-navbar#activities"></i>
     <% end %>
 
     <%= link_to my_logs_path do %>
-      <i class="fa fa-user"></i>
+      <% if user_signed_in? %>
+        <%= image_tag current_user.picture, class:"avatar" %>
+      <% else %>
+        <i class="fa-solid fa-user"></i>
+      <% end %>
     <% end %>
 
   </div>

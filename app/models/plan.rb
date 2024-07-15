@@ -27,7 +27,7 @@ class Plan < ApplicationRecord
      week3: "Une séance de renforcement musculaire de 30 min + une séance en endurance fondamentale de 45 min + une sortie longue de 2h00",
      week4: "Deux séances de renforcement musculaire de 30 min + une séance en endurance fondamentale de 45 min + une sortie longue de 2h00",
      foodplan: "Boire 2 litres d'eau, 130g de glucides (540 kcal), 150g de protéines (630 kcal) et 70g de lipides (630 kcal) par jour.",
-     goal:"Préparer un marathon pour courir aussi bien que Léon"},
+     goal:"Courir un marathon aussi bien que Léon"},
     {name:'Programme perte de poids',
      description: "Un plan pour perdre du poids",
      week1: "Séance 1 : 20 minutes en alternant 1 min de course au rythme que vous souhaitez et 1 minute de marche.
@@ -39,7 +39,7 @@ class Plan < ApplicationRecord
      week4: "Séance 1 : 25 minutes en alternant 1min30 de course (toujours avec inclinaison, à augmenter si ça vous paraît trop facile) et 30 secondes de marche.
              + Séance 2 : 30 minutes en alternant 1min30 de course (toujours avec inclinaison, à augmenter si ça vous paraît trop facile) et 30 secondes de marche.",
      foodplan: "Boire 2 litres d'eau, 130g de glucides (540 kcal), 150g de protéines (630 kcal) et 70g de lipides (630 kcal) par jour.",
-     goal:'Perdre du poids pour être aussi svelte que Léon'},
+     goal:'Etre aussi svelte que Léon'},
 ].freeze
 
 end

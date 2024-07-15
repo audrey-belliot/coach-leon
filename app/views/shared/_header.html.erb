@@ -11,23 +11,15 @@
       <i class="fa-solid fa-wifi"></i>
       <i class="fa-solid fa-battery-full"></i>
     </div>
-    </div>
+  </div>
 
   <div class="header-footer">
     <% if user_signed_in? && current_user.goal? %>
-      <div class="header-text">
-        <%= current_user.goal %>
-        <%= link_to "Me déconnecter", destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item" %>
-      </div>
-       <% elsif user_signed_in? %>
-      <div class="header-text">
-        Réalise tes objectifs grâce au coach Léon
-      <%= link_to "Me déconnecter", destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item" %>
-      </div>
-        <% else %>
-      <div class="header-text">
-        Réalise tes objectifs grâce au coach Léon
-      </div>
+      <b><%= current_user.goal %></b>
+    <% elsif user_signed_in? %>
+      Réalise tes objectifs grâce au coach Léon
+    <% else %>
+      Réalise tes objectifs grâce au coach Léon
     <% end %>
   </div>
 </div>

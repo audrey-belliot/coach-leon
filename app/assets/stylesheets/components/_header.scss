@@ -18,12 +18,10 @@
 
 .header-footer {
   display: flex;
-  justify-content: start;
-}
-
-.header-text {
-  margin-left: 10px;
+  justify-content: center;
+  align-self: center;
   text-align: center;
+  margin-top: 10px;
 }
 
 .container-logo {
