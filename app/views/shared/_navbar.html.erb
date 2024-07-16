@@ -1,14 +1,20 @@
-<nav class="navbar fixed-bottom" data-controller="toggle-navbar">
+<nav class="navbar fixed-bottom">
   <div class="container-fluid">
 
     <%= link_to root_path do %>
-      <i class="fa fa-house" data-toggle-navbar-target="ihouse"
-         data-action="click->toggle-navbar#house"></i>
+      <% if current_page?(root_path) %>
+        <i class="fa fa-house orange"></i>
+      <% else %>
+        <i class="fa fa-house"></i>
+      <% end %>
     <% end %>
 
     <%= link_to recipes_path do %>
-      <i class="fa fa-utensils" data-toggle-navbar-target="irecipes"
-         data-action="click->toggle-navbar#recipes"></i>
+      <% if current_page?(recipes_path) %>
+        <i class="fa fa-utensils orange"></i>
+      <% else %>
+        <i class="fa fa-utensils"></i>
+      <% end %>
     <% end %>
 
     <%= link_to new_health_log_path do %>
@@ -17,12 +23,17 @@
     <% end %>
 
     <%= link_to activities_path do %>
-      <i class="fa fa-person-running" data-toggle-navbar-target="iactivities"
-         data-action="click->toggle-navbar#activities"></i>
+      <% if current_page?(activities_path) %>
+        <i class="fa fa-person-running orange"></i>
+      <% else %>
+        <i class="fa fa-person-running"></i>
+      <% end %>
     <% end %>
 
     <%= link_to my_logs_path do %>
-      <% if user_signed_in? %>
+      <% if current_page?(my_logs_path) && user_signed_in?%>
+        <%= image_tag current_user.picture, class:"avatar-orange" %>
+      <% elsif user_signed_in? %>
         <%= image_tag current_user.picture, class:"avatar" %>
       <% else %>
         <i class="fa-solid fa-user"></i>

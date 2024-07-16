@@ -13,10 +13,8 @@
     <li class="list-group-item mb-4"><i class="fa-solid fa-person-running grey pe-3"></i><%= link_to "Mes activités", activities_logs_path, class:"grey" %></li>
     <li class="list-group-item mb-4"><i class="fa-solid fa-utensils grey pe-3"></i><%= link_to "Mes repas", meals_logs_path, class:"grey" %></li>
     <li class="list-group-item mb-4"><i class="fa-solid fa-plus orange pe-3"></i><%= link_to "M'actualiser", new_health_log_path, class:"orange fw-bold" %></li>
+    <li class="list-group-item mb-4"><i class="fa-brands fa-strava grey pe-3"></i></i><%= link_to "Me connecter à Strava", auth_strava_path, class:"grey" %></li>
     <li class="list-group-item mb-4"><i class="fa-regular fa-circle-xmark grey pe-3"></i></i><%= link_to "Me déconnecter", destroy_user_session_path, data: {turbo_method: :delete}, class:"grey" %></li>
   </ul>
-
-      <%= link_to "Se connecter à Strava", auth_strava_path, class:"btn btn-orange" %>
-
 
 </div>
