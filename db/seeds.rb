@@ -179,6 +179,11 @@ chaise_mur = Activity.create(
   calories_loss: 50,
   picture: "https://boxlifemagazine.com/wp-content/uploads//2023/09/Untitled-design-2023-09-26T165219.471-1-1-1024x666.png"
 )
+strava = Activity.create(
+  category: "Cardio",
+  activity: "Activité Strava",
+  picture: "https://www.trail-session.fr/wp-content/uploads/2020/03/20953843_1843953035619111_6661951630043065944_n.jpg"
+)
 
 puts "Activities created !"
 
@@ -270,10 +275,10 @@ health_logs = [
 puts "Health logs created !"
 
 activities_logs = [
-  ActivitiesLog.create!(date: '2024-01-01', activity: Activity.first, user: User.first, comment: 'Très bonnes sensations pendant ce run.', duration: 30.0, strava_id: 1234),
-  ActivitiesLog.create!(date: '2024-02-01', activity: Activity.second, user: User.second, comment: "J'ai levé plus lourds que d'habitude aujourd'hui.", duration: 45.0, strava_id: 5678),
-  ActivitiesLog.create!(date: '2024-03-01', activity: Activity.third, user: User.third, comment: 'Session de yoga très relaxante.', duration: 60.0, strava_id: 9101),
-  ActivitiesLog.create!(date: '2024-04-01', activity: Activity.last, user: User.last, comment: 'Sortie vélo entre amis, temps parfait.', duration: 90.0, strava_id: 1121),
+  ActivitiesLog.create!(date: '2024-01-01', activity: Activity.first, user: User.first, comment: 'Très bonnes sensations pendant ce run.', duration: 30.0),
+  ActivitiesLog.create!(date: '2024-02-01', activity: Activity.second, user: User.second, comment: "J'ai levé plus lourds que d'habitude aujourd'hui.", duration: 45.0),
+  ActivitiesLog.create!(date: '2024-03-01', activity: Activity.third, user: User.third, comment: 'Session de yoga très relaxante.', duration: 60.0),
+  ActivitiesLog.create!(date: '2024-04-01', activity: Activity.last, user: User.last, comment: 'Sortie vélo entre amis, temps parfait.', duration: 90.0),
 ]
 
 puts "Activities logs created !"
