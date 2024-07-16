@@ -33,6 +33,6 @@ class StravaController < ApplicationController
 
     #il faudra les mettre dans l'autre controller
     #puts athlete_client.athlete_activities.first
-    redirect_to activities_logs_path, notice: "connecter à strava"
+    redirect_to activities_logs_path, notice: "Connecté(e) à strava"
   end
 end
