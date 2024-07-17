@@ -26,7 +26,11 @@
           <% if activity_log.date >= start_date && activity_log.date < end_date %>
             <%= link_to activities_log_path(activity_log) do %>
               <div class="card-log shadow-sm mb-1 me-3 bg-body-tertiary rounded">
-                <div class="card-log-img position-relative" style="background-image: url(<%= activity_log.activity.picture %>)"></div>
+                <div class="card-log-img position-relative" style="background-image: url(<%= activity_log.activity.picture %>)">
+                  <% if activity_log.strava_id %>
+                    <i class="fa-brands fa-strava"></i>
+                  <% end  %>
+                </div>
                 <div class="card-log-content">
                   <h5 class="orange"><%= activity_log.activity.activity %></h5>
                   <small class="m-0 black">
@@ -38,7 +42,11 @@
                   <small class="m-0 black">
                     <i class="fa-regular fa-clock pe-2"></i>Durée : <%= activity_log.duration.floor() %> mn
                   </small>
-                  <p class="m-0 activity-log-comment">"<%= activity_log.comment.slice(0, 40) + '...' %>"<br></p>
+                  <% if activity_log.comment.length >= 51 %>
+                    <p class="m-0 activity-log-comment">"<%= activity_log.comment.slice(0, 52) + '...' %>"<br></p>
+                  <% else %>
+                    <p class="m-0 activity-log-comment">"<%= activity_log.comment %>"<br></p>
+                  <% end %>
                 </div>
               </div>
             <% end %>
@@ -66,7 +74,11 @@
         <% if activity_log.date < @plan.start_date %>
           <%= link_to activities_log_path(activity_log) do %>
             <div class="card-log shadow-sm mb-1 me-3 bg-body-tertiary rounded">
-              <div class="card-log-img position-relative" style="background-image: url(<%= activity_log.activity.picture %>)"></div>
+              <div class="card-log-img position-relative" style="background-image: url(<%= activity_log.activity.picture %>)">
+                <% if activity_log.strava_id %>
+                  <i class="fa-brands fa-strava"></i>
+                <% end  %>
+              </div>
               <div class="card-log-content">
                 <h5 class="orange"><%= activity_log.activity.activity %></h5>
                 <small class="m-0 black">
@@ -78,7 +90,11 @@
                 <small class="m-0 black">
                   <i class="fa-regular fa-clock pe-2"></i>Durée : <%= activity_log.duration.floor() %> mn
                 </small>
-                <p class="m-0 activity-log-comment">"<%= activity_log.comment.slice(0, 40) + '...' %>"<br></p>
+                <% if activity_log.comment.length >= 52 %>
+                  <p class="m-0 activity-log-comment">"<%= activity_log.comment.slice(0, 52) + '...' %>"<br></p>
+                <% else %>
+                  <p class="m-0 activity-log-comment">"<%= activity_log.comment %>"<br></p>
+                <% end %>
               </div>
             </div>
           <% end %>
