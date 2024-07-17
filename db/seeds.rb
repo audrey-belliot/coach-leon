@@ -16,9 +16,9 @@ puts "Creating new users..."
 
 users = [
   Kevin = User.create!(email: "kevin@gmail.com", password: "password", firstname: "Kévin", goal: "Avoir le summer body de Léon", food_preferences: "Veggie", sport_preferences: "Cardio", birthdate: Date.new(2024,06,07), type_user: "", picture:"https://avatars.githubusercontent.com/u/159252673?v=4"),
-  Audrey = User.create!(email: "audrey@gmail.com", password: "password", firstname: "Audrey", goal: "Etre aussi svelte que Léon", food_preferences: "Veggie", sport_preferences: "Cardio", birthdate: Date.new(2024,06,07), type_user: "", picture:"https://avatars.githubusercontent.com/u/92102977?v=4"),
+  Audrey = User.create!(email: "audrey@gmail.com", password: "password", firstname: "Audrey", goal: "Être musclé comme Léon", food_preferences: "Veggie", sport_preferences: "Cardio", birthdate: Date.new(2024,06,07), type_user: "", picture:"https://avatars.githubusercontent.com/u/92102977?v=4"),
   Marie = User.create!(email: "marie@gmail.com", password: "password", firstname: "Marie", goal: "Courir un marathon aussi bien que Léon", food_preferences: "Veggie", sport_preferences: "Cardio", birthdate: Date.new(2024,06,07), type_user: "", picture:"https://avatars.githubusercontent.com/u/155112860?v=4"),
-  Valentin = User.create!(email: "valentin@gmail.com", password: "password", firstname: "Valentin", goal: "Être musclé comme Léon", food_preferences: "Veggie", sport_preferences: "Cardio", birthdate: Date.new(2024,06,07), type_user: "", picture:"https://avatars.githubusercontent.com/u/159618368?v=4")
+  Valentin = User.create!(email: "valentin@gmail.com", password: "password", firstname: "Valentin", goal: "Etre aussi svelte que Léon", food_preferences: "Veggie", sport_preferences: "Cardio", birthdate: Date.new(2024,06,07), type_user: "", picture:"https://avatars.githubusercontent.com/u/159618368?v=4")
 ]
 
 puts "Creating breakfast recipes..."
@@ -192,8 +192,8 @@ puts "Creating new plans..."
 
 plans = [
   Plan.create!(name: 'Programme Summer Shred',
-               start_date: '2024-06-01',
-               end_date: '2024-08-31',
+               start_date: '2024-07-01',
+               end_date: '2024-07-31',
                description: "Un plan pour se mettre en forme pour l’été",
                week1: "2 sessions de 45 min de renforcement musculaire + 2 séances de 30 min de course ou vélo",
                week2: "3 sessions de 30 min de renforcement musculaire + 1 séances de 30 min de course ou vélo",
@@ -202,8 +202,8 @@ plans = [
                foodplan: "Boire 2 litres d'eau, 130g de glucides (540 kcal), 150g de protéines (630 kcal) et 70g de lipides (630 kcal) par jour.",
                user: Kevin),
   Plan.create!(name: 'Programme gain de muscle',
-               start_date: '2024-01-01',
-               end_date: '2024-03-31',
+               start_date: '2024-07-01',
+               end_date: '2024-07-31',
                description: "Un plan axé sur la prise de masse musculaire",
                week1: "2 sessions de 45 min de renforcement musculaire + 2 séances de 30 min de course ou vélo",
                week2: "3 sessions de 30 min de renforcement musculaire + 1 séances de 30 min de course ou vélo",
@@ -212,8 +212,8 @@ plans = [
                foodplan: "Boire 2 litres d'eau, 430g de glucides (1 760 kcal), 155g de protéines (640 kcal) et 86g de lipides (800 kcal) par jour.",
                user: Audrey),
   Plan.create!(name: 'Prépa marathon',
-               start_date: '2024-04-01',
-               end_date: '2024-06-30',
+               start_date: '2024-07-01',
+               end_date: '2024-07-31',
                description: "Un plan pour préparer un marathon",
                week1: "Une séance de renforcement musculaire de 30 min + une séance de fractionnés de 30 min + une séance en endurance fondamentale de 45 min + une sortie longue de 1h30",
                week2: "Deux séances de renforcement musculaire de 30 min + une séance de fractionnés de 30 min + une séance en endurance fondamentale de 45 min + une sortie longue de 1h45",
@@ -223,7 +223,7 @@ plans = [
                user: Marie),
   Plan.create!(name: 'Programme perte de poids',
                start_date: '2024-07-01',
-               end_date: '2024-09-30',
+               end_date: '2024-07-31',
                description: "Un plan pour perdre du poids",
                week1: "Séance 1 : 20 minutes en alternant 1 min de course au rythme que vous souhaitez et 1 minute de marche.
                       + Séance 2 : 20 minutes en alternant 1 min 15 de course et 45 secondes de marche toujours au rythme que vous souhaitez.",

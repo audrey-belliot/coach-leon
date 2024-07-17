@@ -20,7 +20,7 @@
       <div class="cards-logs-grid col">
         <% @meals_logs.order("date DESC").each do |meal_log| %>
           <% if meal_log.date >= start_date && meal_log.date < end_date %>
-            <%= link_to meals_log_path(meal_log) do %>
+            <%= link_to recipe_path(meal_log.recipe) do %>
               <div class="card-log shadow-sm mb-1 me-3 bg-body-tertiary rounded">
                 <div class="card-log-img position-relative" style="background-image: url(<%= meal_log.recipe.picture %>)">
                 </div>
