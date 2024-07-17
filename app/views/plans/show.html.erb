@@ -5,58 +5,49 @@
         <i class="fa-solid fa-chevron-left pe-3"></i>
       <% end %>
       <h1 class="mb-4">Plan<br>
-      <strong>hebdo</strong></h1>
+      <strong>mensuel</strong></h1>
     </div>
 
-    <div class="input-blue-plan">
-    du <%= @plan.start_date.strftime('%d/%m/%Y') %> au <%= @plan.end_date.strftime('%d/%m/%Y') %>
+    <div>
+      <i class="fa-solid fa-bullseye orange"></i> <%= @plan.name%>
+      <br>
+      <i class="fa-solid fa-rocket orange"></i> <%= @plan.description%>
+      <br>
+      <i class="fa-regular fa-calendar orange"></i> Plan du <span class="orange"><%= @plan.start_date.strftime('%d/%m/%Y') %></span> au <span class="orange"><%= @plan.end_date.strftime('%d/%m/%Y') %></span>
     </div>
 
-    <div class="d-flex align-items-baseline pt-4">
-        <h2 class="ms-4">Recommandations</h2>
-        <p><i data-plans-toggle-target="foodIcon" class="fa-solid fa-utensils fa-2x m-2"></i></p>
-        <p><i data-plans-toggle-target="sportIcon" class="fa-solid fa-person-running fa-2x d-none m-2"></i></p>
-    </div>
-    <div class="ms-4">
-      <b>Ton plan</b> : <%= @plan.name%>
-      <br>
-      <br>
-      <h2>Description</h2>
-      <%= @plan.description%>
-      <h2>Week 1</h2>
-      <%= @plan.week1%>
-      <h2>Week 2</h2>
-      <%= @plan.week2%>
-      <h2>Week 3</h2>
-      <%= @plan.week3%>
-      <h2>Week 4</h2>
-      <%= @plan.week4%>
-      <h2>Plan nutrition</h2>
-      <%= @plan.foodplan%>
-    </div>
-    <div data-plans-toggle-target="togglableButton" class="ms-4 mt-2">
+    <div data-plans-toggle-target="togglableButton" class="mt-2">
       <button data-plans-toggle-target="alimentationCard" data-action="click->plans-toggle#loadRecipes" class="btn-orange-mini">Alimentation</button>
       <button data-plans-toggle-target="sportCard" data-action="click->plans-toggle#loadActivities" class="btn-white-grey">Sport</button>
         <div data-plans-toggle-target="recipesSection" class="mt-3">
-          <h2>Idées de recettes</h2>
-            <% @plans_recipes.each do |plan_recipe| %>
-            <div class="card" style="background-image: url(<%= plan_recipe.recipe.picture %>)">
-              <%= button_to "Ajout", new_recipe_meals_log_path(plan_recipe.recipe),
-                  method: :get,
-                  class: "btn btn-blue"
-              %>
+          <h2 class="mt-3">Plan nutrition</h2>
+            <%= @plan.foodplan%>
+          <h2 class="mt-3">Idées de recettes</h2>
+            <div class="cards-grid">
+              <% @plans_recipes.each do |plan_recipe| %>
+                <%= link_to recipe_path(plan_recipe.recipe) do %>
+                  <div class="card" style="background-image: url(<%= plan_recipe.recipe.picture %>)"></div>
+                <% end %>
               <% end %>
             </div>
         </div>
 
         <div data-plans-toggle-target="activitiesSection" class="d-none mt-3">
-          <h2>Idées d'activités</h2>
-            <% @plans_activities.each do |plan_activity|%>
-            <div class="card" style="background-image: url(<%= plan_activity.activity.picture %>)">
-              <%= button_to "Ajout", new_activity_activities_log_path(plan_activity.activity),
-                  method: :get,
-                  class: "btn btn-blue"
-              %>
+          <h2 class="mt-3">Plan sport</h2>
+            <h3 class="mt-3">Semaine 1</h3>
+              <%= @plan.week1%>
+            <h3 class="mt-3">Semaine 2</h3>
+              <%= @plan.week2%>
+            <h3 class="mt-3">Semaine 3</h3>
+              <%= @plan.week3%>
+            <h3 class="mt-3">Semaine 4</h3>
+              <%= @plan.week4%>
+          <h2 class="mt-3">Idées d'activités</h2>
+            <div class="cards-grid">
+              <% @plans_activities.each do |plan_activity|%>
+                <%= link_to activity_path(plan_activity.activity) do %>
+                  <div class="card" style="background-image: url(<%= plan_activity.activity.picture %>)"></div>
+                <% end %>
               <% end %>
             </div>
         </div>

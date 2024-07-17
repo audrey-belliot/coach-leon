@@ -4,6 +4,12 @@ class UsersController < ApplicationController
     @user = current_user
     if @user.update(user_params)
       generated_plan = generate_plan(@user.goal)
+
+      4.times do
+        PlansActivity.create!(plan: generated_plan, activity: Activity.all.sample)
+        PlansRecipe.create!(plan: generated_plan, recipe: Recipe.all.sample)
+      end
+
       redirect_to plan_path(generated_plan)
     else
        render 'plans/new', status: :unprocessable_entity
@@ -18,7 +24,7 @@ class UsersController < ApplicationController
   def generate_plan(goal)
     plan_info = Plan::PLAN_INFO.find{|element| element[:goal] == goal}
     start_date = Date.today
-    end_date = start_date + 3.months
+    end_date = start_date + 1.month
     Plan.create!(name: plan_info[:name], description: plan_info[:description], week1: plan_info[:week1], week2: plan_info[:week2], week3: plan_info[:week3], week4: plan_info[:week4], foodplan: plan_info[:foodplan], user:current_user, start_date:start_date, end_date:end_date)
   end
 
