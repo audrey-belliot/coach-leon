@@ -4,6 +4,7 @@ class MealsLogsController < ApplicationController
   def index
     @meals_logs = current_user.meals_logs
     @numbermeals = @meals_logs.count
+    @plan = current_user.plans.order(:start_date).last
   end
 
   def show
