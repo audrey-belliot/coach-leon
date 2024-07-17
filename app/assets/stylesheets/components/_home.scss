@@ -130,11 +130,12 @@ a {
 
 
 .card-home-image {
-  height: 180px;
+  height: 100%;
   border-radius: 20px;
   background-size: cover;
   background-position: center;
   overflow: hidden;
+  border: 2px solid #FFA500; 
 
   h3 {
     font-size: 24px;
@@ -164,6 +165,7 @@ a {
   background-position: center;
   overflow: hidden;
   border-radius: 20px;
+  border: 2px solid #FFA500;
 }
 
 

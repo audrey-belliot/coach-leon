@@ -217,7 +217,7 @@ plans = [
                foodplan: "Boire 2 litres d'eau, 130g de glucides (540 kcal), 150g de protéines (630 kcal) et 70g de lipides (630 kcal) par jour.",
                user: Marie),
   Plan.create!(name: 'Programme perte de poids',
-               start_date: '2024-07-01',
+               start_date: '2024-07-07',
                end_date: '2024-09-30',
                description: "Un plan pour perdre du poids",
                week1: "Séance 1 : 20 minutes en alternant 1 min de course au rythme que vous souhaitez et 1 minute de marche.
