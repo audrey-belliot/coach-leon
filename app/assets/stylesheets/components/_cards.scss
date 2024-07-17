@@ -70,26 +70,6 @@
   align-items: center;
   }
 
-.card-eye {
-  border-radius: 50%;
-  background-color: #219ebc;
-  color: white;
-  border: 0px;
-  position: relative;
-  top: 15px;
-  left: -50px;
-}
-
-.card-plus {
-  border-radius: 50%;
-  background-color: #219ebc;
-  color: white;
-  border: 0px;
-  position: relative;
-  top: 0px;
-  left: 0px;
-}
-
 .cards-logs-grid {
   display: grid;
   grid-template-columns: 1fr;
@@ -108,6 +88,14 @@
   border-radius: 15px;
   border: solid #f18940;
   background-size: cover;
+  position: absolute;
+
+  i {
+    position: relative;
+    top: 5px;
+    left: 5px;
+    color: white;
+  }
 }
 
 .card-log-content {

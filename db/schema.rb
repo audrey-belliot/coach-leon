@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_07_12_122454) do
+ActiveRecord::Schema[7.1].define(version: 2024_07_16_091356) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -33,7 +33,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_07_12_122454) do
     t.datetime "updated_at", null: false
     t.text "comment"
     t.float "duration"
-    t.integer "strava_id"
+    t.string "strava_id"
     t.index ["activity_id"], name: "index_activities_logs_on_activity_id"
     t.index ["user_id"], name: "index_activities_logs_on_user_id"
   end

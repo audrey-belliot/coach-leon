@@ -1,7 +1,5 @@
 class StravaController < ApplicationController
-
   def auth
-
     client = Strava::OAuth::Client.new(
       client_id: ENV['CLIENT_ID_STRAVA'],
       client_secret: ENV['CLIENT_SECRET_STRAVA']
@@ -18,12 +16,9 @@ class StravaController < ApplicationController
     )
     redirect_to redirect_url, allow_other_host: true
     puts ENV['CLIENT_SECRET_STRAVA']
-
   end
 
-
   def callback
-
     client = Strava::OAuth::Client.new(
       client_id: ENV['CLIENT_ID_STRAVA'],
       client_secret: ENV['CLIENT_SECRET_STRAVA']
@@ -38,7 +33,6 @@ class StravaController < ApplicationController
 
     #il faudra les mettre dans l'autre controller
     #puts athlete_client.athlete_activities.first
-    redirect_to activities_logs_path, notice: "connecter à strava"
-
+    redirect_to activities_logs_path, notice: "Connecté(e) à strava"
   end
 end
