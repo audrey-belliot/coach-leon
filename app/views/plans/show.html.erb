@@ -23,11 +23,13 @@
           <h2 class="mt-3">Plan nutrition</h2>
             <%= @plan.foodplan%>
           <h2 class="mt-3">Idées de recettes</h2>
-            <% @plans_recipes.each do |plan_recipe| %>
-              <%= link_to new_recipe_meals_log_path(plan_recipe.recipe) do %>
-                <div class="card" style="background-image: url(<%= plan_recipe.recipe.picture %>)"></div>
+            <div class="cards-grid">
+              <% @plans_recipes.each do |plan_recipe| %>
+                <%= link_to recipe_path(plan_recipe.recipe) do %>
+                  <div class="card" style="background-image: url(<%= plan_recipe.recipe.picture %>)"></div>
+                <% end %>
               <% end %>
-            <% end %>
+            </div>
         </div>
 
         <div data-plans-toggle-target="activitiesSection" class="d-none mt-3">
@@ -41,11 +43,13 @@
             <h3 class="mt-3">Semaine 4</h3>
               <%= @plan.week4%>
           <h2 class="mt-3">Idées d'activités</h2>
-            <% @plans_activities.each do |plan_activity|%>
-              <%= link_to new_activity_activities_log_path(plan_activity.activity) do %>
-                <div class="card" style="background-image: url(<%= plan_activity.activity.picture %>)"></div>
+            <div class="cards-grid">
+              <% @plans_activities.each do |plan_activity|%>
+                <%= link_to activity_path(plan_activity.activity) do %>
+                  <div class="card" style="background-image: url(<%= plan_activity.activity.picture %>)"></div>
+                <% end %>
               <% end %>
-            <% end %>
+            </div>
         </div>
 
     </div>
