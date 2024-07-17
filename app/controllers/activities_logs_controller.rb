@@ -5,9 +5,7 @@ class ActivitiesLogsController < ApplicationController
     @activities_logs = current_user.activities_logs
     @total = @activities_logs.count
     @plan = current_user.plans.order(:start_date).last
-
     athlete_client = Strava::Api::Client.new(access_token: session[:strava_access_token])
-
     if @activities_logs.where.not(strava_id: nil).exists? && athlete_client.access_token != nil
       @activities = athlete_client.athlete_activities
       @activities.each do |strava|
