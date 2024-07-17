@@ -1,4 +1,4 @@
-<div class="container">
+<div data-controller="activities-logs" class="container">
   <div class="row mb-4">
     <div class="d-flex align-items-baseline">
       <%= link_to :back, class: "text-decoration-none text-muted" do %>
@@ -8,44 +8,83 @@
     </div>
   </div>
 
-  <% @activities.each do  |activity|  %>
-  <%= activity.name %>
-  <%= activity.sport_type%>
-  <% end %>
-
-
-  
+  <!-- Pour les activités dans le plan -->
   <% [4, 3, 2, 1].each do |week_number| %>
     <% start_date = @plan.start_date + (week_number - 1) * 7 %>
     <% end_date = @plan.start_date + week_number * 7 %>
 
+    <% week_activities = @activities_logs.where(date: start_date...end_date).order("date DESC") %>
 
+  <% if week_activities.any? %>
     <div class="row mb-3">
-        <h2 class="mb-3 blue">Semaine <%= week_number %></h3>
-      <div class="col-auto d-flex flex-column ">
-        <div class="timeline flex-grow-1">
-        </div>
+      <h2 class="mb-3 blue">Semaine <%= week_number %></h2>
+      <div class="col-auto d-flex flex-column">
+        <div class="timeline flex-grow-1"></div>
       </div>
       <div class="cards-logs-grid col w-100">
         <% @activities_logs.order("date DESC").each do |activity_log| %>
           <% if activity_log.date >= start_date && activity_log.date < end_date %>
             <%= link_to activities_log_path(activity_log) do %>
               <div class="card-log shadow-sm mb-1 me-3 bg-body-tertiary rounded">
-                <div class="card-log-img position-relative" style="background-image: url(<%= activity_log.activity.picture %>)">
-                </div>
-
+                <div class="card-log-img position-relative" style="background-image: url(<%= activity_log.activity.picture %>)"></div>
                 <div class="card-log-content">
                   <h5 class="orange"><%= activity_log.activity.activity %></h5>
-                  <small class="m-0 black"><i class="fa-regular fa-calendar pe-2"></i><strong>Jour <%= (activity_log.date - @plan.start_date).to_i + 1 %></strong> (<%= activity_log.date.strftime("%d/%m/%y") %>)</small>
+                  <small class="m-0 black">
+                    <i class="fa-regular fa-calendar pe-2"></i>
+                    <strong>Jour <%= (activity_log.date - @plan.start_date).to_i + 1 %></strong>
+                    (<%= activity_log.date.strftime("%d/%m/%y") %>)
+                  </small>
                   <br>
-                  <small class="m-0 black"><i class="fa-regular fa-clock pe-2"></i>Durée : <%= activity_log.duration.floor() %> mn</small>
-
-                  <p class="m-0 activity-log-comment"><%= activity_log.comment %><br></p>
+                  <small class="m-0 black">
+                    <i class="fa-regular fa-clock pe-2"></i>Durée : <%= activity_log.duration.floor() %> mn
+                  </small>
+                  <p class="m-0 activity-log-comment">"<%= activity_log.comment.slice(0, 40) + '...' %>"<br></p>
                 </div>
               </div>
             <% end %>
           <% end %>
         <% end %>
       </div>
+    </div>
+    <% end %>
   <% end %>
+
+  <!-- Pour les activités d'anciens plans -->
+  <small data-activities-logs-target="showButton" data-action="click->activities-logs#loadOldActivities" class="btn-orange-mini mb-3 d-block mx-auto w-75">
+  <i class="fa-regular fa-eye $white pe-3"></i>Afficher l'historique
+  </small>
+  <small data-activities-logs-target="hideButton" data-action="click->activities-logs#hideOldActivities" class="btn-orange-mini mb-3 d-block mx-auto w-75 d-none">
+    <i class="fa-regular fa-eye-slash $white pe-3"></i>Cacher l'historique
+  </small>
+  <div data-activities-logs-target="activitiesHistory" class="row mb-3 d-none">
+    <h2 class="mb-3 blue">Mon historique d'activités</h2>
+    <div class="col-auto d-flex flex-column">
+      <div class="timeline flex-grow-1"></div>
+    </div>
+    <div class="cards-logs-grid col w-100">
+      <% @activities_logs.order("date DESC").each do |activity_log| %>
+        <% if activity_log.date < @plan.start_date %>
+          <%= link_to activities_log_path(activity_log) do %>
+            <div class="card-log shadow-sm mb-1 me-3 bg-body-tertiary rounded">
+              <div class="card-log-img position-relative" style="background-image: url(<%= activity_log.activity.picture %>)"></div>
+              <div class="card-log-content">
+                <h5 class="orange"><%= activity_log.activity.activity %></h5>
+                <small class="m-0 black">
+                  <i class="fa-regular fa-calendar pe-2"></i>
+                  <strong><%= activity_log.date.strftime("%d/%m/%y")%></strong>
+
+                </small>
+                <br>
+                <small class="m-0 black">
+                  <i class="fa-regular fa-clock pe-2"></i>Durée : <%= activity_log.duration.floor() %> mn
+                </small>
+                <p class="m-0 activity-log-comment">"<%= activity_log.comment.slice(0, 40) + '...' %>"<br></p>
+              </div>
+            </div>
+          <% end %>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+
 </div>

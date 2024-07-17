@@ -1,14 +1,14 @@
 class ActivitiesLogsController < ApplicationController
   before_action :set_activity, only: %i[create new]
 
- def index
-  @activities_logs = current_user.activities_logs
-  @total = @activities_logs.count
-  @plan = current_user.plans.order(:start_date).last
+  def index
+    @activities_logs = current_user.activities_logs
+    @total = @activities_logs.count
+    @plan = current_user.plans.order(:start_date).last
 
-  athlete_client = Strava::Api::Client.new(access_token: session[:strava_access_token])
-  @activities = athlete_client.athlete_activities
-end
+    athlete_client = Strava::Api::Client.new(access_token: session[:strava_access_token])
+    @activities = athlete_client.athlete_activities
+  end
 
   def show
     @activity_log = ActivitiesLog.find(params[:id])
