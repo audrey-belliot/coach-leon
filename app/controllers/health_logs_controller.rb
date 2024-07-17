@@ -1,5 +1,4 @@
 class HealthLogsController < ApplicationController
-
   def index
     start_date = params[:start_date]
     end_date = params[:end_date]
@@ -19,8 +18,6 @@ class HealthLogsController < ApplicationController
       @meals << healthlog.rating_nutrition * 10
       @mood << healthlog.rating_mood * 10
     end
-
-
   end
 
   def new
@@ -42,5 +39,4 @@ class HealthLogsController < ApplicationController
   def health_log_params
     params.require(:health_log).permit(:date, :weight, :rating_nutrition, :rating_activity, :rating_mood, :water)
   end
-
 end
