@@ -5,6 +5,7 @@ class ActivitiesLogsController < ApplicationController
     @activities_logs = current_user.activities_logs
     @total = @activities_logs.count
     @plan = current_user.plans.order(:start_date).last
+
     athlete_client = Strava::Api::Client.new(access_token: session[:strava_access_token])
     if athlete_client.access_token != nil
       @activities = athlete_client.athlete_activities
@@ -16,6 +17,7 @@ class ActivitiesLogsController < ApplicationController
     else
       redirect_to auth_strava_path
     end
+    
   end
 
   def show
