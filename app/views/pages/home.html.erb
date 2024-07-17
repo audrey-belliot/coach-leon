@@ -11,6 +11,8 @@
         <p style="font-size: 12px; margin-bottom: 3px;">Cumul d'activité</p>
       </div>
 
+
+
       <% if ActivitiesLog.where(user:current_user).count !=0 %>
           <% if ActivitiesLog.where(user:current_user).count == 1 %>
             <h3 class= "title-card-home" >Une activité réalisée au total</h3>
@@ -22,24 +24,26 @@
             <h3 class= "title-card-home" >Pas encore d'activités enregistrées 🙁</h3>
       <% end %>
 
+
     </div>
 
+
     <div class="summary-health">
-      <div class="summary-stat">
-        <div class="icon-summary-health">
-          <i class="fa-solid fa-heart"></i>
+        <div class="summary-stat">
+          <div class="icon-summary-health">
+            <i class="fa-solid fa-heart"></i>
+          </div>
+          <p style="font-size: 12px; margin-bottom: 3px">Evolution santé</p>
         </div>
-        <p style="font-size: 12px; margin-bottom: 3px">Evolution santé</p>
+        <% if @weight < 0 %>
+          <h3 class="title-card-home"><%= @weight %> kg</h3>
+          <p style="font-size: 12px; margin-bottom: 3px">Depuis le début du programme 💪 </p>
+        <% else %>
+          <h3 class="title-card-home">+ <%= @weight %> kg</h3>
+          <p style="font-size: 12px; margin-bottom: 3px">Depuis le début du programme, allez, encore un petit effort 💪 </p>
+        <% end %>
       </div>
-      <% if @weight < 0 %>
-        <h3 class="title-card-home"><%= @weight %> kg</h3>
-        <p style="font-size: 12px; margin-bottom: 3px">Depuis le début du programme 💪 </p>
-      <% else %>
-        <h3 class="title-card-home">+ <%= @weight %> kg</h3>
-        <p style="font-size: 12px; margin-bottom: 3px">Depuis le début du programme, allez, encore un petit effort 💪 </p>
-      <% end %>
     </div>
-  </div>
 
     <div class="div-center-toggle" data-controller="toggle-home">
       <div>
@@ -61,31 +65,29 @@
       </div>
     </div>
 
-  <div class="row mt-3">
-      <%= link_to plan_path(@plan) do %>
-          <div class="card-home-image" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url('https://api.resofit.fr/api/public/uploads/1708530336433-178627646.jpeg');">
-             <h3> Mon programme personnalisé </h3>
-             <h5><%= @plan.name %></h5>
-          </div>
-      <% end %>
-  </div>
+
 
     <div class="row mt-3">
       <%= link_to recipe_path(@recipe) do %>
-          <div class="card-home-image" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url('<%= @recipe.picture %>');">
-             <div class="card-day-home">Jour <%= @current_day_of_plan %> </div>
-             <h3>La recette du jour</h3>
-             <h5><%= @recipe.name %></h5>
+          <div class="card-home-image" style="background-image: linear-gradient(rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.7)); padding: 20px; border-radius: 20px; overflow: hidden; border: 2px solid #FFA500;">
+             <div class="card-day-home">Semaine <%= @current_week_of_plan %> sur 4 </div>
+            <h3 style="color: #000000;">Ton programme sportif de la semaine 💪</h3>
+             <h5 style="color: #808080;"><%= @myplan %></h5>
+
+             <h3 style="color: #000000;">Ton plan nutritionnel 🥝</h3>
+             <h5 style="color: #808080;"><%= @current_food_plan  %></h5>
+              <%= link_to "Voir mon programme", plan_path(@plan), class: "btn btn-primary" %>
+
           </div>
       <% end %>
     </div>
 
     <div class="row mt-3">
       <%= link_to activity_path(@activity) do %>
-          <div class="card-home-image" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url('<%= @activity.picture %>');">
-             <div class="card-day-home">Jour <%= @current_day_of_plan %> </div>
-             <h3>Ton activité du jour</h3>
-             <h5><%= @activity.activity %></h5>
+          <div class="card-home-image" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url('https://images.pexels.com/photos/841130/pexels-photo-841130.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2');">
+             <div class="card-day-home">Semaine <%= @current_week_of_plan %> sur 4 </div>
+             <h3>Bravo <%= current_user.firstname %></h3>
+             <h5> Tu as perdu <%= @calories  %> calories depuis le début du programme, garde le cap 🏋️</h5>
           </div>
       <% end %>
     </div>
@@ -109,6 +111,8 @@
       <%= link_to "Se connecter", new_user_session_path, class: "text-center" %>
       <%= link_to "S'inscrire", new_user_registration_path, class: "text-center" %>
   <% end %>
+
+
 
 
 

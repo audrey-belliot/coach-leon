@@ -130,11 +130,12 @@ a {
 
 
 .card-home-image {
-  height: 180px;
+  height: 100%;
   border-radius: 20px;
   background-size: cover;
   background-position: center;
   overflow: hidden;
+  border: 2px solid #FFA500; 
 
   h3 {
     font-size: 24px;
@@ -149,6 +150,77 @@ a {
     margin-left: 10px
   }
 }
+
+.card-home {
+  position: relative;
+  background-size: cover;
+  background-position: center;
+}
+
+
+.card-image {
+  height: 180px;
+  width: 365px;
+  background-size: cover;
+  background-position: center;
+  overflow: hidden;
+  border-radius: 20px;
+  border: 2px solid #FFA500;
+}
+
+
+.activity-home {
+  width: 355px;
+  height: 180px;
+  flex-shrink: 0;
+}
+
+
+
+.card-body {
+  position: relative;
+  z-index: 2; /* Position the text above the filter */
+  color: #ffff; /* Ensure the text color contrasts with the filter */
+}
+
+.card-subject {
+  margin-top: 41px;
+  margin-left: 10px;
+}
+
+.card-programm-home {
+   font-size: 16px ;
+   margin-top: 5px;
+   margin-left: 5px;
+}
+
+
+
+.button-card {
+  background-color: #229EBC;
+  height: 30px;
+  width: 17%;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-content: stretch;
+  margin-left: 257px;
+  margin-top: 50px;
+}
+
+.button-card-a {
+  font-size: 16px;
+  border-radius: 15px;
+  text-decoration: transparent;
+  color: #FFF;
+}
+
+.border-plan {
+  border-left: dashed;
+}
+
 
 @media (max-width: 450px) {
   .summary {display: flex; flex-direction:row; justify-content: space-between; h3{font-size: 16px; text-align: center}}
