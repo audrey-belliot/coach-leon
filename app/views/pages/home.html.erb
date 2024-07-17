@@ -1,40 +1,35 @@
 <div class="container container-home">
 
-<% if user_signed_in? && @plan.present? %>
+  <% if user_signed_in? && @plan.present? %>
 
-  <div class="summary">
-    <div class="summary-activity">
-      <div class="summary-stat">
-        <div class="icon-summary-stat">
-          <i class="fa-solid fa-person-running"></i>
+    <div class="summary">
+      <div class="summary-activity">
+
+        <div class="summary-stat">
+          <div class="icon-summary-stat"><i class="fa-solid fa-person-running"></i></div>
+          <p style="font-size: 12px; margin-bottom: 3px;">Cumul d'activité</p>
         </div>
-        <p style="font-size: 12px; margin-bottom: 3px;">Cumul d'activité</p>
+
+        <% if ActivitiesLog.where(user:current_user).count !=0 %>
+            <% if ActivitiesLog.where(user:current_user).count == 1 %>
+              <h3 class= "title-card-home" >Une activité réalisée au total</h3>
+            <% else %>
+              <h3 class= "title-card-home" ><%= ActivitiesLog.where(user:current_user).count %> activités réalisées au total</h3>
+            <% end %>
+          <p style="font-size: 12px; margin-bottom: 3px;">Depuis le début du programme 💪 </p>
+        <% else %>
+              <h3 class= "title-card-home" >Pas encore d'activités enregistrées 🙁</h3>
+        <% end %>
       </div>
 
-
-
-      <% if ActivitiesLog.where(user:current_user).count !=0 %>
-          <% if ActivitiesLog.where(user:current_user).count == 1 %>
-            <h3 class= "title-card-home" >Une activité réalisée au total</h3>
-          <% else %>
-            <h3 class= "title-card-home" ><%= ActivitiesLog.where(user:current_user).count %> activités réalisées au total</h3>
-          <% end %>
-        <p style="font-size: 12px; margin-bottom: 3px;">Depuis le début du programme 💪 </p>
-      <% else %>
-            <h3 class= "title-card-home" >Pas encore d'activités enregistrées 🙁</h3>
-      <% end %>
-
-
-    </div>
-
-
-    <div class="summary-health">
+      <div class="summary-health">
         <div class="summary-stat">
           <div class="icon-summary-health">
             <i class="fa-solid fa-heart"></i>
           </div>
           <p style="font-size: 12px; margin-bottom: 3px">Evolution santé</p>
         </div>
+
         <% if @weight < 0 %>
           <h3 class="title-card-home"><%= @weight %> kg</h3>
           <p style="font-size: 12px; margin-bottom: 3px">Depuis le début du programme 💪 </p>
@@ -48,53 +43,44 @@
     <div class="div-center-toggle" data-controller="toggle-home">
       <div>
          <button data-action="click->toggle-home#toggle" class="btn btn-orange">Je m'actualise</button>
-
         <div class="actualition-icon d-none" data-toggle-home-target="icons">
           <%= link_to new_health_log_path do %>
-          <i class="fa-solid fa-heart icon-link-to"></i>
-            <% end %>
+            <i class="fa-solid fa-heart icon-link-to"></i>
+          <% end %>
 
-            <%= link_to activities_path do %>
-          <i class="fa-solid fa-person-running icon-link-to"></i>
-            <% end %>
+          <%= link_to activities_path do %>
+            <i class="fa-solid fa-person-running icon-link-to"></i>
+          <% end %>
 
-            <%= link_to recipes_path do %>
-              <i class="fa-solid fa-utensils icon-link-to"></i>
-              <% end %>
+          <%= link_to recipes_path do %>
+            <i class="fa-solid fa-utensils icon-link-to"></i>
+          <% end %>
         </div>
       </div>
     </div>
 
-
-
     <div class="row mt-3">
-      <%= link_to recipe_path(@recipe) do %>
-          <div class="card-home-image" style="background-image: linear-gradient(rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.7)); padding: 20px; border-radius: 20px; overflow: hidden; border: 2px solid #FFA500;">
-             <div class="card-day-home">Semaine <%= @current_week_of_plan %> sur 4 </div>
-            <h3 style="color: #000000;">Ton programme sportif de la semaine 💪</h3>
-             <h5 style="color: #808080;"><%= @myplan %></h5>
-
-             <h3 style="color: #000000;">Ton plan nutritionnel 🥝</h3>
-             <h5 style="color: #808080;"><%= @current_food_plan  %></h5>
-              <%= link_to "Voir mon programme", plan_path(@plan), class: "btn btn-primary" %>
-
-          </div>
+      <%= link_to plan_path(@plan) do %>
+        <div class="card-home-image">
+          <div class="card-day-home">Semaine <%= @current_week_of_plan %> sur 4 </div>
+          <h3 style="color: #000000;">Ton programme sportif de la semaine 💪</h3>
+          <h5 style="color: #808080;"><%= @myplan %></h5>
+          <h3 style="color: #000000;">Ton plan nutritionnel 🥝</h3>
+          <h5 style="color: #808080;"><%= @current_food_plan  %></h5>
+          <%= link_to "Voir mon programme", plan_path(@plan), class: "btn btn-primary" %>
+        </div>
       <% end %>
     </div>
 
     <div class="row mt-3">
       <%= link_to activity_path(@activity) do %>
-          <div class="card-home-image" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url('https://images.pexels.com/photos/841130/pexels-photo-841130.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2');">
-             <div class="card-day-home">Semaine <%= @current_week_of_plan %> sur 4 </div>
-             <h3>Bravo <%= current_user.firstname %></h3>
-             <h5> Tu as perdu <%= @calories  %> calories depuis le début du programme, garde le cap 🏋️</h5>
-          </div>
+        <div class="card-home-image" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url('https://images.pexels.com/photos/841130/pexels-photo-841130.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2');">
+          <div class="card-day-home">Semaine <%= @current_week_of_plan %> sur 4 </div>
+          <h3>Bravo <%= current_user.firstname %></h3>
+          <h5> Tu as perdu <%= @calories  %> calories depuis le début du programme, garde le cap 🏋️</h5>
+        </div>
       <% end %>
     </div>
-</div>
-
-
-
 
   <% elsif user_signed_in? %>
     <div class="round-home">
@@ -111,13 +97,5 @@
       <%= link_to "Se connecter", new_user_session_path, class: "text-center" %>
       <%= link_to "S'inscrire", new_user_registration_path, class: "text-center" %>
   <% end %>
-
-
-
-
-
-</div>
-
-
 
 </div>
