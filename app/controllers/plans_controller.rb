@@ -1,5 +1,4 @@
 class PlansController < ApplicationController
-
   def show
     @plan = Plan.find(params[:id])
     @plans_activities = @plan.plans_activities
@@ -19,10 +18,4 @@ class PlansController < ApplicationController
   def plan_params
     params.require(:plan).permit(:firstname, :birthdate, :goal, :weight, :food_preferences, :sport_preferences)
   end
-
-
-
-
-
-
 end
