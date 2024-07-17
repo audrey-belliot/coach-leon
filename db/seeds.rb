@@ -244,10 +244,12 @@ puts "Plans created !"
 puts "Creating new plan activity..."
 
 plan_activities = [
-  PlansActivity.create!(plan: Plan.first, activity: Activity.first),
-  PlansActivity.create!(plan: Plan.second, activity: Activity.second),
-  PlansActivity.create!(plan: Plan.third, activity: Activity.third),
-  PlansActivity.create!(plan: Plan.last, activity: Activity.fourth)
+  4.times do
+    PlansActivity.create!(plan: Plan.first, activity: Activity.all.sample)
+    PlansActivity.create!(plan: Plan.second, activity: Activity.all.sample)
+    PlansActivity.create!(plan: Plan.third, activity: Activity.all.sample)
+    PlansActivity.create!(plan: Plan.last, activity: Activity.all.sample)
+  end
 ]
 
 puts "Plan activity created !"
@@ -255,10 +257,12 @@ puts "Plan activity created !"
 puts "Creating new plan recipe..."
 
 plan_recipes = [
-  PlansRecipe.create!(plan: Plan.first, recipe: Recipe.first),
-  PlansRecipe.create!(plan: Plan.second, recipe: Recipe.second),
-  PlansRecipe.create!(plan: Plan.third, recipe: Recipe.third),
-  PlansRecipe.create!(plan: Plan.last, recipe: Recipe.last)
+  4.times do
+    PlansRecipe.create!(plan: Plan.first, recipe: Recipe.all.sample)
+    PlansRecipe.create!(plan: Plan.second, recipe: Recipe.all.sample)
+    PlansRecipe.create!(plan: Plan.third, recipe: Recipe.all.sample)
+    PlansRecipe.create!(plan: Plan.last, recipe: Recipe.all.sample)
+  end
 ]
 
 puts "Plan recipe created !"

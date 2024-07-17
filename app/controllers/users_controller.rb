@@ -4,6 +4,12 @@ class UsersController < ApplicationController
     @user = current_user
     if @user.update(user_params)
       generated_plan = generate_plan(@user.goal)
+
+      4.times do
+        PlansActivity.create!(plan: generated_plan, activity: Activity.all.sample)
+        PlansRecipe.create!(plan: generated_plan, recipe: Recipe.all.sample)
+      end
+
       redirect_to plan_path(generated_plan)
     else
        render 'plans/new', status: :unprocessable_entity
