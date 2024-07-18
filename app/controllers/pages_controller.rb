@@ -8,7 +8,7 @@ class PagesController < ApplicationController
     @activity = Activity.all.sample
     @recipe = Recipe.all.sample
     if user_signed_in?
-    @activities_calories = ActivitiesLog.where(user: current_user)
+    @activities_calories = ActivitiesLog.where(user:current_user)
     @calories = 0
     @activities_calories.each do |activity_log|
       @calories += activity_log.activity.calories_loss

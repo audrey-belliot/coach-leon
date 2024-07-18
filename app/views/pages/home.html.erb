@@ -56,8 +56,11 @@
     <h2 class="mt-2">Cette semaine, tu dois :</h2>
 
     <div class="summary">
+
       <div class="bottom-activity">
-        <p>💪 <%= @myplan %></p>
+       <%= link_to plan_path(@plan) do %>
+        <p>💪 <%= @myplan.slice(0, 150)... %></p>
+        <% end %>
       </div>
 
       <div class="bottom-health">

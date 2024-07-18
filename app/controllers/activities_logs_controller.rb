@@ -10,12 +10,29 @@ class ActivitiesLogsController < ApplicationController
 
     if @athlete_client.access_token != nil && !params[:error]
       @activities = @athlete_client.athlete_activities
+
       @activities.each do |strava|
+        # activity_strava = Activity::SPORTS_STRAVA.find { |element| element[:sport_type] == strava.sport_type }
+
         if !ActivitiesLog.where(strava_id: strava.upload_id.to_s).exists?
 
-          ActivitiesLog.create!(date: strava.start_date, activity: activity_strava[:activity], user: current_user, comment: strava.name, duration: strava.elapsed_time.fdiv(60), strava_id: strava.upload_id.to_s)
+          if strava.sport_type == "Run"
+            ActivitiesLog.create!(date: strava.start_date, activity: Activity.find_by(activity: "Course à pied"), user: current_user, comment: strava.name, duration: strava.elapsed_time.fdiv(60), strava_id: strava.upload_id.to_s)
+          elsif strava.sport_type == "Ride"
+            ActivitiesLog.create!(date: strava.start_date, activity: Activity.find_by(activity: "Vélo de route"), user: current_user, comment: strava.name, duration: strava.elapsed_time.fdiv(60), strava_id: strava.upload_id.to_s)
+          elsif strava.sport_type == "Walk"
+            ActivitiesLog.create!(date: strava.start_date, activity: Activity.find_by(activity: "Marche rapide"), user: current_user, comment: strava.name, duration: strava.elapsed_time.fdiv(60), strava_id: strava.upload_id.to_s)
+          elsif strava.sport_type == "Swim"
+            ActivitiesLog.create!(date: strava.start_date, activity: Activity.find_by(activity: "Natation"), user: current_user, comment: strava.name, duration: strava.elapsed_time.fdiv(60), strava_id: strava.upload_id.to_s)
+          elsif strava.sport_type == "Hike"
+            ActivitiesLog.create!(date: strava.start_date, activity: Activity.find_by(activity: "Randonnée"), user: current_user, comment: strava.name, duration: strava.elapsed_time.fdiv(60), strava_id: strava.upload_id.to_s)
+          else
+            ActivitiesLog.create!(date: strava.start_date, activity: Activity.last, user: current_user, comment: strava.name, duration: strava.elapsed_time.fdiv(60), strava_id: strava.upload_id.to_s)
+          end
+
         end
       end
+
     elsif @athlete_client.access_token != nil
       redirect_to auth_strava_path
     else
