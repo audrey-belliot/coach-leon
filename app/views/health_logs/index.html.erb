@@ -93,7 +93,7 @@
 
       <div class="row-cards">
           <% @allmeals.each do |meal| %>
-            <%= link_to meals_log_path(meal) do %>
+            <%= link_to recipe_path(meal.recipe) do %>
               <div class="card-health-log" style="background-image: url(<%= meal.recipe.picture %>)"></div>
             <% end %>
           <% end %>
@@ -105,7 +105,7 @@
 
       <div class="row-cards">
           <% @allmeals.each do |meal| %>
-            <%= link_to meals_log_path(meal) do %>
+            <%= link_to recipe_path(meal.recipe) do %>
               <div class="card-health-log" style="background-image: url(<%= meal.recipe.picture %>)"></div>
             <% end %>
           <% end %>
