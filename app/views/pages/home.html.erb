@@ -10,11 +10,11 @@
           <p>Cumul d'activité</p>
         </div>
 
-        <% if @activities_plan.count !=0 %>
-          <% if @activities_plan.count == 1 %>
+        <% if ActivitiesLog.where(user:current_user).count !=0 %>
+          <% if ActivitiesLog.where(user:current_user).count == 1 %>
             <h3 class= "title-card-home" >Une activité réalisée et <%= @calories %> calories brûlées</h3>
           <% else %>
-            <h3 class= "title-card-home" ><%= @activities_plan.count %> activités réalisées et <%= @calories %> calories brûlées</h3>
+            <h3 class= "title-card-home" ><%= ActivitiesLog.where(user:current_user).count %> activités réalisées et <%= @calories %> calories brûlées</h3>
           <% end %>
           <p>Depuis le début du programme 💪 </p>
         <% else %>
