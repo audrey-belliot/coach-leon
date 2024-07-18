@@ -25,14 +25,22 @@ class StravaController < ApplicationController
     )
 
     code = params[:code]
-    response = client.oauth_token(code: code)
 
-    session[:strava_access_token] = response.access_token
-    session[:strava_refresh_token] = response.refresh_token
-    session[:strava_token_expires_at] = response.expires_at
+    if code
+      response = client.oauth_token(code: code)
 
-    #il faudra les mettre dans l'autre controller
-    #puts athlete_client.athlete_activities.first
-    redirect_to activities_logs_path, notice: "Connecté(e) à strava"
+      session[:strava_access_token] = response.access_token
+      session[:strava_refresh_token] = response.refresh_token
+      session[:strava_token_expires_at] = response.expires_at
+
+      #il faudra les mettre dans l'autre controller
+      #puts athlete_client.athlete_activities.first
+
+      redirect_to activities_logs_path, notice: "Connecté(e) à Strava"
+
+    else
+      redirect_to activities_logs_path, notice: "Non connecté(e) à Strava"
+    end
   end
+
 end
