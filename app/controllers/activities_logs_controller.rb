@@ -5,17 +5,19 @@ class ActivitiesLogsController < ApplicationController
     @activities_logs = current_user.activities_logs
     @total = @activities_logs.count
     @plan = current_user.plans.order(:start_date).last
+
     athlete_client = Strava::Api::Client.new(access_token: session[:strava_access_token])
-    if @activities_logs.where.not(strava_id: nil).exists? && athlete_client.access_token != nil
+    if athlete_client.access_token != nil
       @activities = athlete_client.athlete_activities
       @activities.each do |strava|
         if !ActivitiesLog.where(strava_id: strava.upload_id.to_s).exists?
           ActivitiesLog.create!(date: strava.start_date, activity: Activity.last, user: current_user, comment: strava.name, duration: strava.elapsed_time.fdiv(60), strava_id: strava.upload_id.to_s)
         end
       end
-    elsif @activities_logs.where.not(strava_id: nil).exists? && athlete_client.access_token == nil
+    else
       redirect_to auth_strava_path
     end
+    
   end
 
   def show
@@ -53,5 +55,4 @@ class ActivitiesLogsController < ApplicationController
   def set_activity
     @activity = Activity.find(params[:activity_id])
   end
-
 end

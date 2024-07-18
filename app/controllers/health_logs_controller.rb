@@ -1,5 +1,4 @@
 class HealthLogsController < ApplicationController
-
   def index
 
     if params[:commit].nil?
@@ -48,5 +47,4 @@ class HealthLogsController < ApplicationController
   def health_log_params
     params.require(:health_log).permit(:date, :weight, :rating_nutrition, :rating_activity, :rating_mood, :water)
   end
-
 end

@@ -46,20 +46,17 @@
 }
 
 .card-day-home {
-  background-color: #f18940;
-  width: 80px;
+  background-color: #219ebc;
+  width: 130px;
   display: flex;
   padding: 10px;
   margin-top: 10px;
-  border-radius: 15px;
+  border-radius: 35px;
   justify-content: center;
   align-items: center;
   font-size: 12px;
   color: white;
-}
-
-@media (max-width: 450px) {
-  .card-day-home {padding: 19px; height: 10px; width: 80px; margin-left: 10px }
+  align-self: center;
 }
 
 .cards-grid {
