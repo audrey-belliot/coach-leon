@@ -6,9 +6,9 @@ class PagesController < ApplicationController
 
   def home
     @activity = Activity.all.sample
-    start_date = current_user.plans.last.start_date
-    end_date = current_user.plans.last.end_date
-    @activities_plan = ActivitiesLog.where(date: start_date..end_date, user:current_user)
+    date_s = current_user.plans.last.start_date
+    date_e = current_user.plans.last.end_date
+    @activities_plan = ActivitiesLog.where(date: date_s..date_e, user:current_user)
     @recipe = Recipe.all.sample
     if user_signed_in?
     @activities_calories = @activities_plan
