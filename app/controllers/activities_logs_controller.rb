@@ -12,7 +12,8 @@ class ActivitiesLogsController < ApplicationController
       @activities = @athlete_client.athlete_activities
       @activities.each do |strava|
         if !ActivitiesLog.where(strava_id: strava.upload_id.to_s).exists?
-          ActivitiesLog.create!(date: strava.start_date, activity: Activity.last, user: current_user, comment: strava.name, duration: strava.elapsed_time.fdiv(60), strava_id: strava.upload_id.to_s)
+
+          ActivitiesLog.create!(date: strava.start_date, activity: activity_strava[:activity], user: current_user, comment: strava.name, duration: strava.elapsed_time.fdiv(60), strava_id: strava.upload_id.to_s)
         end
       end
     elsif @athlete_client.access_token != nil
@@ -20,7 +21,6 @@ class ActivitiesLogsController < ApplicationController
     else
       @activities_logs = current_user.activities_logs
     end
-
   end
 
   def show
