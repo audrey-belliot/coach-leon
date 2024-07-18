@@ -11,16 +11,16 @@
     <div>
       <%= date_field_tag :start_date,
         params[:start_date],
-        class: "form-control input-left-blue",
-        value: Date.today.beginning_of_month
+        class: "form-control input-left-blue"
+        # value: Date.today.beginning_of_month
       %>
     </div>
 
     <div>
       <%= date_field_tag :end_date,
           params[:end_date],
-          class: "form-control input-right-blue",
-          value: Date.today
+          class: "form-control input-right-blue"
+          # value: Date.today
       %>
     </div>
     <div class="ms-2">
@@ -56,7 +56,7 @@
         borderWidth: 1,
         backgroundColor: 'rgba(0, 0, 0)',
         borderColor: 'rgba(0, 0, 0)',
-      } , {
+      },{
         type: 'bar',
         label: 'sport',
         data: <%= @activities %>,
@@ -64,7 +64,7 @@
         backgroundColor: 'rgba(241, 137, 64, 0.8)',
         barThickness: 10,
         borderRadius: 35,
-      }, {
+      },{
         type: 'bar',
         label: 'alimentation',
         data: <%= @meals %>,

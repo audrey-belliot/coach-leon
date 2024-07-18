@@ -1,7 +1,14 @@
 class HealthLogsController < ApplicationController
   def index
-    start_date = params[:start_date]
-    end_date = params[:end_date]
+
+    if params[:commit].nil?
+      start_date = Date.today.beginning_of_month
+      end_date = Date.today
+    else
+      start_date = params[:start_date]
+      end_date = params[:end_date]
+    end
+
     @healthlogs = HealthLog.where(date: start_date..end_date, user: current_user).to_a
     @healthlogs = @healthlogs.sort_by{ |k| k["date"]}
     @allactivities = ActivitiesLog.where(date: start_date..end_date, user: current_user)
@@ -18,6 +25,7 @@ class HealthLogsController < ApplicationController
       @meals << healthlog.rating_nutrition * 10
       @mood << healthlog.rating_mood * 10
     end
+
   end
 
   def new

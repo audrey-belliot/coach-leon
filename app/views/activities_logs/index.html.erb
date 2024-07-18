@@ -1,5 +1,5 @@
 <div data-controller="activities-logs" class="container">
-  <div class="row mb-4">
+  <div class="row mb-2">
     <div class="d-flex align-items-baseline">
       <%= link_to :back, class: "text-decoration-none text-muted" do %>
         <i class="fa-solid fa-chevron-left pe-3"></i>
@@ -7,6 +7,15 @@
       <h1>Mes <b>activités</b></h1>
     </div>
   </div>
+
+<div class="mb-4">
+  <% if @athlete_client.access_token != nil && !params[:error] %>
+  <p class="grey"><i class="fa-brands fa-strava orange pe-3"></i></i>Synchronisé avec Strava</p>
+  <% else %>
+  <i class="fa-brands fa-strava grey pe-3"></i></i><%= link_to "Me connecter à Strava", auth_strava_path, class:"grey" %>
+  <% end %>
+</div>
+
 
   <!-- Pour les activités dans le plan -->
   <% [4, 3, 2, 1].each do |week_number| %>
