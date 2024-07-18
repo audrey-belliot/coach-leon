@@ -163,6 +163,14 @@ ski_fond = Activity.create(
   calories_loss: 600,
   picture: "https://contents.mediadecathlon.com/p2503687/k$14ae7f4476ecd2b6b2e3cb469f72e908/1800x0/3120pt2080/6240xcr4160/default.jpg"
 )
+course = Activity.create(
+  category: "Cardio",
+  activity: "Course à pied",
+  details: "Si vous débutez, n'hésitez pas à alterner marche et course. Vous pouvez améliorer votre vitesse en faisant des séances de fractionnés. Ou bien améliorer votre endurance en diversifiant vos sorties.",
+  duration: 60,
+  calories_loss: 400,
+  picture: "https://running-attitude.com/wp-content/uploads/2022/05/courir-en-pleine-consciencerpix-GettyImages-636342222-495x400-1.jpg"
+)
 squat_jump = Activity.create(
   category: "Musculation",
   activity: "Squat Jump",
@@ -178,6 +186,30 @@ chaise_mur = Activity.create(
   duration: 10,
   calories_loss: 50,
   picture: "https://boxlifemagazine.com/wp-content/uploads//2023/09/Untitled-design-2023-09-26T165219.471-1-1-1024x666.png"
+)
+yoga = Activity.create(
+  category: "Musculation",
+  activity: "Yoga",
+  details: "10 min d'exercice de respiration (Pranayama), 5 salutations au soleil, 20 min d'enchainement de posture, 10 min de détente finale.",
+  duration: 45,
+  calories_loss: 150,
+  picture: "https://static.nike.com/a/images/f_auto/dpr_3.0,cs_srgb/h_484,c_limit/a4baaac3-01f0-4cf4-bad7-036a30f664bf/les-trois-meilleures-postures-de-yoga-pour-gagner-en-force-selon-les-experts.jpg"
+)
+escalade = Activity.create(
+  category: "Musculation",
+  activity: "Escalade",
+  details: "1h d'escalade en salle ou extérieur",
+  duration: 60,
+  calories_loss: 200,
+  picture: "https://blog.snowleader.com/wp-content/uploads/2022/06/top-5-assureurs-escalade.jpg"
+)
+muscu_salle = Activity.create(
+  category: "Musculation",
+  activity: "Musculation en salle",
+  details: "Alterner les machines pour travailler les différents muscles.",
+  duration: 30,
+  calories_loss: 150,
+  picture: "https://www.lequipe.fr/_medias/img-photo-jpg/choisir-sa-salle-de-sport-n-est-pas-une-mince-affaire-dr/1500000001493791/137:92,1860:1240-828-552-75/7d418.jpg"
 )
 strava = Activity.create(
   category: "Cardio",
@@ -270,20 +302,20 @@ puts "Plan recipe created !"
 puts "Creating new health logs..."
 
 health_logs = [
-  HealthLog.create(date: DateTime.new(2024,1,1), weight: 100.0, measurement: 162, rating_nutrition: 2, rating_activity: 3, rating_mood: 3, water: 0.5 , user: User.first),
-  HealthLog.create(date: DateTime.new(2024,2,1), weight: 98.0, measurement: 162, rating_nutrition: 3, rating_activity: 5, rating_mood: 4, water: 0.5 , user: User.second),
-  HealthLog.create(date: DateTime.new(2024,3,1), weight: 97.0, measurement: 162, rating_nutrition: 4, rating_activity: 6, rating_mood: 5, water: 0.5 , user: User.third),
-  HealthLog.create(date: DateTime.new(2024,4,1), weight: 92.0, measurement: 162, rating_nutrition: 5, rating_activity: 6, rating_mood: 6, water: 0.5 , user: User.last),
-  HealthLog.create(date: DateTime.new(2024,2,1), weight: 99.0, measurement: 162, rating_nutrition: 2, rating_activity: 3, rating_mood: 3, water: 0.5 , user: User.last),
+  HealthLog.create(date: '2024-07-01', weight: 100.0, measurement: 162, rating_nutrition: 2, rating_activity: 3, rating_mood: 3, water: 0.5 , user: User.first),
+  HealthLog.create(date: '2024-07-01', weight: 98.0, measurement: 162, rating_nutrition: 3, rating_activity: 5, rating_mood: 4, water: 0.5 , user: User.second),
+  HealthLog.create(date: '2024-07-01', weight: 97.0, measurement: 162, rating_nutrition: 4, rating_activity: 6, rating_mood: 5, water: 0.5 , user: User.third),
+  HealthLog.create(date: '2024-07-01', weight: 92.0, measurement: 162, rating_nutrition: 5, rating_activity: 6, rating_mood: 6, water: 0.5 , user: User.last),
+  HealthLog.create(date: '2024-07-01', weight: 99.0, measurement: 162, rating_nutrition: 2, rating_activity: 3, rating_mood: 3, water: 0.5 , user: User.last),
 ]
 
 puts "Health logs created !"
 
 activities_logs = [
-  ActivitiesLog.create!(date: '2024-01-01', activity: Activity.first, user: User.first, comment: 'Très bonnes sensations pendant ce run.', duration: 30.0),
-  ActivitiesLog.create!(date: '2024-02-01', activity: Activity.second, user: User.second, comment: "J'ai levé plus lourds que d'habitude aujourd'hui.", duration: 45.0),
-  ActivitiesLog.create!(date: '2024-03-01', activity: Activity.third, user: User.third, comment: 'Session de yoga très relaxante.', duration: 60.0),
-  ActivitiesLog.create!(date: '2024-04-01', activity: Activity.fourth, user: User.last, comment: 'Sortie vélo entre amis, temps parfait.', duration: 90.0),
+  ActivitiesLog.create!(date: '2024-07-01', activity: course, user: User.first, comment: 'Très bonnes sensations pendant ce run.', duration: 30.0),
+  ActivitiesLog.create!(date: '2024-07-01', activity: muscu_salle, user: User.second, comment: "J'ai levé plus lourd que d'habitude aujourd'hui.", duration: 45.0),
+  ActivitiesLog.create!(date: '2024-07-01', activity: yoga, user: User.third, comment: 'Session de yoga très relaxante.', duration: 60.0),
+  ActivitiesLog.create!(date: '2024-07-01', activity: velo_route, user: User.last, comment: 'Sortie vélo entre amis, temps parfait.', duration: 90.0),
 ]
 
 puts "Activities logs created !"
@@ -291,10 +323,10 @@ puts "Activities logs created !"
 puts "Creating meals logs..."
 
 meals_logs = [
-  MealsLog.create!(date: '2024-01-01', comment: 'Délicieux et copieux petit dej.', recipe: bouchees_choco_fraise, user: User.first),
-  MealsLog.create!(date: '2024-02-01', comment: 'Dej healthy et très bon.', recipe: salade_quinoa_avocat, user: User.second),
-  MealsLog.create!(date: '2024-03-01', comment: 'Diner parfait après ma session de sport.', recipe: poelee_crevettes_ail, user: User.third),
-  MealsLog.create!(date: '2024-04-01', comment: "Bon snack pour un reboost d'énergie", recipe: smoothie_rose, user: User.last)
+  MealsLog.create!(date: '2024-07-01', comment: 'Délicieux et copieux petit dej.', recipe: bouchees_choco_fraise, user: User.first),
+  MealsLog.create!(date: '2024-07-01', comment: 'Dej healthy et très bon.', recipe: salade_quinoa_avocat, user: User.second),
+  MealsLog.create!(date: '2024-07-01', comment: 'Diner parfait après ma session de sport.', recipe: poelee_crevettes_ail, user: User.third),
+  MealsLog.create!(date: '2024-07-01', comment: "Bon snack pour un reboost d'énergie", recipe: smoothie_rose, user: User.last)
 ]
 
 puts "Meals logs created !"
