@@ -96,3 +96,8 @@
   margin: auto !important;
   align-items: center;
 }
+
+*:focus {
+  outline: none !important;
+  box-shadow: none !important;
+}
