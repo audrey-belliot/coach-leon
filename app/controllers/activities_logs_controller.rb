@@ -10,10 +10,16 @@ class ActivitiesLogsController < ApplicationController
 
     if @athlete_client.access_token != nil && !params[:error]
       @activities = @athlete_client.athlete_activities
+      # @activities_id = []
+      # @activities_calories = []
+      # @activities.each do |activity|
+      #   @activities_id << activity["id"]
+      #   @activities_calories << activity["calories"]
+      #   @athlete_client_2 = Strava::Api::Client.new(access_token: session[:strava_access_token], endpoint: "https://www.strava.com/activities/#{activity["id"]}?include_all_efforts=")
+      # end
 
       @activities.each do |strava|
         # activity_strava = Activity::SPORTS_STRAVA.find { |element| element[:sport_type] == strava.sport_type }
-
         if !ActivitiesLog.where(strava_id: strava.upload_id.to_s).exists?
 
           if strava.sport_type == "Run"

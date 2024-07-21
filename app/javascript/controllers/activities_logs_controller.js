@@ -1,12 +1,13 @@
 import { Controller } from "@hotwired/stimulus"
 
+const getActivityDetailsUrl = "https://www.strava.com/api/v3/activities"
+
 // Connects to data-controller="activities-logs"
 export default class extends Controller {
   static targets = ["activitiesHistory", "hideButton", "showButton" ]
 
   connect() {
     console.log("Hello from ActivitiesLogs Controller")
-    console.log(this.loadLinkTarget.innerText)
   }
 
   loadOldActivities() {
@@ -26,5 +27,4 @@ export default class extends Controller {
     // Ajouter la class d-non au button hideHistory
     this.hideButtonTarget.classList.add("d-none")
   }
-
 }

@@ -27,17 +27,22 @@
         </div>
       </div>
       <div class="mt-4 ms-4 me-4">
-          <div class="h2">Mon avis sur la session</div>
+          <div class="h2"><i class="fa-regular fa-comment pe-2"></i>Mon avis sur la session</div>
           <%= @activity_log.comment %>
       </div>
       <div class="mt-4 ms-4 me-4">
-      <div class="h2">Durée</div>
+      <div class="h2"><i class="fa-regular fa-clock pe-2"></i>Durée</div>
           <%= @activity_log.duration.floor() %> minutes<br>
+      </div>
+      <div class="mt-4 ms-4 me-4">
+      <div class="h2"><i class="fa-solid fa-bolt pe-2"></i>Calories brûlées</div>
+        <%= @activity_log.activity.calories_loss %> calories
+      </div>
           <%= link_to activities_log_path(@activity_log),
                   data: {turbo_method: :delete,
                   turbo_confirm: "Je confirme la suppression"} do %>
                   <i class="fa-solid fa-trash"></i>
           <% end %>
-      </div>
+
   </div>
 </div>
