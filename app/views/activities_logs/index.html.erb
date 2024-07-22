@@ -49,8 +49,9 @@
                   </small>
                   <br>
                   <small class="m-0 black">
-                    <i class="fa-regular fa-clock pe-2"></i>Durée : <%= activity_log.duration.floor() %> mn
+                    <i class="fa-regular fa-clock pe-2"></i><%= activity_log.duration.floor() %> mn
                   </small>
+                  <br>
                   <% if activity_log.comment.length >= 51 %>
                     <p class="m-0 activity-log-comment">"<%= activity_log.comment.slice(0, 52) + '...' %>"<br></p>
                   <% else %>
