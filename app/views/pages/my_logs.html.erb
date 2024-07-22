@@ -15,7 +15,7 @@
     <% end %>
 
     <li class="list-group-item mb-4"><i class="fa-solid fa-pen grey pe-3"></i><%= link_to "Changer d'objectif", new_plan_path, class:"grey" %></li>
-    <li class="list-group-item mb-4"><i class="fa-solid fa-chart-pie grey pe-3"></i><%= link_to "Mon évolution santé", health_logs_path, class:"grey" %></li>
+    <li class="list-group-item mb-4"><i class="fa-solid fa-chart-pie grey pe-3"></i><%= link_to "Mon évolution santé", health_logs_path, data: {turbo:false}, class:"grey" %></li>
     <li class="list-group-item mb-4"><i class="fa-solid fa-person-running grey pe-3"></i><%= link_to "Mes activités", activities_logs_path, class:"grey" %></li>
     <li class="list-group-item mb-4"><i class="fa-solid fa-utensils grey pe-3"></i><%= link_to "Mes repas", meals_logs_path, class:"grey" %></li>
     <li class="list-group-item mb-4"><i class="fa-solid fa-plus orange pe-3"></i><%= link_to "M'actualiser", new_health_log_path, class:"orange fw-bold" %></li>
