@@ -20,6 +20,7 @@ class ActivitiesLogsController < ApplicationController
 
       @activities.each do |strava|
         # activity_strava = Activity::SPORTS_STRAVA.find { |element| element[:sport_type] == strava.sport_type }
+
         if !ActivitiesLog.where(strava_id: strava.upload_id.to_s).exists?
 
           if strava.sport_type == "Run"
@@ -44,7 +45,6 @@ class ActivitiesLogsController < ApplicationController
     else
       @activities_logs = current_user.activities_logs
     end
-
   end
 
   def show

@@ -31,10 +31,20 @@
     <% end %>
 
     <%= link_to my_logs_path do %>
-      <% if current_page?(my_logs_path) && user_signed_in?%>
-        <%= image_tag current_user.picture, class:"avatar-orange" %>
+      <% if current_page?(my_logs_path) && user_signed_in? %>
+        <% if current_user.picture %>
+          <%= image_tag current_user.picture, class:"avatar-orange" %>
+        <% else %>
+            <i class="fa-solid fa-user orange"></i>
+        <% end %>
+
       <% elsif user_signed_in? %>
-        <%= image_tag current_user.picture, class:"avatar" %>
+        <% if current_user.picture %>
+          <%= image_tag current_user.picture, class:"avatar" %>
+        <% else %>
+            <i class="fa-solid fa-user"></i>
+        <% end %>
+
       <% else %>
         <i class="fa-solid fa-user"></i>
       <% end %>
