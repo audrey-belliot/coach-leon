@@ -7,8 +7,11 @@ import flatpickr from "flatpickr"; // You need to import this to use new flatpic
 
 export default class extends Controller {
   connect() {
-    // flatpickr.localize(French)
+
+    console.log("Hello")
+
     flatpickr(this.element, {
+      disableMobile: "true",
       dateFormat: "d/m/Y",
       locale: {
         firstDayOfWeek: 1,

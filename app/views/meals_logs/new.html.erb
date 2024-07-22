@@ -12,7 +12,9 @@
         <div class="col-5">
           <div class="card-show" style="background-image: url(<%= @meal.picture %>)"></div>
         </div>
-        <div class="col-7 input-blue"><i class="fa-regular fa-calendar"></i><%= f.input :date, as: :string, label: false, input_html: { id: 'weight-blue', data: { controller: "datepicker" } }, placeholder: "Date" %></div>
+        <div class="col-7 input-blue"><i class="fa-regular fa-calendar"></i>
+          <%= f.input :date, as: :string, label: false, input_html: { id: 'weight-blue', data: { controller: "datepicker" } }, placeholder: "Date" %>
+        </div>
       </div>
 
       <div class="row mt-2">
