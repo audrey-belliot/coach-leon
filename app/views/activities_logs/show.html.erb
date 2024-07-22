@@ -1,43 +1,28 @@
-<div class="container mt-3 d-flex">
-  <div class="row w-100">
-    <div class="d-flex align-items-baseline">
-      <%= link_to :back, class: "text-decoration-none text-muted" do %>
-        <i class="fa-solid fa-chevron-left pe-3"></i>
-      <% end %>
-      <h1>Détail<br>
-      <strong>session</strong></h1>
+<div class="container">
+  <div class="d-flex align-items-baseline">
+    <%= link_to :back, class: "text-decoration-none text-muted" do %>
+      <i class="fa-solid fa-chevron-left pe-3"></i>
+    <% end %>
+    <h1>Détail session de<br>
+      <strong><%= @activity_log.activity.activity %></strong></h1>
+  </div>
+
+    <div class="mt-3">
+      <p><i class="fa-regular fa-calendar orange"></i> <%= @activity_log.date.strftime('%d/%m/%Y') %></p>
+      <p><i class="fa-regular fa-clock orange"></i> <%= @activity_log.duration.floor() %> minutes</p>
     </div>
 
-    <div class="mt-4 d-flex flex-column align-items-center">
-      <div class="input-blue flex-column mb-2">
-          <span class="pt-1"><%= @activity_log.activity.category%></span>
-      </div>
+    <div class="card-logs"><%= image_tag(@activity_log.activity.picture) %></div>
 
-      <div class="input-orange mb-2 mt-3">
-        <%= @activity_log.activity.activity %>
-      </div>
+    <div class="mt-4 ms-4 me-4">
+      <%= @activity_log.comment %>
     </div>
 
-    <div class="d-flex mt-4 ms-4 me-4">
-        <h2 class="h2">Mon activité du <%= @activity_log.date.strftime('%d/%m/%Y') %></h2>
-    </div>
-      <div class="mt-4 ms-4 me-4">
-        <div class="card-logs">
-          <%= image_tag(@activity_log.activity.picture) %>
-        </div>
-      </div>
-      <div class="mt-4 ms-4 me-4">
-          <div class="h2">Mon avis sur la session</div>
-          <%= @activity_log.comment %>
-      </div>
-      <div class="mt-4 ms-4 me-4">
-      <div class="h2">Durée</div>
-          <%= @activity_log.duration.floor() %> minutes<br>
-          <%= link_to activities_log_path(@activity_log),
+    <div class="mt-4 ms-4 me-4">
+      <%= link_to activities_log_path(@activity_log),
                   data: {turbo_method: :delete,
                   turbo_confirm: "Je confirme la suppression"} do %>
                   <i class="fa-solid fa-trash"></i>
-          <% end %>
-      </div>
-  </div>
+      <% end %>
+    </div>
 </div>

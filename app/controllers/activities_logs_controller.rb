@@ -40,7 +40,6 @@ class ActivitiesLogsController < ApplicationController
     else
       @activities_logs = current_user.activities_logs
     end
-
   end
 
   def show
