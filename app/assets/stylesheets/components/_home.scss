@@ -61,6 +61,21 @@ a {
   }
 }
 
+.evolution {
+  width: 36%;
+    height: 127px;
+    background: white;
+    border-radius: 15px;
+    border: 1px solid #219EBC;
+    padding: 5px;
+    margin-right: 2%;
+
+  p {
+    font-size: 12px;
+    margin-bottom: 3px;
+  }
+}
+
 .summary-stat {
   display: flex;
   align-items: center; /* Aligne les éléments verticalement */
@@ -179,4 +194,9 @@ a {
     margin-bottom: 3px;
     color: white;
   }
+}
+
+
+.space-title {
+  margin-top: 20px;
 }

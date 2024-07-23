@@ -1,59 +1,94 @@
-<div class="container container-home">
+<div class="container container-home"
+
+>
 
   <% if user_signed_in? && @plan.present? %>
     <h1>Hello <b><%= current_user.firstname %></b> !</h1>
-    <div class="summary">
-      <div class="summary-activity">
 
-        <div class="summary-stat">
-          <i class="fa-solid fa-person-running icon-summary-stat"></i>
-          <p>Cumul d'activité</p>
-        </div>
-
-        <% if ActivitiesLog.where(user:current_user).count !=0 %>
-          <% if ActivitiesLog.where(user:current_user).count == 1 %>
-            <h3 class= "title-card-home" >Une activité réalisée et <%= @calories %> calories brûlées</h3>
-          <% else %>
-            <h3 class= "title-card-home" ><%= ActivitiesLog.where(user:current_user).count %> activités réalisées et <%= @calories %> calories brûlées</h3>
-          <% end %>
-          <p>Depuis le début du programme 💪 </p>
-        <% else %>
-          <h3 class= "title-card-home" >Pas encore d'activités enregistrées 🙁</h3>
+    <div class="row mt-2">
+        <%= link_to plan_path(@plan) do %>
+          <div class="card-image" style="background-image: linear-gradient(rgba(0,0,0,0.1),rgba(0,0,0,0.1)), url('https://images.unsplash.com/photo-1649528414135-36853832d9e3');">
+            <h4 class="pt-3 ps-2 display-3 " style="text-shadow: 3px 3px 2px #000"><%= @plan.name %> 🏋️</h4>
+            <h6 class="ps-2">Découvre ici ton programme personnalisé pour les 4 prochaines semaines</h6>
+          </div>
         <% end %>
       </div>
 
-      <div class="summary-health">
 
-        <div class="summary-stat">
-          <i class="fa-solid fa-heart icon-summary-health"></i>
-          <p>Evolution santé</p>
+
+    <h2 class="space-title">Tu en es à la semaine <%= @current_week_of_plan %> / 4</h2>
+
+        <div class="progress-bar-container"
+            data-controller="progress-bar"
+            data-progress-bar-progression-value="<%=@progression%>"
+        >
+          <div class="progress-bar" data-progress-bar-target="progressBar"></div>
+          <%= image_tag "running.gif", alt: "", id: "emoji-running", data: { controller: "progressBar", progress_bar_target: "emoji" } %>
         </div>
 
-        <% if @weight < 0 %>
-          <h3 class="title-card-home"><%= @weight %> kg</h3>
-          <p>Depuis le début du programme 💪 </p>
-        <% elsif @weight == 0 %>
-          <h3 class="title-card-home">+ <%= @weight %> kg</h3>
-          <p>Tu as maintenu ton poids depuis le début du programme 💪 </p>
+
+    <h2 class="space-title">Depuis le début du programme tu as :</h2>
+
+    <div class="summary">
+
+     <div class="evolution">
+  <div class="summary-stat">
+    <div class="square">
+      <i class="fa-solid fa-person-running icon-summary-stat"></i>
+    </div>
+    <p>Cumul d'activité</p>
+  </div>
+    <% activities_count = ActivitiesLog.where(user: current_user).count %>
+    <% if activities_count != 0 %>
+      <% if activities_count == 1 %>
+        <h3 class="title-card-home"><%= activities_count %> activité réalisée</h3>
+      <% else %>
+        <h3 class="title-card-home"><%= activities_count %> activités réalisées</h3>
+      <% end %>
+    <% else %>
+      <h3 class="title-card-home">Pas encore d'activités enregistrées 🙁</h3>
+    <% end %>
+</div>
+
+
+      <div class="evolution">
+        <div class="summary-stat">
+          <div class="square">
+            <i class="fa-solid fa-fire icon-summary-stat"></i>
+          </div>
+          <p>Calories brulées</p>
+        </div>
+        <h3 class= "title-card-home" ><%= @total_calories_loss %> calories brûlées </h3>
+      </div>
+
+      <div class="evolution">
+        <div class="summary-stat">
+          <div class="square">
+            <i class="fa-solid fa-heart icon-summary-health"></i>
+          </div>
+          <p>Evolution santé</p>
+        </div>
+        <% if @weight_difference < 0 %>
+          <h3 class="title-card-home"><%= @weight_difference %> kg</h3>
+
+        <% elsif @weight_difference == 0 %>
+          <h3 class="title-card-home">+ <%= @weight_difference %> kg</h3>
+          <p>Tu as maintenu ton poids 💪 </p>
         <% else %>
-          <h3 class="title-card-home">+ <%= @weight %> kg</h3>
-          <p>Depuis le début du programme, allez, encore un petit effort 💪 </p>
+          <h3 class="title-card-home">+ <%= @weight_difference %> kg</h3>
+          <p>Encore un petit effort 💪 </p>
         <% end %>
       </div>
     </div>
 
 
 
-    <div class="row mt-2">
-      <%= link_to plan_path(@plan) do %>
-        <div class="card-image" style="background-image: linear-gradient(rgba(0,0,0,0.1),rgba(0,0,0,0.1)), url('https://images.unsplash.com/photo-1649528414135-36853832d9e3');">
-          <h4 class="pt-3 ps-2">Ton programme personnalisé </h4>
-          <h6 class="ps-2"><%= @plan.name %></h6>
-        </div>
-      <% end %>
-     </div>
 
-    <h2 class="mt-2">Cette semaine, tu dois :</h2>
+
+
+
+
+    <h2 class="space-title">Cette semaine, tu dois :</h2>
 
     <div class="summary">
 
@@ -84,5 +119,8 @@
       <%= link_to "Se connecter", new_user_session_path, class: "text-center" %>
       <%= link_to "S'inscrire", new_user_registration_path, class: "text-center" %>
   <% end %>
+
+
+
 
 </div>
