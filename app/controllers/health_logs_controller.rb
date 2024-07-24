@@ -35,7 +35,7 @@ class HealthLogsController < ApplicationController
     @health_log = HealthLog.new(health_log_params)
     @health_log.user = current_user
     if @health_log.save
-      redirect_to health_logs_path, data: {turbo:false}, notice: "Infos mises à jour"
+      redirect_to health_logs_path, data: { turbo: false }, notice: "Infos mises à jour"
     else
       render :new, status: :unprocessable_entity
     end

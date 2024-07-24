@@ -4,18 +4,18 @@
       <%= link_to :back, class: "text-decoration-none text-muted" do %>
         <i class="fa-solid fa-chevron-left pe-3"></i>
       <% end %>
-      <h1>Détails<br><b>activité</b></h1>
+      <h1 class="mb-4">Détails<br><b>activité</b></h1>
     </div>
   </div>
-  <div class="row mt-3">
+  <div class="row mt-3 align-items-center">
+  <h2 class="mb-4"><%= @activity.activity %></h2>
     <div class="col-5">
       <div class="card-show" style="background-image: url(<%= @activity.picture %>)"></div>
     </div>
     <div class="col-7">
-      <h2><%= @activity.activity %></h2>
-      <p><i class="fa-solid fa-person-running"></i> <%= @activity.category %>
-      <br><i class="fa-solid fa-fire"></i> <%= @activity.calories_loss %> calories brûlées
-      <br><i class="fa-solid fa-clock"></i> <%= @activity.duration.to_i %> minutes</p>
+      <p><i class="fa-solid fa-person-running orange"></i> <%= @activity.category %>
+      <br><i class="fa-solid fa-fire orange"></i> <%= @activity.calories_loss %> calories brûlées
+      <br><i class="fa-solid fa-clock orange"></i> <%= @activity.duration.to_i %> minutes</p>
     </div>
       <%= button_to new_activity_activities_log_path(@activity),
           method: :get,

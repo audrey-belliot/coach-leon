@@ -6,19 +6,23 @@
     <h1 class="mb-4">Ajout<br><strong>repas</strong></h1>
   </div>
 
-  <h2>Mon <%= @meal.category.downcase %> : <%= @meal.name.downcase %></h2>
+  <h2 class="mb-4">Mon <%= @meal.category.downcase %> : <%= @meal.name.downcase %></h2>
     <%= simple_form_for [@meal, @meal_log] do |f| %>
       <div class="row">
         <div class="col-5">
           <div class="card-show" style="background-image: url(<%= @meal.picture %>)"></div>
         </div>
-        <div class="col-7 input-blue"><i class="fa-regular fa-calendar"></i>
-          <%= f.input :date, as: :string, label: false, input_html: { id: 'weight-blue', data: { controller: "datepicker" } }, placeholder: "Date" %>
+        <div class="col-7">
+          <div class="form-inline">
+            <i class="fa-regular fa-calendar orange"></i> <%= f.input :date, as: :string, label: false, input_html: { class: 'form-orange', data: { controller: "datepicker" } }, placeholder: "Date" %>
+          </div>
+          <div class="form-inline">
+            <i class="fa-regular fa-comment orange"></i>  <%= f.input :comment, as: :string, label: false, placeholder: "Commentaire", input_html: { class: 'form-orange' }, html5: true %>
+          </div>
         </div>
       </div>
 
       <div class="row mt-2">
-        <%= f.input :comment, label: false, placeholder: "Commentaire", input_html: { class: 'input-text' }, html5: true %>
         <div><%= f.submit "Valider", class: "btn btn-orange" %></div>
       </div>
     <% end %>

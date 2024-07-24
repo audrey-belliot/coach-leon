@@ -6,16 +6,12 @@
   background: rgba(33, 158, 188, 0.50);
   border: 1px solid black;
   text-align: center;
-  margin: auto !important;
   display: flex;
   flex-wrap: nowrap;
   align-items: center;
   justify-content: center;
   height: 50px;
-
-  i {
-    margin-left: -20px;
-  }
+  color: black;
 }
 
 .input-blue-plan {
@@ -49,7 +45,7 @@
   height: 50px;
 }
 
-#weight-blue {
+.weight-blue {
   background: transparent;
   border: 0;
   margin-top: 15px;
@@ -57,6 +53,11 @@
   align-items: center;
   text-align: center;
   width: 100%;
+  color: black;
+}
+
+.weight-blue:focus {
+  background: transparent;
 }
 
 .input-right-blue {
@@ -66,8 +67,14 @@
   font-size: 16px;
   background: rgba(33, 158, 188, 0.50);
   border: 1px solid black;
+  margin-left: -1px;
   text-align: center;
-  margin: auto !important;
+
+
+  .weight-blue {
+    margin-top: 0px;
+    height: 15px;
+  }
 }
 
 .input-left-blue {
@@ -78,7 +85,12 @@
   background: rgba(33, 158, 188, 0.50);
   border: 1px solid black;
   text-align: center;
-  margin: auto !important;
+
+
+  .weight-blue {
+    margin-top: 0px;
+    height: 15px;
+  }
 }
 
 .input-text {
@@ -100,4 +112,38 @@
 *:focus {
   outline: none !important;
   box-shadow: none !important;
+}
+
+.form-inline {
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+
+  i {
+    margin-right: 10px;
+    margin-top: -15px;
+    align-self: center;
+  }
+
+  input {
+    padding-left: 0px;
+  }
+}
+
+.form-orange {
+  border-bottom: 1px solid $orange;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  border-radius: 0px !important;
+  width: 80%;
+}
+
+.form-orange:focus {
+  border-bottom: 1px solid $orange;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  border-radius: 0px !important;
+  width: 80%;
 }

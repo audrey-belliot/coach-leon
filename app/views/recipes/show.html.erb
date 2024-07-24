@@ -4,17 +4,17 @@
       <%= link_to :back, class: "text-decoration-none text-muted" do %>
         <i class="fa-solid fa-chevron-left pe-3"></i>
       <% end %>
-      <h1>Détail<br><b>recette</b></h1>
+      <h1 class="mb-4">Détail<br><b>recette</b></h1>
     </div>
   </div>
-  <div class="row mt-3">
+  <h2 class="mb-4"><%= @recipe.name %></h2>
+  <div class="row mt-3 align-items-center">
     <div class="col-5">
       <div class="card-show" style="background-image: url(<%= @recipe.picture %>)"></div>
     </div>
     <div class="col-7">
-      <h2><%= @recipe.name %></h2>
-      <p><i class="fa-solid fa-utensils"></i> <%= @recipe.category %>
-      <br><i class="fa-solid fa-fire"></i> <%= @recipe.calories %> calories</p>
+      <p><i class="fa-solid fa-utensils orange"></i> <%= @recipe.category %>
+      <br><i class="fa-solid fa-fire orange"></i> <%= @recipe.calories %> calories</p>
     </div>
       <%= button_to new_recipe_meals_log_path(@recipe),
           method: :get,
