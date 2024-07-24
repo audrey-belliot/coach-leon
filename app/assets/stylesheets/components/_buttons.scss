@@ -47,10 +47,12 @@
   font-size: 16px;
   background-color: #f18940;
   text-align: center;
-  // margin: 5px auto;
+  margin: 5px;
   color: white;
   border: solid 1px #f18940;
   align-items: center;
+  width: auto;
+  min-width: 30%;
 }
 
 .btn-white-orange {
@@ -93,6 +95,8 @@
   font-size: 16px;
   background-color: white;
   text-align: center;
-  margin: 5px auto;
+  margin: 5px;
   align-items: center;
+  width: auto;
+  min-width: 30%;
 }

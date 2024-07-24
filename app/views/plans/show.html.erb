@@ -1,28 +1,30 @@
 <div data-controller="plans-toggle" class="container mt-3 d-flex">
   <div class="row m-2">
-    <div class="d-flex align-items-baseline">
+    <div class="d-flex align-items-baseline mb-4">
       <%= link_to :back, class: "text-decoration-none text-muted" do %>
         <i class="fa-solid fa-chevron-left pe-3"></i>
       <% end %>
-      <h1 class="mb-4">Plan<br>
+      <h1 class="">Plan<br>
       <strong>mensuel</strong></h1>
     </div>
 
-    <div>
-      <i class="fa-solid fa-bullseye orange"></i> <%= @plan.name%>
+    <div class="mb-4">
+      <i class="fa-solid fa-bullseye orange pe-2"></i> <%= @plan.name%>
       <br>
-      <i class="fa-solid fa-rocket orange"></i> <%= @plan.description%>
+      <i class="fa-solid fa-rocket orange pe-2"></i> <%= @plan.description%>
       <br>
-      <i class="fa-regular fa-calendar orange"></i> Plan du <span class="orange"><%= @plan.start_date.strftime('%d/%m/%Y') %></span> au <span class="orange"><%= @plan.end_date.strftime('%d/%m/%Y') %></span>
+      <i class="fa-regular fa-calendar orange pe-2"></i> Plan du <span class="orange"><%= @plan.start_date.strftime('%d/%m/%Y') %></span> au <span class="orange"><%= @plan.end_date.strftime('%d/%m/%Y') %></span>
     </div>
 
     <div data-plans-toggle-target="togglableButton" class="mt-2">
-      <button data-plans-toggle-target="alimentationCard" data-action="click->plans-toggle#loadRecipes" class="btn-orange-mini">Alimentation</button>
-      <button data-plans-toggle-target="sportCard" data-action="click->plans-toggle#loadActivities" class="btn-white-grey">Sport</button>
+      <div class="d-flex justify-content-center mb-4">
+        <button data-plans-toggle-target="alimentationCard" data-action="click->plans-toggle#loadRecipes" class="btn-orange-mini">Alimentation</button>
+        <button data-plans-toggle-target="sportCard" data-action="click->plans-toggle#loadActivities" class="btn-white-grey">Sport</button>
+      </div>
         <div data-plans-toggle-target="recipesSection" class="mt-3">
-          <h2 class="mt-3">Plan nutrition</h2>
+          <h2 class="mt-3 mb-4">Plan nutrition</h2>
             <%= @plan.foodplan%>
-          <h2 class="mt-3">Idées de recettes</h2>
+          <h2 class="mt-3 mb-4">Idées de recettes</h2>
             <div class="cards-grid">
               <% @plans_recipes.each do |plan_recipe| %>
                 <%= link_to recipe_path(plan_recipe.recipe) do %>
@@ -31,9 +33,10 @@
               <% end %>
             </div>
         </div>
+      </div>
 
         <div data-plans-toggle-target="activitiesSection" class="d-none mt-3">
-          <h2 class="mt-3">Plan sport</h2>
+          <h2 class="mt-3 mb-4">Plan sport</h2>
             <h3 class="mt-3">Semaine 1</h3>
               <%= @plan.week1%>
             <h3 class="mt-3">Semaine 2</h3>
