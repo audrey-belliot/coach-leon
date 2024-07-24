@@ -13,6 +13,8 @@ export default class extends Controller {
     flatpickr(this.element, {
       disableMobile: "true",
       dateFormat: "d/m/Y",
+      defaultDate: 'today',
+      maxDate: 'today',
       locale: {
         firstDayOfWeek: 1,
         weekdays: {
