@@ -36,7 +36,7 @@
     <div class="square">
       <i class="fa-solid fa-person-running icon-summary-stat"></i>
     </div>
-    <p>Cumul d'activité</p>
+    <p>Cumul d'activités</p>
   </div>
     <% activities_count = ActivitiesLog.where(user: current_user).count %>
     <% if activities_count != 0 %>
@@ -64,7 +64,7 @@
       <div class="evolution">
         <div class="summary-stat">
           <div class="square">
-            <i class="fa-solid fa-heart icon-summary-health"></i>
+            <i class="fa-solid fa-heart icon-summary-stat"></i>
           </div>
           <p>Evolution santé</p>
         </div>
@@ -93,13 +93,15 @@
     <div class="summary">
 
       <div class="bottom-activity">
-       <%= link_to plan_path(@plan) do %>
-        <p>💪 <%= @myplan.slice(0, 150)... %></p>
+        <%= link_to plan_path(@plan) do %>
+          <p>💪 <%= @myplan.slice(0, 150)... %></p>
         <% end %>
       </div>
 
       <div class="bottom-health">
+        <%= link_to plan_path(@plan) do %>
           <p>🥝 <%= @current_food_plan  %></p>
+        <% end %>
       </div>
     </div>
 
