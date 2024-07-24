@@ -39,6 +39,8 @@
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/chartjs-plugin-datalabels/2.0.0-rc.1/chartjs-plugin-datalabels.min.js" integrity="sha512-+UYTD5L/bU1sgAfWA0ELK5RlQ811q8wZIocqI7+K0Lhh8yVdIoAMEs96wJAIbgFvzynPm36ZCXtkydxu1cs27w==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
 <%= javascript_tag do %>
   new Chart(document.getElementById('myChart'), {
@@ -46,34 +48,44 @@
       labels: <%= @dates.to_json.html_safe %>,
       datasets: [{
         type: 'line',
-        label: 'poids',
+        tension: 0.4,
+        label: '\uf496',
         data: <%= @weights %>,
         borderWidth: 1,
         backgroundColor: 'rgba(110, 110, 110, 0.8)',
-        borderColor: 'rgba(110, 110, 110, 0.8)'
+        borderColor: 'rgba(110, 110, 110, 0.8)',
+        datalabels: {
+          align: 'end',
+          font: {weight:'bold', family:'Poppins'},
+          },
       },{
         type: 'line',
-        label: 'humeur',
+        tension: 0.4,
+        label: '\uf599',
         data: <%= @mood %>,
         borderWidth: 1,
         backgroundColor: 'rgba(0, 0, 0)',
         borderColor: 'rgba(0, 0, 0)',
+        datalabels: {display: false}
       },{
         type: 'bar',
-        label: 'sport',
+        label: '\uf70c',
+        color: 'rgba(241, 137, 64, 0.8)',
         data: <%= @activities %>,
         borderWidth: 1,
         backgroundColor: 'rgba(241, 137, 64, 0.8)',
         barThickness: 10,
         borderRadius: 35,
+        datalabels: {display: false}
       },{
         type: 'bar',
-        label: 'alimentation',
+        label: '\uf787',
         data: <%= @meals %>,
         borderWidth: 1,
         backgroundColor: 'rgba(33, 158, 188, 0.8)',
         barThickness: 10,
         borderRadius: 35,
+        datalabels: {display: false}
       }]
     },
     options: {
@@ -82,8 +94,24 @@
         y: {
           beginAtZero: true
         }
-      }
+
+      },
+    },
+
+    plugins: [ChartDataLabels],
+
+    options: {
+
+      plugins: {
+        legend: {
+                display: true,
+                labels: {
+          font: {weight:'bold', size:'16px', family:'"Poppins", "Font Awesome 6 Free"'},
+                }
+            }
+        }
     }
+
   });
 <% end %>
 
