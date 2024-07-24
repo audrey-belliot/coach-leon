@@ -6,14 +6,18 @@ import flatpickr from "flatpickr"; // You need to import this to use new flatpic
 // import FlatpickrLanguages from "flatpickr/dist/l10n"; // Importer la localisation française
 
 export default class extends Controller {
+
+
   connect() {
 
-    console.log("Hello")
+    console.log("hello")
+
+    const s_date = new Date()
 
     flatpickr(this.element, {
       disableMobile: "true",
       dateFormat: "d/m/Y",
-      defaultDate: 'today',
+      defaultDate: '01/07/2024',
       maxDate: 'today',
       locale: {
         firstDayOfWeek: 1,

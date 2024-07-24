@@ -24,7 +24,7 @@ class HealthLogsController < ApplicationController
       @meals << healthlog.rating_nutrition * 10
       @mood << healthlog.rating_mood * 10
     end
-
+    
 
   end
 
