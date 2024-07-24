@@ -12,6 +12,9 @@ class PagesController < ApplicationController
     @plan = current_user.plans.order(:start_date).last
     plan_logs
     if @plan
+      @plan_activities_count = ActivitiesLog.where(user: current_user, date: @plan.start_date..@plan.end_date).count
+      @plan_calories_loss_count = ActivitiesLog.where(user: current_user, date: @plan.start_date..@plan.end_date).count
+      # @activity_log.activity.calories_loss
       @current_day_of_plan = (Date.today - @plan.start_date).to_i
       @current_week_of_plan = ((@current_day_of_plan) / 7) + 1
       @current_food_plan = @plan.foodplan
@@ -56,11 +59,9 @@ class PagesController < ApplicationController
   end
 
   def plan_logs
-    @total_calories_loss = Activity.joins(:plans_activities)
-    .where(plans_activities: { plan_id: @plan.id })
-    .joins(:activities_logs)
-    .where(activities_logs: { user_id: current_user.id })
-    .sum(:calories_loss)
+    @total_calories_loss = Activity.joins(:activities_logs)
+      .where(activities_logs: { user_id: current_user.id, date: @plan.start_date..@plan.end_date })
+      .sum(:calories_loss)
 
     @activities_count = Activity.joins(:plans_activities)
       .where(plans_activities: { plan_id: @plan.id })
@@ -69,8 +70,5 @@ class PagesController < ApplicationController
       .count
 
   end
-
-
-
 
 end
