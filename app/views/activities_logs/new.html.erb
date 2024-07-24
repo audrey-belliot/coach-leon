@@ -6,26 +6,26 @@
     <h1 class="mb-4">Ajout<br><strong>activité</strong></h1>
   </div>
 
-<h2>Ma session de <%= @activity.activity %></h2>
+<h2 class="mb-4">Ma session de <%= @activity.activity %></h2>
   <%= simple_form_for [@activity, @activity_log] do |f| %>
 <div class="row">
   <div class="col-5">
-    <div class="card-show" style="background-image: url(<%= @activity.picture %>)"></div>
+    <div class="card-show mt-3" style="background-image: url(<%= @activity.picture %>)"></div>
   </div>
-
   <div class="col-7">
-    <div class="input-blue">
-      <i class="fa-regular fa-calendar"></i><%= f.input :date,
-            as: :string, label: false,
-            input_html: { id: 'weight-blue', data: { controller: "datepicker" } }, placeholder: "Date" %>
+    <div class="form-inline">
+      <i class="fa-regular fa-calendar orange"></i> <%= f.input :date, as: :string, label: false, input_html: { class: 'form-orange', data: { controller: "datepicker" } }, placeholder: "Date" %>
     </div>
-      <%= f.input :duration, label: false, input_html: { class: 'input-blue' }, placeholder: "Durée en min", html5: true %>
+    <div class="form-inline">
+      <i class="fa-regular fa-clock orange"></i> <%= f.input :duration, as: :string, label: false, input_html: { class: 'form-orange' }, placeholder: "Durée en min", html5: true %>
+    </div>
+    <div class="form-inline">
+      <i class="fa-regular fa-comment orange"></i> <%= f.input :comment, as: :string, label: false, placeholder: "Commentaire", input_html: { class: 'form-orange' }, html5: true %>
+    </div>
   </div>
-
 </div>
 
 <div class="row mt-2">
-    <%= f.input :comment, label: false, placeholder: "Commentaire", input_html: { class: 'input-text' }, html5: true %>
     <div class=""><%= f.submit "Valider", class: "btn btn-orange" %></div>
 </div>
 

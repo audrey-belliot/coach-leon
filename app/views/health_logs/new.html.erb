@@ -3,13 +3,15 @@
       <%= link_to :back, class: "text-decoration-none text-muted" do %>
         <i class="fa-solid fa-chevron-left pe-3"></i>
       <% end %>
-      <h1>Suivi <br><b>santé</b></h1>
+      <h1 class="mb-4">Suivi <br><b>santé</b></h1>
     </div>
 
   <%= simple_form_for @health_log do |f| %>
-    <%= f.input :date, label: false, input_html: { class: 'input-blue' }, html5: true %>
+    <div class="input-blue mb-2">
+      <i class="fa-regular fa-calendar"></i><%= f.input :date, as: :string, label: false, placeholder:"Date", input_html: { class: 'weight-blue', data: { controller: "datepicker" } } %>
+    </div>
     <div class="input-blue">
-      <%= f.input :weight, label: false, placeholder: "Poids en kg", input_html: { id: 'weight-blue' } %><i class="fa-solid fa-weight-scale"></i>
+      <i class="fa-solid fa-weight-scale"></i><%= f.input :weight, label: false, placeholder: "Poids en kg", input_html: { class: 'weight-blue' } %>
     </div>
 
     <div data-controller="slider" class="text-center mt-3">
