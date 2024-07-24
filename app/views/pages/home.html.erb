@@ -38,12 +38,12 @@
     </div>
     <p>Cumul d'activités</p>
   </div>
-    <% activities_count = ActivitiesLog.where(user: current_user).count %>
-    <% if activities_count != 0 %>
-      <% if activities_count == 1 %>
-        <h3 class="title-card-home"><%= activities_count %> activité réalisée</h3>
+
+    <% if @plan_activities_count != 0 %>
+      <% if @plan_activities_count == 1 %>
+        <h3 class="title-card-home"><%= @plan_activities_count %> activité réalisée</h3>
       <% else %>
-        <h3 class="title-card-home"><%= activities_count %> activités réalisées</h3>
+        <h3 class="title-card-home"><%= @plan_activities_count %> activités réalisées</h3>
       <% end %>
     <% else %>
       <h3 class="title-card-home">Pas encore d'activités enregistrées 🙁</h3>

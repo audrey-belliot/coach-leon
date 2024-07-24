@@ -56,11 +56,9 @@ class PagesController < ApplicationController
   end
 
   def plan_logs
-    @total_calories_loss = Activity.joins(:plans_activities)
-    .where(plans_activities: { plan_id: @plan.id })
-    .joins(:activities_logs)
-    .where(activities_logs: { user_id: current_user.id })
-    .sum(:calories_loss)
+    @total_calories_loss = Activity.joins(:activities_logs)
+      .where(activities_logs: { user_id: current_user.id, date: @plan.start_date..@plan.end_date })
+      .sum(:calories_loss)
 
     @activities_count = Activity.joins(:plans_activities)
       .where(plans_activities: { plan_id: @plan.id })
@@ -69,8 +67,5 @@ class PagesController < ApplicationController
       .count
 
   end
-
-
-
 
 end
