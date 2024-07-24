@@ -5,8 +5,8 @@ class UsersController < ApplicationController
     if @user.update(user_params)
       generated_plan = generate_plan(@user.goal)
 
-      @activities = Activity.all.shuffle.take(5)
-      @recipes = Recipe.all.shuffle.take(5)
+      @activities = Activity.all.shuffle.take(4)
+      @recipes = Recipe.all.shuffle.take(4)
 
       @activities.each do |activity|
         PlansActivity.create!(plan: generated_plan, activity: activity)
