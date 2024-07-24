@@ -7,44 +7,69 @@ class PagesController < ApplicationController
   def home
     @activity = Activity.all.sample
     @recipe = Recipe.all.sample
-    if user_signed_in?
-    @activities_calories = ActivitiesLog.where(user:current_user)
-    @calories = 0
-    @activities_calories.each do |activity_log|
-      @calories += activity_log.activity.calories_loss
-      end
-    end
+    return unless user_signed_in?
 
-    if user_signed_in?
-      @plan = current_user.plans.order(:start_date).last
-    end
-      if @plan
-        @current_day_of_plan = (Date.today - @plan.start_date).to_i
-        @current_week_of_plan = ((@current_day_of_plan) / 7) + 1
-        @current_food_plan = @plan.foodplan
-        if @current_week_of_plan == 1
-          @myplan = @plan.week1
-        elsif @current_week_of_plan == 2
-          @myplan = @plan.week2
-        elsif @current_week_of_plan == 3
-          @myplan = @plan.week3
-        elsif @current_week_of_plan == 4
-          @myplan = @plan.week4
-        else
-          @myplan = "Vous devez créer un nouveau plan"
-        end
+    @plan = current_user.plans.order(:start_date).last
+    plan_logs
+    if @plan
+      @current_day_of_plan = (Date.today - @plan.start_date).to_i
+      @current_week_of_plan = ((@current_day_of_plan) / 7) + 1
+      @current_food_plan = @plan.foodplan
+      if @current_week_of_plan == 1
+        @myplan = @plan.week1
+      elsif @current_week_of_plan == 2
+        @myplan = @plan.week2
+      elsif @current_week_of_plan == 3
+        @myplan = @plan.week3
+      elsif @current_week_of_plan == 4
+        @myplan = @plan.week4
       else
-        @current_day_of_plan = 0
-        @current_week_of_plan = 0
+        @myplan = "Vous devez créer un nouveau plan"
       end
-    if user_signed_in? && HealthLog.where(user:current_user).present?
-      @weight = HealthLog.where(user:current_user).last.weight - HealthLog.where(user:current_user).first.weight
-  end
-end
+    else
+      @current_day_of_plan = 0
+      @current_week_of_plan = 0
+    end
 
-def my_logs
-  @plan = current_user.plans.order(:start_date).last
-end
+    @progression = @current_day_of_plan.fdiv(28)*100
+    total_weight
+  end
+
+  def my_logs
+    @plan = current_user.plans.order(:start_date).last
+  end
+
+  private
+
+  def total_weight
+    user_health_logs = HealthLog.where(user: current_user)
+      .where(date: @plan.start_date..@plan.end_date)
+      .order(:date)
+    if user_health_logs.exists?
+      oldest_weight = user_health_logs.first.weight
+      newest_weight = user_health_logs.last.weight
+      # Calculer la différence de poids
+      @weight_difference = newest_weight - oldest_weight
+    else
+      @weight_difference = nil # Aucun log de poids pour le current_user dans la période du plan
+    end
+  end
+
+  def plan_logs
+    @total_calories_loss = Activity.joins(:plans_activities)
+    .where(plans_activities: { plan_id: @plan.id })
+    .joins(:activities_logs)
+    .where(activities_logs: { user_id: current_user.id })
+    .sum(:calories_loss)
+
+    @activities_count = Activity.joins(:plans_activities)
+      .where(plans_activities: { plan_id: @plan.id })
+      .joins(:activities_logs)
+      .where(activities_logs: { user_id: current_user.id })
+      .count
+
+  end
+
 
 
 
