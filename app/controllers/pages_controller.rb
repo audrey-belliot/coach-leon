@@ -12,6 +12,7 @@ class PagesController < ApplicationController
     @plan = current_user.plans.order(:start_date).last
     plan_logs
     if @plan
+      @plan_activities_count = ActivitiesLog.where(user: current_user, date: @plan.start_date..@plan.end_date).count
       @current_day_of_plan = (Date.today - @plan.start_date).to_i
       @current_week_of_plan = ((@current_day_of_plan) / 7) + 1
       @current_food_plan = @plan.foodplan
