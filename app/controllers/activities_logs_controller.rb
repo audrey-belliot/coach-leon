@@ -57,7 +57,7 @@ class ActivitiesLogsController < ApplicationController
     @activity_log.user = current_user
     @activity_log.activity = @activity
     if @activity_log.save
-      redirect_to health_logs_path, notice: "Activité ajoutée !"
+      redirect_to health_logs_path, data: {turbo:false}, notice: "Activité ajoutée !"
     else
       render :new, status: :unprocessable_entity
     end
