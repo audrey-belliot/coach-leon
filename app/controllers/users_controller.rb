@@ -5,9 +5,15 @@ class UsersController < ApplicationController
     if @user.update(user_params)
       generated_plan = generate_plan(@user.goal)
 
-      4.times do
-        PlansActivity.create!(plan: generated_plan, activity: Activity.all.sample)
-        PlansRecipe.create!(plan: generated_plan, recipe: Recipe.all.sample)
+      @activities = Activity.all.shuffle.take(4)
+      @recipes = Recipe.all.shuffle.take(4)
+
+      @activities.each do |activity|
+        PlansActivity.create!(plan: generated_plan, activity: activity)
+      end
+
+      @recipes.each do |recipe|
+        PlansRecipe.create!(plan: generated_plan, recipe: recipe)
       end
 
       redirect_to plan_path(generated_plan)

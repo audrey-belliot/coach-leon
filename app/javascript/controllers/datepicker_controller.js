@@ -6,9 +6,13 @@ import flatpickr from "flatpickr"; // You need to import this to use new flatpic
 // import FlatpickrLanguages from "flatpickr/dist/l10n"; // Importer la localisation française
 
 export default class extends Controller {
+
+
   connect() {
 
-    console.log("Hello")
+    console.log("hello")
+
+    const s_date = new Date()
 
     flatpickr(this.element, {
       disableMobile: "true",

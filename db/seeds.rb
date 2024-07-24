@@ -275,27 +275,46 @@ puts "Plans created !"
 
 puts "Creating new plan activity..."
 
-plan_activities = [
-  4.times do
-    PlansActivity.create!(plan: Plan.first, activity: Activity.all.sample)
-    PlansActivity.create!(plan: Plan.second, activity: Activity.all.sample)
-    PlansActivity.create!(plan: Plan.third, activity: Activity.all.sample)
-    PlansActivity.create!(plan: Plan.last, activity: Activity.all.sample)
-  end
-]
+activities = Activity.all.shuffle.take(4)
+
+activities.each do |activity|
+  PlansActivity.create!(plan: Plan.first, activity: activity)
+  PlansActivity.create!(plan: Plan.second, activity: activity)
+  PlansActivity.create!(plan: Plan.third, activity: activity)
+  PlansActivity.create!(plan: Plan.last, activity: activity)
+end
+
+
+# plan_activities = [
+#   4.times do
+#     PlansActivity.create!(plan: Plan.first, activity: Activity.all.sample)
+#     PlansActivity.create!(plan: Plan.second, activity: Activity.all.sample)
+#     PlansActivity.create!(plan: Plan.third, activity: Activity.all.sample)
+#     PlansActivity.create!(plan: Plan.last, activity: Activity.all.sample)
+#   end
+# ]
 
 puts "Plan activity created !"
 
 puts "Creating new plan recipe..."
 
-plan_recipes = [
-  4.times do
-    PlansRecipe.create!(plan: Plan.first, recipe: Recipe.all.sample)
-    PlansRecipe.create!(plan: Plan.second, recipe: Recipe.all.sample)
-    PlansRecipe.create!(plan: Plan.third, recipe: Recipe.all.sample)
-    PlansRecipe.create!(plan: Plan.last, recipe: Recipe.all.sample)
-  end
-]
+recipes = Recipe.all.shuffle.take(4)
+
+recipes.each do |recipe|
+  PlansRecipe.create!(plan: Plan.first, recipe: recipe)
+  PlansRecipe.create!(plan: Plan.second, recipe: recipe)
+  PlansRecipe.create!(plan: Plan.third, recipe: recipe)
+  PlansRecipe.create!(plan: Plan.last, recipe: recipe)
+end
+
+# plan_recipes = [
+#   4.times do
+#     PlansRecipe.create!(plan: Plan.first, recipe: Recipe.all.sample)
+#     PlansRecipe.create!(plan: Plan.second, recipe: Recipe.all.sample)
+#     PlansRecipe.create!(plan: Plan.third, recipe: Recipe.all.sample)
+#     PlansRecipe.create!(plan: Plan.last, recipe: Recipe.all.sample)
+#   end
+# ]
 
 puts "Plan recipe created !"
 
