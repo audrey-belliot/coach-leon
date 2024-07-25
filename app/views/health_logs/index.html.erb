@@ -24,25 +24,38 @@
       %>
     </div>
     <div class="ok-evol">
-      <%= submit_tag "ok", name: "", class: "btn-orange-mini" %>
+      <%= submit_tag "ok", name: "", class: "btn-orange-ok" %>
     </div>
   <% end %>
 </div>
 
 <%# <%= render "chart" %>
 
+<div class="d-flex justify-content-around mt-4 mb-4" style="font-size: 20px">
+<i class="fa-solid fa-weight-scale grey"></i>
+<i class="fa-solid fa-face-laugh-beam"></i>
+<i class="fa-solid fa-person-running iorange"></i>
+<i class="fa-solid fa-carrot iblue"></i>
+</div>
+
 <div>
   <canvas id="myChart"></canvas>
 </div>
+
 
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/chartjs-plugin-datalabels/2.0.0-rc.1/chartjs-plugin-datalabels.min.js" integrity="sha512-+UYTD5L/bU1sgAfWA0ELK5RlQ811q8wZIocqI7+K0Lhh8yVdIoAMEs96wJAIbgFvzynPm36ZCXtkydxu1cs27w==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
 <%= javascript_tag do %>
+  Chart.defaults.font.size = 12;
+  Chart.defaults.font.family = "'Poppins'";
+  Chart.defaults.borderColor	= '#FFFFFF00';
+
   new Chart(document.getElementById('myChart'), {
     data: {
       labels: <%= @dates.to_json.html_safe %>,
+      font: {weight:'bold', family:'Poppins'},
       datasets: [{
         type: 'line',
         tension: 0.4,
@@ -52,7 +65,7 @@
         backgroundColor: 'rgba(110, 110, 110, 0.8)',
         borderColor: 'rgba(110, 110, 110, 0.8)',
         datalabels: {
-          align: 'end',
+          align: 'start',
           font: {weight:'bold', family:'Poppins'},
           },
       },{
@@ -88,11 +101,13 @@
     options: {
       tension: 0.4,
       scales: {
-        y: {
-          beginAtZero: true
-        }
 
-      },
+        y: {
+          display: false,
+          beginAtZero: true,
+
+        },
+      }
     },
 
     plugins: [ChartDataLabels],
@@ -101,7 +116,7 @@
 
       plugins: {
         legend: {
-                display: true,
+                display: false,
                 labels: {
           font: {weight:'bold', size:'16px', family:'"Poppins", "Font Awesome 6 Free"'},
                 }
