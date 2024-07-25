@@ -5,7 +5,9 @@ class UsersController < ApplicationController
     if @user.update(user_params)
       generated_plan = generate_plan(@user.goal)
 
-      @activities = Activity.all.shuffle.take(4)
+      nonstrava = Activity.where.not(activity:"Activité Strava")
+
+      @activities = nonstrava.all.shuffle.take(4)
       @recipes = Recipe.all.shuffle.take(4)
 
       @activities.each do |activity|
