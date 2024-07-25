@@ -60,14 +60,16 @@
         type: 'line',
         tension: 0.4,
         label: '\uf496',
-        data: <%= @weights %>,
+        data: <%= @weights.to_s %>,
         borderWidth: 1,
         backgroundColor: 'rgba(110, 110, 110, 0.8)',
         borderColor: 'rgba(110, 110, 110, 0.8)',
         datalabels: {
           align: 'start',
           font: {weight:'bold', family:'Poppins'},
-          },
+          formatter: function(value){
+            return value + ' kg';
+          }},
       },{
         type: 'line',
         tension: 0.4,
