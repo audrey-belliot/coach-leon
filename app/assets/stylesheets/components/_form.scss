@@ -107,6 +107,13 @@
 .date-search {
   margin: auto !important;
   align-items: center;
+  display: flex;
+  align-items: center;
+}
+
+.ok-evol {
+  display: flex;
+  align-items: center;
 }
 
 *:focus {
