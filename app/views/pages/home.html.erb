@@ -68,7 +68,10 @@
           </div>
           <p>Evolution santé</p>
         </div>
-        <% if @weight_difference < 0 %>
+        <% if @weight_difference.nil?  %>
+          <h3 class="title-card-home">Tu n'as pas renseigné ton poids initial.</h3>
+
+        <% elsif @weight_difference < 0  %>
           <h3 class="title-card-home"><%= @weight_difference %> kg</h3>
 
         <% elsif @weight_difference == 0 %>
@@ -94,7 +97,7 @@
 
       <div class="bottom-activity">
         <%= link_to plan_path(@plan) do %>
-          <p>💪 <%= @myplan.slice(0, 150)... %></p>
+          <p>💪 <%= @myplan.slice(0, 100)... %></p>
         <% end %>
       </div>
 

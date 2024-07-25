@@ -8,24 +8,22 @@
 
 <div class="date-search">
   <%= form_with url: health_logs_path, method: :get, class: "d-flex mb-3 mt-3" do %>
-    <div class="input-left-blue">
+    <div>
       <%= date_field_tag :start_date,
         params[:start_date],
-        class: "form-control weight-blue",
-        data: { controller: "datepicker"},
+        class: "input-left-blue",
         value: @start_date
       %>
     </div>
 
-    <div class="input-right-blue">
+    <div>
       <%= date_field_tag :end_date,
         params[:end_date],
-        class: "form-control weight-blue",
-        data: { controller: "datepicker"},
+        class: "input-right-blue",
         value: @end_date
       %>
     </div>
-    <div class="ms-2">
+    <div class="ok-evol">
       <%= submit_tag "ok", name: "", class: "btn-orange-mini" %>
     </div>
   <% end %>
