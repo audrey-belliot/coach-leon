@@ -275,7 +275,8 @@ puts "Plans created !"
 
 puts "Creating new plan activity..."
 
-activities = Activity.all.shuffle.take(4)
+nonstrava = Activity.where.not(activity:"Activité Strava")
+activities = nonstrava.all.shuffle.take(4)
 
 activities.each do |activity|
   PlansActivity.create!(plan: Plan.first, activity: activity)
