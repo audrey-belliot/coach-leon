@@ -325,7 +325,6 @@ health_logs = [
   HealthLog.create(date: '2024-07-16', weight: 100.0, measurement: 162, rating_nutrition: 2, rating_activity: 3, rating_mood: 3, water: 0.5 , user: User.first),
   HealthLog.create(date: '2024-07-16', weight: 98.0, measurement: 162, rating_nutrition: 3, rating_activity: 5, rating_mood: 4, water: 0.5 , user: User.second),
   HealthLog.create(date: '2024-07-16', weight: 97.0, measurement: 162, rating_nutrition: 4, rating_activity: 6, rating_mood: 5, water: 0.5 , user: User.third),
-  HealthLog.create(date: '2024-07-16', weight: 92.0, measurement: 162, rating_nutrition: 5, rating_activity: 6, rating_mood: 6, water: 0.5 , user: User.last),
   HealthLog.create(date: '2024-07-16', weight: 99.0, measurement: 162, rating_nutrition: 2, rating_activity: 3, rating_mood: 3, water: 0.5 , user: User.last),
 ]
 
