@@ -1,7 +1,8 @@
 class HealthLogsController < ApplicationController
   def index
     if params[:start_date].nil?
-      @start_date = Date.today.beginning_of_month
+      @plan = current_user.plans.order(:start_date).last
+      @start_date = @plan.start_date
       @end_date = Date.today
 
     else
@@ -24,7 +25,7 @@ class HealthLogsController < ApplicationController
       @meals << healthlog.rating_nutrition * 10
       @mood << healthlog.rating_mood * 10
     end
-    
+
 
   end
 
