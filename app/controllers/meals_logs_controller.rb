@@ -21,7 +21,7 @@ class MealsLogsController < ApplicationController
     @meal_log.user = current_user
     @meal_log.recipe = @meal
     if @meal_log.save
-      redirect_to health_logs_path, data: { turbo: false }, notice: "Repas ajouté !"
+      redirect_to meals_logs_path, data: { turbo: false }, notice: "Repas ajouté !"
     else
       render :new, status: :unprocessable_entity
     end

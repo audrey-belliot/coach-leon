@@ -11,30 +11,34 @@
   <% [4, 3, 2, 1].each do |week_number| %>
     <% start_date = @plan.start_date + (week_number - 1) * 7 %>
     <% end_date = @plan.start_date + week_number * 7 %>
-    <div class="row mb-3">
-      <h2 class="mb-3 blue">Semaine <%= week_number %></h2>
-      <div class="col-auto d-flex flex-column ">
-        <div class="timeline flex-grow-1">
+    <% week_meals = @meals_logs.where(date: start_date...end_date).order("date DESC") %>
+
+    <% if week_meals.any? %>
+      <div class="row mb-3">
+        <h2 class="mb-3 blue">Semaine <%= week_number %></h2>
+        <div class="col-auto d-flex flex-column ">
+          <div class="timeline flex-grow-1">
+          </div>
         </div>
-      </div>
-      <div class="cards-logs-grid col">
-        <% @meals_logs.order("date DESC").each do |meal_log| %>
-          <% if meal_log.date >= start_date && meal_log.date < end_date %>
-            <%= link_to recipe_path(meal_log.recipe) do %>
-              <div class="card-log shadow-sm mb-1 me-3 bg-body-tertiary rounded">
-                <div class="card-log-img position-relative" style="background-image: url(<%= meal_log.recipe.picture %>)">
+        <div class="cards-logs-grid col">
+          <% @meals_logs.order("date DESC").each do |meal_log| %>
+            <% if meal_log.date >= start_date && meal_log.date < end_date %>
+              <%= link_to recipe_path(meal_log.recipe) do %>
+                <div class="card-log shadow-sm mb-1 me-3 bg-body-tertiary rounded">
+                  <div class="card-log-img position-relative" style="background-image: url(<%= meal_log.recipe.picture %>)">
+                  </div>
+                  <div class="card-log-content">
+                    <h5 class="orange"><%= meal_log.recipe.name %></h5>
+                    <small class="m-0 black"><i class="fa-regular fa-calendar pe-2"></i><strong>Jour <%= (meal_log.date - @plan.start_date).to_i + 1 %></strong> (<%= meal_log.date.strftime("%d/%m/%y") %>)</small>
+                    <br>
+                    <p class="m-0 activity-log-comment"><%= meal_log.comment %><br></p>
+                  </div>
                 </div>
-                <div class="card-log-content">
-                  <h5 class="orange"><%= meal_log.recipe.name %></h5>
-                  <small class="m-0 black"><i class="fa-regular fa-calendar pe-2"></i><strong>Jour <%= (meal_log.date - @plan.start_date).to_i + 1 %></strong> (<%= meal_log.date.strftime("%d/%m/%y") %>)</small>
-                  <br>
-                  <p class="m-0 activity-log-comment"><%= meal_log.comment %><br></p>
-                </div>
-              </div>
+              <% end %>
             <% end %>
           <% end %>
-        <% end %>
+        </div>
       </div>
-    </div>
+    <% end %>
   <% end %>
 </div>

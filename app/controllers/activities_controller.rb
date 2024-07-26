@@ -1,8 +1,8 @@
 class ActivitiesController < ApplicationController
   def index
-    @activities = Activity.all
-    @cardio = Activity.where(category: "Cardio")
-    @muscu = Activity.where(category: "Musculation")
+    @activities = Activity.where.not(activity:"Activité Strava")
+    @cardio = @activities.where(category: "Cardio")
+    @muscu = @activities.where(category: "Musculation")
   end
 
   def show
